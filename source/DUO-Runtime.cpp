@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include "DUO-Runtime.h"
+#include <thread>
 
 DUO::runtime::runtime(std::string title, short w, short h) { //constructor taking a title, width and height as parameters
 
@@ -42,7 +43,8 @@ void DUO::runtime::start() {
 
     setup();
 
-    gameThread();
+    std::thread gameLoop(&DUO::runtime::gameThread, this);
+    gameLoop.join();
 
     delete event;
     event = nullptr;
@@ -53,4 +55,18 @@ void DUO::runtime::start() {
     SDL_DestroyRenderer(mainRenderer);
     mainRenderer = nullptr;
 
-}
+};
+
+int DUO::runtime::setupSDL() {
+
+    if (SDL_Init(SDL_INIT_VIDEO) != 0){
+	
+    std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
+	
+    return 1;
+    
+    }
+
+    return 0;
+
+};

@@ -17,6 +17,12 @@ public:
 
 int main(int argc, char* args[]) {
 
+    if (DUO::runtime::setupSDL() != 0) {
+
+        return 1;
+
+    }
+
     game* run = new game("hi", 800, 600);
 
     run->start();

@@ -19,6 +19,7 @@ public:
 
     SDL_Renderer* mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
+    static int setupSDL(); //forward declaration of a static function that initialises all SDL modules
     runtime(std::string title, short w, short h); //forward declaration of the constructor taking a title and dimensions for the window
     virtual void setup() = 0; //The setup method that is called before the game loop starts
     virtual void draw() = 0; //the draw method that will be overriden by the user and called after the update
