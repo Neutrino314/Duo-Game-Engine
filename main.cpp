@@ -10,7 +10,11 @@ public:
     game(std::string title, short w, short h) : DUO::runtime(title, w, h) {}; //constructor taking width, height and  a title as arguments then calling the super's constructor with those args
     void setup(){}; //a setup function called before the game loop starts
     void update(){}; //all of the game logic takes place here
-    void draw(){}; //all of the drawing is handled by this draw function
+    void draw(){
+
+        DUO::drawRect(200, 200, 150.0, 255, 255, 255, mainRenderer, 100, 100);
+
+    }; //all of the drawing is handled by this draw function
 
 };
 
