@@ -6,7 +6,6 @@
 #define DUO_RUNTIME
 
 namespace DUO { //All functions and classes from the engine fall under the namespace DUO
-
 class runtime { //a runtime class that will eventually hold the scene graph, host the game loop and cleanup
 
 private:

@@ -2,22 +2,21 @@
 #include <SDL2/SDL.h>
 #include <string>
 #include "source/DUO-Engine.h"
-#include <thread>
 
-class game : public DUO::runtime {
+class game : public DUO::runtime { //creating a subclass of the runtime class that allows it to be instantiated
 
 public:
 
-    game(std::string title, short w, short h) : DUO::runtime(title, w, h) {};
-    void setup(){};
-    void update(){};
-    void draw(){};
+    game(std::string title, short w, short h) : DUO::runtime(title, w, h) {}; //constructor taking width, height and  a title as arguments then calling the super's constructor with those args
+    void setup(){}; //a setup function called before the game loop starts
+    void update(){}; //all of the game logic takes place here
+    void draw(){}; //all of the drawing is handled by this draw function
 
 };
 
 int main(int argc, char* args[]) {
 
-    if (DUO::runtime::setupSDL() != 0) {
+    if (DUO::runtime::setupSDL() != 0) { //  
 
         return 1;
 

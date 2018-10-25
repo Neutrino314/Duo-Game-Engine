@@ -2,10 +2,13 @@
 #define DUO_GRAPHICS
 
 #include <SDL2/SDL.h>
+#include "DUO-Maths.h"
 
 namespace DUO {
 
-    void drawRect(short x, short y, signed short rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height);
+    void floodScreen(SDL_Renderer* renderer, short r, short g, short b, short a);
+    void drawVector(SDL_Renderer* renderer, DUO::vector* vect);
+    void drawRect(short x, short y, double rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height);
 
 }
 
