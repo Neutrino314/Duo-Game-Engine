@@ -10,32 +10,32 @@ namespace DUO {
 
     private:
 
-        double x {0};
-        double y {0};
+        double x {0}; //private x component
+        double y {0}; //private y component
 
     public:
 
-        vector(double x, double y) : x(x), y(y){};
+        vector(double x, double y) : x(x), y(y){}; //constructor that takes an x and y value as arguments
 
-        double getMagnitude();
+        double getMagnitude(); // retruns the magnitude of the vector
 
-        void setXComponent(double newX);
+        void setXComponent(double newX); // set's the x component
 
-        void setYComponent(double newY);
+        void setYComponent(double newY); //sets the y component
 
-        double getXComponent();
+        double getXComponent(); //returns the x component as a double
 
-        double getYComponent();
+        double getYComponent(); //returns the y component as a double
 
-        void rotateVector(double rotation = 0.0);
+        void increment(double xInc = 0.0, double yInc = 0.0); //increments the vectors components by a specified value
 
-        void setRotation(double rotation = 0.0);
+        void rotateVector(double rotation = 0.0); // rotates the vector by a specified amount in degrees 
 
-        void print();
+        void print(); //prints the components of the vector
 
     };
 
-    vector addVector(vector v1, vector v2);
+    vector addVector(vector v1, vector v2); // adds two vectors and returns a new vector as the product
 
 };
 

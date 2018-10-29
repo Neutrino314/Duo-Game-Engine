@@ -13,27 +13,27 @@ DUO::runtime::runtime(std::string title, short w, short h) { //constructor takin
 
 void DUO::runtime::gameThread() {
 
-    while (isRunning) {
+    while (isRunning) { //while loop that runs while isRunning is true
 
-        while (SDL_PollEvent(event)) {
+        while (SDL_PollEvent(event)) { //updates the event queue
 
-            if (event->type == SDL_QUIT) {
+            if (event->type == SDL_QUIT) { //if the window is closed then call SDL_QUIT and set isRunning to false
 
-                isRunning = false;
+                isRunning = false; 
 
             }
 
         }
 
-        update();
+        update(); //calls the update function
 
-        SDL_SetRenderDrawColor(mainRenderer, 0, 0, 0, 0);
+        SDL_SetRenderDrawColor(mainRenderer, 0, 0, 0, 0); //sets the renderer's drawing colour to black
 
-        SDL_RenderClear(mainRenderer); 
+        SDL_RenderClear(mainRenderer); //clears the renderer
 
-        draw();
+        draw(); // calls the draw function
 
-        SDL_RenderPresent(mainRenderer);
+        SDL_RenderPresent(mainRenderer); //presents the changes to the renderer
 
     }
 
@@ -41,25 +41,25 @@ void DUO::runtime::gameThread() {
 
 void DUO::runtime::start() {
 
-    setup();
+    setup(); //calls the setup function
 
-    std::thread gameLoop(&DUO::runtime::gameThread, this);
-    gameLoop.join();
+    std::thread gameLoop(&DUO::runtime::gameThread, this); //creates a thread running the gameThread function
+    gameLoop.join(); //joins the thread
 
-    delete event;
+    delete event; //once the thread has ended delete the event variable and set the pointer's address to nullptr
     event = nullptr;
 
-    SDL_DestroyWindow(mainWindow);
+    SDL_DestroyWindow(mainWindow); //destroys the window and sets the pointer's address to nullptr
     mainWindow = nullptr;
 
-    SDL_DestroyRenderer(mainRenderer);
+    SDL_DestroyRenderer(mainRenderer); //destroys the renderer and sets the pointer's address to nullptr
     mainRenderer = nullptr;
 
 };
 
 int DUO::runtime::setupSDL() {
 
-    if (SDL_Init(SDL_INIT_VIDEO) != 0){
+    if (SDL_Init(SDL_INIT_VIDEO) != 0){ //initialises SDL video however if there is an error it exits the function and prints the error returning 1 otherwise it returns 0
 	
     std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
 	
