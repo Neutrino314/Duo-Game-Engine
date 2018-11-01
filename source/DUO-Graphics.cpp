@@ -40,11 +40,11 @@ void DUO::fillTopTriangle(double x1, double y1, double x2, double y2, double x3,
        credit to the http://www.sunshine2k.de/coding/java/TriangleRasterization/TriangleRasterization.html#algo2 for the algorithm
     */
 
-    double invSlope1 {(x2 - x1) / (y2 - y1)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
-    double invSlope2 {(x2 - x3) / (y2 - y3)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
+    double invSlope1{(x2 - x1) / (y2 - y1)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
+    double invSlope2{(x2 - x3) / (y2 - y3)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
 
-    double curX1 {x2}; //this variable will hold the current x coordinate that is being used to step through the first side
-    double curX2 {x2}; //this variable will hold the current x coordinate that is being used to step through the second side
+    double curX1{x2}; //this variable will hold the current x coordinate that is being used to step through the first side
+    double curX2{x2}; //this variable will hold the current x coordinate that is being used to step through the second side
 
     for (int scanLine = y2; scanLine > y1; scanLine --) { //for loop running through the y values in the triangle from the highest to lowest
 
@@ -74,11 +74,11 @@ void DUO::fillBottomTriangle(double x1, double y1, double x2, double y2, double 
        credit to the http://www.sunshine2k.de/coding/java/TriangleRasterization/TriangleRasterization.html#algo2 for the algorithm
     */
 
-    double invSlope1 {(x2 - x1) / (y2 - y1)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
-    double invSlope2 {(x2 - x3) / (y2 - y3)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
+    double invSlope1{(x2 - x1) / (y2 - y1)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
+    double invSlope2{(x2 - x3) / (y2 - y3)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
 
-    double curX1 {x2}; //this variable will hold the current x coordinate that is being used to step through the first side
-    double curX2 {x2}; //decrements curX2 by the first inverse slope (dx2) so that the line will have the same slope as specified
+    double curX1{x2}; //this variable will hold the current x coordinate that is being used to step through the first side
+    double curX2{x2}; //decrements curX2 by the first inverse slope (dx2) so that the line will have the same slope as specified
 
     for (int scanLine = y2; scanLine < y1; scanLine ++) { //for loop running through the y values in the triangle from the lowest to highest
 
@@ -147,7 +147,7 @@ void DUO::fillTriangle(double x1, double y1, double x2, double y2, double x3, do
         }
 
         //calculating the point at which the line intersects the other side:
-        double x4 = {pointVectors[0].getXComponent() + (((pointVectors[1].getYComponent() - pointVectors[0].getYComponent()) / (pointVectors[2].getYComponent() - pointVectors[0].getYComponent()) * (pointVectors[2].getXComponent() - pointVectors[0].getXComponent())))};
+        double x4{pointVectors[0].getXComponent() + (((pointVectors[1].getYComponent() - pointVectors[0].getYComponent()) / (pointVectors[2].getYComponent() - pointVectors[0].getYComponent()) * (pointVectors[2].getXComponent() - pointVectors[0].getXComponent())))};
         double y4 = pointVectors[1].getYComponent();
 
         //fills the two newly created triangles
@@ -205,5 +205,53 @@ void DUO::fillRect(short x, short y, double rotation, short r, short g, short b,
 };
 
 
+void DUO::drawCircle(short x, short y, short radius, short r, short g, short b, SDL_Renderer* renderer) {
 
+    SDL_SetRenderDrawColor(renderer, r, g, b, 255);
+
+    int x0 = 0;
+    int y0 = static_cast<int>(radius);
+    int d = 3 - 2 * radius;
+
+    if (!radius) return;
+
+    while (y0 >= x0) {
+
+        SDL_RenderDrawPoint(renderer, x - x0, y - y0);
+        SDL_RenderDrawPoint(renderer, x - y0, y - x0);
+        SDL_RenderDrawPoint(renderer, x + y0, y - x0);
+        SDL_RenderDrawPoint(renderer, x + x0, y - y0);
+        SDL_RenderDrawPoint(renderer, x - x0, y + y0);
+        SDL_RenderDrawPoint(renderer, x - y0, y + x0);
+        SDL_RenderDrawPoint(renderer, x + y0, y + x0);
+        SDL_RenderDrawPoint(renderer, x + x0, y + y0);
+        if (d < 0) d += 4 * x0++ + 6;
+        else d += 4 * (x0++ - y0--) + 10;
+
+    }
+
+};
+
+void DUO::fillCircle(short x, short y, short radius, short r, short g, short b, SDL_Renderer* renderer) {
+
+    SDL_SetRenderDrawColor(renderer, r, g, b, 255);
+
+    int x0 = 0;
+    int y0 = static_cast<int>(radius);
+    int d = 3 - 2 * radius;
+
+    if (!radius) return;
+
+    while (y0 >= x0) {
+
+        SDL_RenderDrawLine(renderer, x - x0, y - y0, x + x0, y - y0);
+        SDL_RenderDrawLine(renderer, x - y0, y - x0, x + y0, y - x0);
+        SDL_RenderDrawLine(renderer, x - x0, y + y0, x + x0, y + y0);
+        SDL_RenderDrawLine(renderer, x - y0, y + x0, x + y0, y + x0);
+        if (d < 0) d += 4 * x0++ + 6;
+        else d += 4 * (x0++ - y0--) + 10;
+
+    }
+
+}
 

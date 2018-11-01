@@ -10,8 +10,8 @@ namespace DUO {
 
     private:
 
-        double x {0}; //private x component
-        double y {0}; //private y component
+        double x{0}; //private x component
+        double y{0}; //private y component
 
     public:
 

@@ -17,6 +17,9 @@ namespace DUO {
     void drawRect(short x, short y, double rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height); //draws a rectangle of a certain width, height rotation and position
     void fillRect(short x, short y, double rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height); //fills a rectangle of a certain width, height rotation and position
 
+    void drawCircle(short x, short y, short radius, short r, short g, short b, SDL_Renderer* renderer); //draws a circle with a given radius
+    void fillCircle(short x, short y, short radius, short r, short g, short b, SDL_Renderer* renderer); //fills a circle with a given radius
+
 }
 
 #endif
