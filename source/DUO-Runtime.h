@@ -1,6 +1,8 @@
 #include <SDL2/SDL.h>
 #include <iostream>
+#include <vector>
 #include <string>
+#include "DUO-Scene.h"
 
 #ifndef DUO_RUNTIME
 #define DUO_RUNTIME
@@ -12,7 +14,11 @@ private:
 
     SDL_Window* mainWindow = SDL_CreateWindow("None", 0, 0, 0, 0, SDL_WINDOW_SHOWN); //the main window of the application that is resized in the constructor
     bool isRunning{true}; //the boolean that signifies whether the gameloop is running or not
+
+protected:
+
     SDL_Event* event = new SDL_Event; //an sdl event variable that wil be used to capture inputs
+    std::vector<DUO::scene*> sceneList;
 
 public:
 
