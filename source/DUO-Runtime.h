@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "DUO-Scene.h"
 
 #ifndef DUO_RUNTIME
 #define DUO_RUNTIME
@@ -18,7 +17,6 @@ private:
 protected:
 
     SDL_Event* event = new SDL_Event; //an sdl event variable that wil be used to capture inputs
-    std::vector<DUO::scene*> sceneList;
 
 public:
 

@@ -20,6 +20,9 @@ namespace DUO {
     void drawCircle(short x, short y, short radius, short r, short g, short b, SDL_Renderer* renderer); //draws a circle with a given radius
     void fillCircle(short x, short y, short radius, short r, short g, short b, SDL_Renderer* renderer); //fills a circle with a given radius
 
+    void drawPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation); //draws a regular polygon with a given number of sides
+    void fillPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation); //fills a regular polygon of a given number of sides
+
 }
 
 #endif

@@ -1,35 +1,25 @@
 #pragma once
 
-#include "DUO-GameObjectComponent.h"
-#include "DUO-Scene.h"
-#include <vector>
-
 namespace DUO {
-
+    
 class gameObject {
 
-private:
+protected:
 
-    std::vector<DUO::component*> componentList;
+    int ID;
 
 public:
 
-    short id;
+    gameObject(int newID);
 
-    gameObject(short newID);
+    int getID();
+    void setID(int newID);
 
-    void setup();
+    void update() {};
+    void addComponent() {};
+    void removeComponent() {};
+    void draw() {}
 
-    void update();
-
-    void draw();
-
-    void addComponent(DUO::component* newComponent);
-
-    void removeComponent(short componentID);
-
-    friend DUO::component;
-    
 };
 
-}
+} // DUO

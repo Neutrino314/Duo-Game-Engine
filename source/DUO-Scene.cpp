@@ -1,35 +1,22 @@
 #include "DUO-Scene.h"
 #include "DUO-GameObject.h"
 
-void DUO::scene::update() {
+void DUO::scene::addObject() {
 
-    for (auto* object : objectList) {
-
-        object->update();
-
-    }
+    objectVect.push_back(new DUO::gameObject(curID));
+    curID ++;
 
 };
 
-void DUO::scene::draw() {
+void DUO::scene::removeObject(int objectID) {
 
-    for (auto* object : objectList) {
+    objectVect.erase(objectVect.begin() + curID);
+            for (int i = objectID; i < objectVect.size(); i ++) {
 
-        object->draw();
+                objectVect[i]->setID(i);
 
-    }
+            }
 
-};
-
-void DUO::scene::addGameObject() {
-
-    objectList.push_back(new DUO::gameObject(curId));
-    curId ++;
+            curID --;
 
 };
-
-void DUO::scene::removeGameObject(short objectID) {
-
-    
-
-}

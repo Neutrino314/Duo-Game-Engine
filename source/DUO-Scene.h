@@ -1,28 +1,25 @@
 #pragma once
-
-#include "DUO-GameObject.h"
-#include <SDL2/SDL.h>
 #include <vector>
+#include "DUO-GameObject.h"
 
-namespace DUO {
+namespace DUO
+{
 
-class scene { //scene class that merely serves as a container for game objects
+class scene {
 
 private:
 
-    std::vector<DUO::gameObject*> objectList;
-    int curId{0}; //keeps track of the latest game object ID
+    int curID{0};
+    std::vector<DUO::gameObject*> objectVect;
 
 public:
 
     void update();
-
     void draw();
 
-    void addGameObject();
-
-    void removeGameObject(short objectID);
-
+    void addObject();
+    void removeObject(int objectID);
+    
 };
 
-}
+} // DUO

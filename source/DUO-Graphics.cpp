@@ -253,5 +253,11 @@ void DUO::fillCircle(short x, short y, short radius, short r, short g, short b, 
 
     }
 
-}
+};
+
+void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation) {
+
+    
+
+};
 
