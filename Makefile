@@ -10,7 +10,9 @@ DUO.a: source/*.cpp source/*.h
 	$(CC) -std=c++14 -c source/DUO-Runtime.cpp -o DUO-Runtime.o
 	$(CC) -std=c++14 -c source/DUO-Graphics.cpp -o DUO-Graphics.o
 	$(CC) -std=c++14 -c source/DUO-Maths.cpp -o DUO-Maths.o
-	$(CC) -std=c++14 -c source/DUO-Utils.cpp -o DUO-Utils.o
+	$(CC) -std=c++14 -c source/DUO-Scene.cpp -o DUO-Scene.o
+	$(CC) -std=c++14 -c source/DUO-GameObject.cpp -o DUO-GameObject.o
+	$(CC) -std=c++14 -c source/DUO-GameObjectComponent.cpp -o DUO-GameObjectComponent.o
 	ar rsv DUO.a *.o
 	rm *.o
 

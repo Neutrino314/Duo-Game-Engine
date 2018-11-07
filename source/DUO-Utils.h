@@ -19,6 +19,8 @@ public:
 
 };
 
+enum componentTypes {BASE, TRANSFORM, RENDERER, PHYSICS, USERDEFINED};
+
 };
 
 #endif

@@ -18,7 +18,7 @@ void DUO::runtime::update() {
 
 void DUO::runtime::draw() {
 
-    DUO::fillPolygon(4, 50, 400, 400, 255, 255, 255, mainRenderer, 45.0);
+    DUO::drawPolygon(20, 50, 400, 400, 255, 255, 255, mainRenderer, 0.0);
 
 }
 
