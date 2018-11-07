@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "DUO-Scene.h"
 
 #ifndef DUO_RUNTIME
 #define DUO_RUNTIME
@@ -21,8 +20,6 @@ protected:
     int curScene{0};
 
 public:
-
-    std::vector<DUO::scene*> sceneVect;
 
     SDL_Renderer* mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 

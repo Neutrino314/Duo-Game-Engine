@@ -15,7 +15,7 @@ namespace DUO {
 
     public:
 
-        vector(double x, double y) : x(x), y(y){}; //constructor that takes an x and y value as arguments
+        vector(double x = 0.0, double y = 0.0) : x(x), y(y){}; //constructor that takes an x and y value as arguments
 
         double getMagnitude(); // retruns the magnitude of the vector
 
