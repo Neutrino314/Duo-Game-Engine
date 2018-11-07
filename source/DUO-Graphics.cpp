@@ -257,7 +257,85 @@ void DUO::fillCircle(short x, short y, short radius, short r, short g, short b, 
 
 void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation) {
 
-    
+    DUO::vector vectorArray[numberOfSides] = DUO::vector(0.0, 0.0);
+
+    double centreAngle {static_cast<double>(360 / numberOfSides)};
+
+    double cornerAngle = static_cast<int>(180 * (numberOfSides - 2) / numberOfSides);
+
+    double halfLength{static_cast<double>(sideLength / 2)};
+
+    vectorArray[0] = DUO::vector(halfLength, static_cast<double>((std::tan(DUO::deg2Rad(cornerAngle / 2))) * halfLength));
+
+    for (int i = 1; i < numberOfSides; i ++) {
+
+        DUO::vector tempVect = vectorArray[i - 1];
+
+        tempVect.rotateVector(centreAngle);
+
+        vectorArray[i] = tempVect;        
+
+    }
+
+    for (int i = 0; i < numberOfSides; i ++) {vectorArray[i].rotateVector(rotation);}
+
+    SDL_Point pointArray[numberOfSides + 1];
+
+    for (int i = 0; i < numberOfSides; i ++) {
+
+        pointArray[i] = {static_cast<int>(std::round(vectorArray[i].getXComponent() + x)), static_cast<int>(std::round(vectorArray[i].getYComponent() + y))};
+
+    }
+
+    pointArray[numberOfSides] = pointArray[0];
+
+    SDL_SetRenderDrawColor(renderer, r, g, b, 255);
+
+    SDL_RenderDrawLines(renderer, pointArray, numberOfSides + 1);
+
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+
+    SDL_RenderDrawPoint(renderer, x, y);
 
 };
+
+void DUO::fillPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation) {
+
+    DUO::vector vectorArray[numberOfSides] = DUO::vector(0.0, 0.0);
+
+    double centreAngle {static_cast<double>(360 / numberOfSides)};
+
+    double cornerAngle = static_cast<int>(180 * (numberOfSides - 2) / numberOfSides);
+
+    double halfLength{static_cast<double>(sideLength / 2)};
+
+    vectorArray[0] = DUO::vector(halfLength, static_cast<double>((std::tan(DUO::deg2Rad(cornerAngle / 2))) * halfLength));
+
+    for (int i = 1; i < numberOfSides; i ++) {
+
+        DUO::vector tempVect = vectorArray[i - 1];
+
+        tempVect.rotateVector(centreAngle);
+
+        vectorArray[i] = tempVect;        
+
+    }
+
+    for (int i = 0; i < numberOfSides; i ++) {
+        
+        vectorArray[i].rotateVector(rotation);
+        vectorArray[i].increment(static_cast<double>(x), static_cast<double>(y));
+
+    }
+
+    DUO::fillTriangle(x, y, vectorArray[0].getXComponent(), vectorArray[0].getYComponent(), vectorArray[numberOfSides - 1].getXComponent(), vectorArray[numberOfSides - 1].getYComponent(), r, g, b, renderer);
+
+    for (int i = 1; i < numberOfSides; i++) {
+
+        DUO::fillTriangle(x, y, vectorArray[i].getXComponent(), vectorArray[i].getYComponent(), vectorArray[i - 1].getXComponent(), vectorArray[i - 1].getYComponent(), r, g, b, renderer);
+
+    }
+
+;} //fills a regular polygon of a given number of sides
+
 

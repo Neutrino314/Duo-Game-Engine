@@ -33,6 +33,8 @@ namespace DUO {
 
         void print(); //prints the components of the vector
 
+        void setVector(double newX, double newY); //sets both of the vectors components
+
     };
 
     vector addVector(vector v1, vector v2); // adds two vectors and returns a new vector as the product

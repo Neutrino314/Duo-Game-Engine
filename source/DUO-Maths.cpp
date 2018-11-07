@@ -50,3 +50,10 @@ void DUO::vector::increment(double xInc, double yInc) {
     y += yInc;
 
 }
+
+void DUO::vector::setVector(double newX, double newY) {
+
+    this->setXComponent(newX);
+    this->setYComponent(newY);
+
+};

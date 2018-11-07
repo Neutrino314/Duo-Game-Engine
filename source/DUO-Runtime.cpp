@@ -2,14 +2,28 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include "DUO-Runtime.h"
+#include "DUO-Scene.h"
 #include <thread>
 
 DUO::runtime::runtime(std::string title, short w, short h) { //constructor taking a title, width and height as parameters
 
     SDL_SetWindowSize(mainWindow, w, h); //resizing the window using SDL_SetWindowSize
     SDL_SetWindowTitle(mainWindow, title.c_str()); //re-titling the window using the SDL_SetWindowTitle function
+    sceneVect.push_back(new DUO::scene(mainRenderer));
 
 };
+
+void DUO::runtime::update() {
+
+    sceneVect[curScene]->update();
+
+}
+
+void DUO::runtime::draw() {
+
+    sceneVect[curScene]->draw();
+
+}
 
 void DUO::runtime::gameThread() {
 

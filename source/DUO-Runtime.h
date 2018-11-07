@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "DUO-Scene.h"
 
 #ifndef DUO_RUNTIME
 #define DUO_RUNTIME
@@ -17,16 +18,19 @@ private:
 protected:
 
     SDL_Event* event = new SDL_Event; //an sdl event variable that wil be used to capture inputs
+    int curScene{0};
 
 public:
+
+    std::vector<DUO::scene*> sceneVect;
 
     SDL_Renderer* mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     static int setupSDL(); //forward declaration of a static function that initialises all SDL modules
     runtime(std::string title, short w, short h); //forward declaration of the constructor taking a title and dimensions for the window
     virtual void setup() = 0; //The setup method that is called before the game loop starts
-    virtual void draw() = 0; //the draw method that will be overriden by the user and called after the update
-    virtual void update() = 0; //method is overriden by user and callled after event loop
+    void draw(); //the draw method that will be overriden by the user and called after the update
+    void update(); //method is overriden by user and callled after event loop
     void gameThread(); //this method runs in a separate thread and incorporates the setup draw and update methods along with the rest of the game loop
     void start(); //this will initialize sdl modules run the game thread and then destroy the SDL modules
 
