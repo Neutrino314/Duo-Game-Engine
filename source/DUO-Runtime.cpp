@@ -3,7 +3,9 @@
 #include <iostream>
 #include "DUO-Runtime.h"
 #include "DUO-Graphics.h"
+#include "DUO-Utils.h"
 #include <thread>
+#include <cstdlib>
 
 DUO::runtime::runtime(std::string title, short w, short h) { //constructor taking a title, width and height as parameters
 
@@ -13,12 +15,13 @@ DUO::runtime::runtime(std::string title, short w, short h) { //constructor takin
 
 void DUO::runtime::update() {
 
+    sceneVect[curScene]->update();
 
 }
 
 void DUO::runtime::draw() {
 
-    DUO::drawPolygon(20, 50, 400, 400, 255, 255, 255, mainRenderer, 0.0);
+    sceneVect[curScene]->draw();
 
 }
 
@@ -41,6 +44,8 @@ void DUO::runtime::gameThread() {
         SDL_SetRenderDrawColor(mainRenderer, 0, 0, 0, 0); //sets the renderer's drawing colour to black
 
         SDL_RenderClear(mainRenderer); //clears the renderer
+
+
 
         draw(); // calls the draw function
 

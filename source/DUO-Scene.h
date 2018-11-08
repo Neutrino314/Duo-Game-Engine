@@ -13,7 +13,6 @@ namespace DUO {
 
         std::vector<DUO::gameObject*> objectVect;
         int curID{0};
-        int RendererIndex{1};
         int myID;
         SDL_Renderer* sceneRenderer;
 
@@ -25,9 +24,9 @@ namespace DUO {
 
         void draw();
 
-        void addObject();
+        void addObject(DUO::gameObject* newObject);
 
-        void removeObject();
+        void removeObject(int objectID);
 
     };
 

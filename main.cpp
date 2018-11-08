@@ -8,7 +8,11 @@ class game : public DUO::runtime { //creating a subclass of the runtime class th
 public:
 
     game(std::string title, short w, short h) : DUO::runtime(title, w, h) {}; //constructor taking width, height and  a title as arguments then calling the super's constructor with those args
-    virtual void setup(){}; //a setup function called before the game loop starts
+    virtual void setup(){
+
+        sceneVect.push_back(new DUO::scene(0, mainRenderer));
+
+    }; //a setup function called before the game loop starts
 
 };
 
