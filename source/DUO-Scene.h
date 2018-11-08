@@ -3,11 +3,7 @@
 #include <vector>
 #include <SDL2/SDL.h>
 
-namespace DUO {
-
-    class gameObject;
-
-}
+namespace DUO {class gameObject;}
 
 namespace DUO {
 
@@ -17,6 +13,21 @@ namespace DUO {
 
         std::vector<DUO::gameObject*> objectVect;
         int curID{0};
+        int RendererIndex{1};
+        int myID;
+        SDL_Renderer* sceneRenderer;
+
+    public:
+
+        scene(int newID, SDL_Renderer* newRenderer);
+
+        void update();
+
+        void draw();
+
+        void addObject();
+
+        void removeObject();
 
     };
 
