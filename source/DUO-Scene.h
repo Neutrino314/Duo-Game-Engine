@@ -22,17 +22,19 @@ namespace DUO{
 
         scene(int newID, SDL_Renderer* newRenderer); //constructor for the scene class taking an ID and a renderer object
 
-        bool setup(); //a setup function that is called before the first update method
+        void setup(); //a setup function that is called before the first update method
 
-        bool update(); //an update method that returns a boolean value
+        void update(); //an update method that returns a boolean value
 
-        bool draw(); //a draw method that returns a boolean value dependant on the success of the update
+        void draw(); //a draw method that returns a boolean value dependant on the success of the update
 
-        bool addObject(DUO::gameObject* newObject); //adds a new gameObject instance to the object vector
+        void addObject(std::shared_ptr<DUO::gameObject> newObject); //adds a new gameObject instance to the object vector
 
-        bool removeObject(int objectID); //removes a gameObject from the object vector with a specified ID 
+        void removeObject(int objectID); //removes a gameObject from the object vector with a specified ID 
 
-        bool addObjectComponent(DUO::gameObjectComponent* newComponent, DUO::componentTypes newCompType, int objectID); //adds a new component to the object with the specified ID
+        void addObjectComponent(DUO::gameObjectComponent* newComponent, DUO::componentTypes newCompType, int objectID); //adds a new component to the object with the specified ID
+
+        std::shared_ptr<DUO::gameObject> getObject(int ID);
 
     };
 

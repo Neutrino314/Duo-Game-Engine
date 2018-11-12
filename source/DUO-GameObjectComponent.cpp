@@ -54,6 +54,8 @@ bool DUO::transformComponent::rescale(double xScale, double yScale) {
         return false;
         std::cerr << e.what() << '\n';
     }
+
+    return true;
     
 }
 
@@ -72,3 +74,15 @@ bool DUO::transformComponent::rotate(double newRotation) {
     }
 
 }
+
+DUO::renderComponent::renderComponent(int newID, DUO::gameObject* newObject, DUO::transformComponent* newTransform, double width, double height)
+    : DUO::gameObjectComponent(newID, newObject), myTransform(newTransform) {
+
+        dimensions.setVector(width, height);
+        myType = DUO::RENDERER;
+
+}
+
+DUO::vector DUO::renderComponent::getDimensions() {return dimensions;}
+
+void DUO::renderComponent::setDimensions(double newWidth, double newHeight) {dimensions.setVector(newWidth, newHeight);}

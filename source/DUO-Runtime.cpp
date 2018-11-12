@@ -11,6 +11,18 @@ DUO::runtime::runtime(std::string title, short w, short h) { //constructor takin
 
 };
 
+void DUO::runtime::update() {
+
+    sceneVect[curScene]->update();
+
+}
+
+void DUO::runtime::draw() {
+
+    sceneVect[curScene]->draw();
+
+}
+
 void DUO::runtime::gameThread() {
 
     while (isRunning) { //while loop that runs while isRunning is true

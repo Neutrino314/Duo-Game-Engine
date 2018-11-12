@@ -26,9 +26,9 @@ namespace DUO {
 
         DUO::componentTypes getType();
 
-        virtual bool setup() {};
+        virtual void setup() {};
 
-        virtual bool update() {};
+        virtual void update() {};
 
     };
 
@@ -51,6 +51,25 @@ namespace DUO {
         bool translate(double xInc, double yInc);
         bool rotate(double rotInc);
         bool rescale(double xScale, double yScale);
+
+    };
+
+    class renderComponent : public gameObjectComponent {
+
+    protected:
+
+        DUO::vector dimensions{0.0, 0.0};
+        transformComponent* myTransform = NULL;
+
+    public:
+
+        renderComponent(int newID, DUO::gameObject* newObject, DUO::transformComponent* newTransform, double width, double height);
+
+        virtual void setup() override {};
+        virtual void update() override {};
+
+        DUO::vector getDimensions();
+        void setDimensions(double newWidth = 1.0, double newHeight = 1.0);
 
     };
 

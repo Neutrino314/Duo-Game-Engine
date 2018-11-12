@@ -51,7 +51,7 @@ void DUO::vector::increment(double xInc, double yInc) {
 
 }
 
-void DUO::vector::setVector(double xInc = 0.0, double yInc = 0.0) {
+void DUO::vector::setVector(double xInc, double yInc) {
 
     x = xInc;
     y = yInc;

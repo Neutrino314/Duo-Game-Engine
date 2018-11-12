@@ -17,17 +17,17 @@ void DUO::gameObject::addComponent(DUO::componentTypes newType, T* newComponent)
     case DUO::RENDERER :
 
         std::cout << "not yet implemented\n";
-        return true;
+        break;
 
     case DUO::BASE :
 
         componentVect.push_back(std::make_shared<gameObjectComponent>(newComponent));
-        return true;
+        break;
 
-    case default:
+    default :
 
         std::cout << "This type is not recognised\n";
-        return false;
+        break;
 
     }
 
@@ -41,7 +41,70 @@ void DUO::gameObject::removeComponent(DUO::componentTypes compType, int compID) 
 
         renderComponentVect[compID].reset();
         renderComponentVect.erase(renderComponentVect.begin() + compID);
+        break;
+
+    case DUO::BASE :
+
+        componentVect[compID].reset();
+        componentVect.erase(componentVect.begin() + compID);
+
+        for (int i = compID; i < componentVect.size(); i++) {
+
+            componentVect[i]->setID(i);
+
+        }
+
+        break;
+
+    default :
+
+        std::cout << "This type is not recognised\n";
+        break;
 
     }
+
+}
+
+void DUO::gameObject::setup() {
+
+    for (auto element : componentVect) {
+
+        element->setup();
+
+    }
+
+    for (auto element : renderComponentVect) {
+
+        element->setup();
+
+    }
+
+}
+
+void DUO::gameObject::update() {
+
+    for (auto element : componentVect) {
+
+        element->update();
+
+    }
+
+    std::cout << "object " << myID << " updated\n";
+
+}
+
+void DUO::gameObject::draw() {
+
+    for (auto element : renderComponentVect) {
+
+        element->update();
+
+    }
+
+}
+
+void DUO::gameObject::move(double newX, double newY) {
+
+    myTransform->translate(newX, newY);
 
 }
