@@ -5,6 +5,7 @@
 #include "DUO-Scene.h"
 #include "DUO-GameObject.h"
 #include "DUO-GameObjectComponent.h"
+#include "DUO-Keyboard.h"
 
 #ifndef DUO_ENGINE
 #define DUO_ENGINE

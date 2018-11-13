@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include "DUO-Runtime.h"
+#include "DUO-Keyboard.h"
 #include <thread>
 
 DUO::runtime::runtime(std::string title, short w, short h) { //constructor taking a title, width and height as parameters
@@ -46,6 +47,8 @@ void DUO::runtime::gameThread() {
         draw(); // calls the draw function
 
         SDL_RenderPresent(mainRenderer); //presents the changes to the renderer
+
+        DUO::keyboard::update();
 
     }
 

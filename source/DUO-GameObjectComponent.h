@@ -63,13 +63,29 @@ namespace DUO {
 
     public:
 
-        renderComponent(int newID, DUO::gameObject* newObject, DUO::transformComponent* newTransform, double width, double height);
+        renderComponent(int newID, DUO::gameObject* newObject, double width, double height);
 
         virtual void setup() override {};
         virtual void update() override {};
 
         DUO::vector getDimensions();
         void setDimensions(double newWidth = 1.0, double newHeight = 1.0);
+
+    };
+
+    class polygonRenderer : public renderComponent {
+
+    private:
+
+        int r, g, b;
+        int numberOfSides{3};
+        bool isFilled = true;
+
+    public:
+
+        polygonRenderer(int newID, DUO::gameObject* newObject, double width, double height, int newR, int newG, int newB, int sides);
+
+        virtual void update() override;
 
     };
 

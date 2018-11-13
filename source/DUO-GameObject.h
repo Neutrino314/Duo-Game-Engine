@@ -28,9 +28,7 @@ namespace DUO {
 
         gameObject(int newID, SDL_Renderer* newRenderer); 
 
-        template <typename T>
-
-        void addComponent(DUO::componentTypes newType, T* newComponent);
+        void addComponent(DUO::componentTypes newType, std::shared_ptr<DUO::gameObjectComponent> newComponent);
 
         void removeComponent(DUO::componentTypes compType, int compID);
 
@@ -41,6 +39,12 @@ namespace DUO {
         void draw();
 
         void move(double x, double y);
+
+        int getCurID(DUO::componentTypes compType);
+
+        DUO::transformComponent* getTransform();
+
+        SDL_Renderer* getRenderer();
 
     };
 

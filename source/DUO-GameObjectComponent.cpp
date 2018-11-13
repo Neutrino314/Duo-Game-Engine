@@ -3,9 +3,14 @@
 #include "DUO-GameObjectComponent.h"
 #include "DUO-GameObject.h"
 #include "DUO-Scene.h"
+#include "DUO-Graphics.h"
 #include <iostream>
 
-DUO::gameObjectComponent::gameObjectComponent(int newID, DUO::gameObject* newObject) : myID(newID), myObject(newObject), myType(DUO::BASE) {};
+DUO::gameObjectComponent::gameObjectComponent(int newID, DUO::gameObject* newObject) : myObject(newObject), myType(DUO::BASE) {
+
+    myID = myObject->getCurID(myType);
+
+};
 
 int DUO::gameObjectComponent::getID() {return myID;}
 
@@ -75,8 +80,10 @@ bool DUO::transformComponent::rotate(double newRotation) {
 
 }
 
-DUO::renderComponent::renderComponent(int newID, DUO::gameObject* newObject, DUO::transformComponent* newTransform, double width, double height)
-    : DUO::gameObjectComponent(newID, newObject), myTransform(newTransform) {
+DUO::renderComponent::renderComponent(int newID, DUO::gameObject* newObject, double width, double height)
+    : DUO::gameObjectComponent(newID, newObject) {
+
+        myTransform = myObject->getTransform();
 
         dimensions.setVector(width, height);
         myType = DUO::RENDERER;
@@ -86,3 +93,26 @@ DUO::renderComponent::renderComponent(int newID, DUO::gameObject* newObject, DUO
 DUO::vector DUO::renderComponent::getDimensions() {return dimensions;}
 
 void DUO::renderComponent::setDimensions(double newWidth, double newHeight) {dimensions.setVector(newWidth, newHeight);}
+
+
+DUO::polygonRenderer::polygonRenderer(int newID, DUO::gameObject* newObject, double width, double height, int newR, int newG, int newB, int sides) : 
+renderComponent(newID, newObject, width, height), r(newR), g(newG), b(newB), numberOfSides(sides) {}
+
+void DUO::polygonRenderer::update() {
+
+    double x{myTransform->getPosition().getXComponent()};
+    double y{myTransform->getPosition().getYComponent()};
+
+    double width{dimensions.getXComponent() * myTransform->getScale().getXComponent()};
+
+    if (isFilled) {
+
+        DUO::fillPolygon(numberOfSides, width, x, y, r, g, b, myObject->getRenderer(), myTransform->getRotation());
+
+    } else {
+
+        DUO::drawPolygon(numberOfSides, width, x, y, r, g, b, myObject->getRenderer(), myTransform->getRotation());
+
+    }
+
+}

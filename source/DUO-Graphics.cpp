@@ -278,6 +278,8 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
      SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
      SDL_RenderDrawPoint(renderer, x, y);
  };
+
+ 
  void DUO::fillPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation) {
      DUO::vector vectorArray[numberOfSides] = DUO::vector(0.0, 0.0);
      double centreAngle {static_cast<double>(360 / numberOfSides)};

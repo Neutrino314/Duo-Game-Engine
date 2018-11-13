@@ -8,20 +8,18 @@
 
 DUO::gameObject::gameObject(int newID, SDL_Renderer* newRenderer) : myID(newID), myRenderer(newRenderer), myTransform(new DUO::transformComponent(0.0, 0.0, 1.0, 1.0, 0.0, 0, this)) {}
 
-template <typename T>
-
-void DUO::gameObject::addComponent(DUO::componentTypes newType, T* newComponent) {
+void DUO::gameObject::addComponent(DUO::componentTypes newType, std::shared_ptr<DUO::gameObjectComponent> newComponent) {
 
     switch (newType) {
 
     case DUO::RENDERER :
 
-        std::cout << "not yet implemented\n";
+        renderComponentVect.push_back(std::dynamic_pointer_cast<DUO::renderComponent>(newComponent));
         break;
 
     case DUO::BASE :
 
-        componentVect.push_back(std::make_shared<gameObjectComponent>(newComponent));
+        componentVect.push_back(newComponent);
         break;
 
     default :
@@ -89,8 +87,6 @@ void DUO::gameObject::update() {
 
     }
 
-    std::cout << "object " << myID << " updated\n";
-
 }
 
 void DUO::gameObject::draw() {
@@ -106,5 +102,30 @@ void DUO::gameObject::draw() {
 void DUO::gameObject::move(double newX, double newY) {
 
     myTransform->translate(newX, newY);
+
+}
+
+SDL_Renderer* DUO::gameObject::getRenderer() {return myRenderer;}
+
+DUO::transformComponent* DUO::gameObject::getTransform() {return myTransform;}
+
+int DUO::gameObject::getCurID(DUO::componentTypes compType) {
+
+    switch (compType) {
+
+    case DUO::BASE :
+
+        return curComponentID;
+
+    case DUO::RENDERER :
+
+        return curRenderID;
+
+    default:
+
+        std::cout << "not recognised\n";
+        break;
+
+    }
 
 }
