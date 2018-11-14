@@ -4,6 +4,7 @@
 #include "DUO-GameObject.h"
 #include "DUO-Scene.h"
 #include "DUO-Graphics.h"
+#include "DUO-Keyboard.h"
 #include <iostream>
 
 DUO::gameObjectComponent::gameObjectComponent(int newID, DUO::gameObject* newObject) : myObject(newObject), myType(DUO::BASE) {
@@ -20,8 +21,8 @@ DUO::componentTypes DUO::gameObjectComponent::getType() {return myType;}
 
 DUO::transformComponent::transformComponent(double newX, double newY, double newXScale, double newYScale, double newRotation, int newID, DUO::gameObject* newObject) : rotation(newRotation), gameObjectComponent(newID, newObject) {
 
-    position.increment(newX, newY);
-    scale.increment(newXScale, newYScale);
+    position.setVector(newX, newY);
+    scale.setVector(newXScale, newYScale);
 
 }
 
@@ -114,5 +115,46 @@ void DUO::polygonRenderer::update() {
         DUO::drawPolygon(numberOfSides, width, x, y, r, g, b, myObject->getRenderer(), myTransform->getRotation());
 
     }
+
+}
+
+DUO::basicMovementComponent::basicMovementComponent(int newID, DUO::gameObject* newObject) : gameObjectComponent(newID, newObject) {
+
+    myTransform = myObject->getTransform();
+    myType = DUO::BASE;
+
+}
+
+void DUO::basicMovementComponent::update() {
+
+    if (DUO::keyboard::isKeyDown(SDL_SCANCODE_A)) {
+
+        xA = -8;
+
+    } else if (DUO::keyboard::isKeyDown(SDL_SCANCODE_D)) {
+
+        xA = 8;
+
+    } else if (DUO::keyboard::isKeyUp(SDL_SCANCODE_A) && DUO::keyboard::isKeyUp(SDL_SCANCODE_D)) {
+
+        xA = 0;
+
+    }
+
+    if (DUO::keyboard::isKeyDown(SDL_SCANCODE_W)) {
+
+        yA = -8;
+
+    } else if (DUO::keyboard::isKeyDown(SDL_SCANCODE_S)) {
+
+        yA = 8;
+
+    } else if (DUO::keyboard::isKeyUp(SDL_SCANCODE_W) && DUO::keyboard::isKeyUp(SDL_SCANCODE_S)) {
+
+        yA = 0;
+
+    }
+
+    myTransform->translate(static_cast<double>(xA), static_cast<double>(yA));
 
 }

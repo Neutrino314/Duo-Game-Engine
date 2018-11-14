@@ -3,6 +3,7 @@
 #include <iostream>
 #include "DUO-Runtime.h"
 #include "DUO-Keyboard.h"
+#include "DUO-Graphics.h"
 #include <thread>
 
 DUO::runtime::runtime(std::string title, short w, short h) { //constructor taking a title, width and height as parameters
@@ -21,6 +22,7 @@ void DUO::runtime::update() {
 void DUO::runtime::draw() {
 
     sceneVect[curScene]->draw();
+    DUO::fillPolygon(3, 50, 200, 200, 255, 255, 255, mainRenderer, 0.0);
 
 }
 

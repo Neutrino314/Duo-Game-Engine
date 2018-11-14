@@ -12,10 +12,6 @@ public:
 
         sceneVect.push_back(new DUO::scene(0, mainRenderer));
 
-        sceneVect[0]->getObject(0)->move(400.0, 300.0);
-
-        sceneVect[0]->getObject(0)->addComponent(DUO::RENDERER, std::make_shared<DUO::polygonRenderer>(0, sceneVect[0]->getObject(0), 50.0, 50.0, 255, 0, 0, 3));
-
     }; //a setup function called before the game loop starts
 
 };

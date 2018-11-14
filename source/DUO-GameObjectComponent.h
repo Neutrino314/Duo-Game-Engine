@@ -89,4 +89,21 @@ namespace DUO {
 
     };
 
+    class basicMovementComponent : public gameObjectComponent {
+
+    private:
+
+        int xA{0};
+        int yA{0};
+
+        DUO::transformComponent* myTransform;
+
+    public:
+
+        basicMovementComponent(int newID, DUO::gameObject* newObject);
+
+        virtual void update() override;
+
+    };
+
 }
