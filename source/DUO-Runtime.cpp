@@ -22,7 +22,6 @@ void DUO::runtime::update() {
 void DUO::runtime::draw() {
 
     sceneVect[curScene]->draw();
-    DUO::fillPolygon(3, 50, 200, 200, 255, 255, 255, mainRenderer, 0.0);
 
 }
 
