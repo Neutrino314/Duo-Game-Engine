@@ -37,7 +37,7 @@ int main(int argc, char* args[]) {
 
     }
 
-    game* run = new game("hi", 800, 600);
+    game* run = new game("Ping", 800, 600);
 
     run->start();
 
