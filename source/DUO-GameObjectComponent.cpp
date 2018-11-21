@@ -101,7 +101,7 @@ void DUO::renderComponent::setDimensions(double newWidth, double newHeight) {dim
 DUO::polygonRenderer::polygonRenderer(int newID, DUO::gameObject* newObject, double width, double height, int newR, int newG, int newB, int sides) : 
 renderComponent(newID, newObject, width, height), r(newR), g(newG), b(newB), numberOfSides(sides) {}
 
-void DUO::polygonRenderer::update() {
+void DUO::polygonRenderer::update(DUO::vector objectPos) {
 
     double x{myTransform->getPosition().getXComponent()};
     double y{myTransform->getPosition().getYComponent()};
@@ -110,11 +110,11 @@ void DUO::polygonRenderer::update() {
 
     if (isFilled) {
 
-        DUO::fillPolygon(numberOfSides, width, x, y, r, g, b, myObject->getRenderer(), myTransform->getRotation());
+        DUO::fillPolygon(numberOfSides, width, objectPos.getXComponent(), objectPos.getYComponent(), r, g, b, myObject->getRenderer(), myTransform->getRotation());
 
     } else {
 
-        DUO::drawPolygon(numberOfSides, width, x, y, r, g, b, myObject->getRenderer(), myTransform->getRotation());
+        DUO::drawPolygon(numberOfSides, width, objectPos.getXComponent(), objectPos.getYComponent(), r, g, b, myObject->getRenderer(), myTransform->getRotation());
 
     }
 

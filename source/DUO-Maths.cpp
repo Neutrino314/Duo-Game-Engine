@@ -57,7 +57,7 @@ void DUO::vector::increment(double xInc, double yInc) {
 
 }
 
-DUO::vector DUO::vector::operator*(DUO::vector &vect2) {return DUO::vector(this->getXComponent() * vect2.getXComponent(), this->getYComponent() * vect2.getYComponent());}
+DUO::vector DUO::vector::operator*(double multiple) {return DUO::vector(this->getXComponent() * multiple, this->getYComponent() * multiple);}
 
 void DUO::vector::setVector(double xInc, double yInc) {
 

@@ -257,7 +257,7 @@ void DUO::fillCircle(short x, short y, short radius, short r, short g, short b, 
 
 void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation) {
      
-    DUO::vector vectorArray[numberOfSides] = DUO::vector(0.0, 0.0);
+    DUO::vector vectorArray[numberOfSides];
 
      double centreAngle {static_cast<double>(360 / numberOfSides)};
 
@@ -298,7 +298,7 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
  
  void DUO::fillPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation) {
      
-     DUO::vector vectorArray[numberOfSides] = DUO::vector(0.0, 0.0);
+     DUO::vector vectorArray[numberOfSides];
      
      double centreAngle {static_cast<double>(360 / numberOfSides)};
      

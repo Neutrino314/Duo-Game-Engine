@@ -8,7 +8,7 @@
 
 DUO::scene::scene(int newID, SDL_Renderer* newRenderer) : myID(newID), myRenderer(newRenderer) {
 
-    DUO::scene::addObject(new DUO::gameObject(curID, myRenderer));
+    DUO::scene::addObject(std::make_shared<DUO::gameObject>(curID, myRenderer));
 
 }
 
@@ -32,21 +32,21 @@ void DUO::scene::update() {
 
 }
 
-void DUO::scene::draw() {
+void DUO::scene::draw(float interpolation) {
 
     for (auto object : objectVect) {
 
-        object->draw();
+        object->draw(interpolation);
 
     }
 
 }
 
-void DUO::scene::addObject(DUO::gameObject* newObject) {
+void DUO::scene::addObject(std::shared_ptr<DUO::gameObject> newObject) {
 
     objectVect.push_back(newObject);
     curID ++;
 
 }
 
-DUO::gameObject* DUO::scene::getObject(int ID) {return objectVect[ID];}
+std::shared_ptr<DUO::gameObject> DUO::scene::getObject(int ID) {return objectVect[ID];}
