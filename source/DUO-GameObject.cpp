@@ -24,7 +24,7 @@ void DUO::gameObject::addComponent(DUO::componentTypes newType, std::shared_ptr<
 
     default :
 
-        std::cout << "This type is not recognised\n";
+        componentVect.push_back(newComponent);
         break;
 
     }
@@ -56,7 +56,14 @@ void DUO::gameObject::removeComponent(DUO::componentTypes compType, int compID) 
 
     default :
 
-        std::cout << "This type is not recognised\n";
+        componentVect[compID].reset();
+        componentVect.erase(componentVect.begin() + compID);
+
+        for (int i = compID; i < componentVect.size(); i++) {
+
+            componentVect[i]->setID(i);
+
+        }
         break;
 
     }
@@ -87,13 +94,20 @@ void DUO::gameObject::update() {
 
     }
 
+    myTransform->translate(myAcceleration.getXComponent(), myAcceleration.getYComponent());
+
 }
 
-void DUO::gameObject::draw() {
+void DUO::gameObject::draw(float interpolation) {
+
+    DUO::vector displayPos{myAcceleration * interpolation};
+    DUO::vector oldPos = myTransform->getPosition();
+
+    displayPos = oldPos + displayPos;
 
     for (auto element : renderComponentVect) {
 
-        element->update();
+        element->update(displayPos);
 
     }
 
@@ -127,5 +141,7 @@ int DUO::gameObject::getCurID(DUO::componentTypes compType) {
         break;
 
     }
+
+    return DUO::BASE;
 
 }

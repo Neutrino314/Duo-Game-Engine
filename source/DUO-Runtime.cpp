@@ -18,18 +18,32 @@ DUO::runtime::runtime(std::string title, short w, short h) { //constructor takin
 void DUO::runtime::update() {
 
     sceneVect[curScene]->update(); //calls the current scene's update method
+    
+    if (curFrame == TICKS_PER_SECOND) {
+
+        curFrame = 1; 
+
+    } else {
+
+        curFrame ++;
+
+    }
+
+    std::cout << curFrame << std::endl;
 
 }
 
-void DUO::runtime::draw() {
+void DUO::runtime::draw(float newInterpolation) {
 
-    sceneVect[curScene]->draw(); //calls the current scene's draw method
+    sceneVect[curScene]->draw(interpolation); //calls the current scene's draw method
 
 }
 
 void DUO::runtime::gameThread() {
 
     while (isRunning) { //while loop that runs while isRunning is true
+
+        loops = 0;
 
         while (SDL_PollEvent(event)) { //updates the event queue
 
@@ -41,13 +55,22 @@ void DUO::runtime::gameThread() {
 
         }
 
-        update(); //calls the update function
+        while (SDL_GetTicks() > nextGameTick && loops < MAX_SKIP) {
+
+            update(); //calls the update function
+
+            nextGameTick += SKIP_TICKS;
+            loops ++;
+
+        }
+
+        interpolation = static_cast<float>((SDL_GetTicks() + SKIP_TICKS) - (nextGameTick / SKIP_TICKS));
 
         SDL_SetRenderDrawColor(mainRenderer, 0, 0, 0, 0); //sets the renderer's drawing colour to black
 
         SDL_RenderClear(mainRenderer); //clears the renderer
 
-        draw(); // calls the draw function
+        draw(interpolation); // calls the draw function
 
         SDL_RenderPresent(mainRenderer); //presents the changes to the renderer
 

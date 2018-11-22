@@ -1,5 +1,5 @@
 CC = g++
-LINKERFLAGS = -lSDL2 -lpthread
+LINKERFLAGS = -lSDL2 -lpthread -lSDL2_image
 
 output: DUO.a main.cpp
 	$(CC) -std=c++14 -c main.cpp -o main.o

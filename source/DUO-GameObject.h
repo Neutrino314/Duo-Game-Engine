@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DUO-Utils.h"
+#include "DUO-Maths.h"
 #include <vector>
 #include <memory>
 #include <SDL2/SDL.h>
@@ -16,8 +17,8 @@ namespace DUO {
         int myID; //the id of this object
         SDL_Renderer* myRenderer = NULL; //a poiner to an sdl renderer provided by the constructor
         int curRenderID{0}; //the id to be assigned to the next component in the renderComponentVect
-        int curPhysicsID{0}; // the id to be assigned to the next component in the physicsComponentVect
         int curComponentID{0}; //the id to be assigned to the next component in the component vector
+        DUO::vector myAcceleration{0.0, 0.0};
 
         DUO::transformComponent* myTransform = NULL; //a pointer to a transform component to be instantiated in the constructor
 
@@ -36,7 +37,7 @@ namespace DUO {
 
         void update();
 
-        void draw();
+        void draw(float interpolation);
 
         void move(double x, double y);
 

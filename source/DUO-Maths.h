@@ -15,7 +15,7 @@ namespace DUO {
 
     public:
 
-        vector(double x, double y) : x(x), y(y){}; //constructor that takes an x and y value as arguments
+        vector(double x = 0.0, double y = 0.0) : x(x), y(y){}; //constructor that takes an x and y value as arguments
 
         double getMagnitude(); // retruns the magnitude of the vector
 
@@ -39,7 +39,7 @@ namespace DUO {
 
         vector operator-(vector& vect2); //subtracts 2 vectors and returns the new vector
 
-        vector operator*(vector& vect2); //multiplies two vectors
+        vector operator*(double multiple); //multiplies two vectors
 
         double dot(vector& vect); //function that performs the dot product on two vectors
 
