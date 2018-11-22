@@ -11,6 +11,9 @@ namespace DUO {
         DUO::vector velocity{0.0, 0.0};
         DUO::transformComponent* myTransform = NULL;
         DUO::vector score{0.0, 0.0};
+        int timer{100};
+        int waitTime{30};
+        int maxScore{0};
 
         DUO::gameObject* paddle1;
         DUO::gameObject* paddle2;
@@ -20,6 +23,7 @@ namespace DUO {
         ballComponent(int newID, DUO::gameObject* newObject, DUO::transformComponent* newTransform, DUO::gameObject* newPaddle1, DUO::gameObject* newPaddle2);
 
         virtual void update() override;
+        virtual void setup() override;
 
     };
 

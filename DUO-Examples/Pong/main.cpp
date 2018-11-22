@@ -17,7 +17,7 @@ public:
 
         sceneVect[0]->addObject(new DUO::gameObject(1, mainRenderer));
         sceneVect[0]->getObject(1)->move(50, 100);
-        sceneVect[0]->getObject(1)->addComponent(DUO::RENDERER, std::make_shared<DUO::paddleRenderer>(0, sceneVect[0]->getObject(1), 25, 150, 255, 255, 255));
+        sceneVect[0]->getObject(1)->addComponent(DUO::RENDERER, std::make_shared<DUO::paddleRenderer>(0, sceneVect[0]->getObject(1), 25, 150, 255, 0, 0));
         sceneVect[0]->getObject(1)->addComponent(DUO::BASE, std::make_shared<DUO::paddleController>(0, sceneVect[0]->getObject(1), SDL_SCANCODE_W, SDL_SCANCODE_S, sceneVect[0]->getObject(1)->getTransform()));
 
         sceneVect[0]->addObject(new DUO::gameObject(2, mainRenderer));

@@ -7,7 +7,14 @@ DUO::ballComponent::ballComponent(int newID, DUO::gameObject* newObject, DUO::tr
     gameObjectComponent(newID, newObject), myTransform(newTransform), paddle1(newPaddle1), paddle2(newPaddle2) {
 
         myType = DUO::BASE;
-        velocity.setVector(8, 8);
+        velocity.setVector(8, 0);
+
+}
+
+void DUO::ballComponent::setup() {
+
+    std::cout << "Enter the maximum score: ";
+    std::cin >> maxScore;
 
 }
 
@@ -92,21 +99,31 @@ void DUO::ballComponent::update() {
 
     }
 
-    myTransform->translate(velocity.getXComponent(), velocity.getYComponent());
-
     //scoring code----------------------------------------------------------------------------
 
-    if (myTransform->getPosition().getXComponent() - 25 <= 0) {
+    if (timer == 0) {
 
-        score.increment(0, 1);
-        velocity.setVector(8, 0);
-        myTransform->setPosition(400, 300);
+        if (myTransform->getPosition().getXComponent() - 25 <= 0) {
 
-    } else if (myTransform->getPosition().getXComponent() + 25 >= 800) {
+            score.increment(0, 1);
+            velocity.setVector(8, 0);
+            myTransform->setPosition(400, 300);
+            timer = waitTime;
 
-        score.increment(1, 0);
-        velocity.setVector(-8, 0);
-        myTransform->setPosition(400, 300);
+        } else if (myTransform->getPosition().getXComponent() + 25 >= 800) {
+
+            score.increment(1, 0);
+            velocity.setVector(-8, 0);
+            myTransform->setPosition(400, 300);
+            timer = waitTime;
+
+        }
+
+        myTransform->translate(velocity.getXComponent(), velocity.getYComponent());
+
+    } else if (timer > 0) {
+
+        timer--;
 
     }
 
