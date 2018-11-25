@@ -7,23 +7,6 @@
 
 namespace DUO {
 
-    class sprite {
-
-    private:
-
-        SDL_Texture* myTexture;
-        DUO::vector myDimensions{0.0, 0.0};
-
-    public:
-
-        sprite(std::string path, double width, double height);
-
-        ~sprite();
-
-        void render(double x, double y, double rotation);
-
-    };
-
     void floodScreen(SDL_Renderer* renderer, short r, short g, short b, short a); //a rednerClear-ish type command that fills the window with a certain colour
     void drawVector(SDL_Renderer* renderer, DUO::vector* vect); //draws a vector as a line from the origin taking a DUO::vector object and a renderer as arguments
 
@@ -41,6 +24,8 @@ namespace DUO {
     void drawPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation);
     void fillPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation);
         
+    SDL_Texture* loadImage(std::string path, SDL_Renderer* renderer);
+    
 }
 
 #endif

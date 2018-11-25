@@ -1,23 +1,29 @@
 #include <string>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <iostream>
 #include "DUO-application.h"
 #include "DUO-Keyboard.h"
 #include "DUO-Graphics.h"
+#include "DUO-Scene.h"
 #include <thread>
+#include <vector>
+
+int DUO::application::curScene = 0;
+std::vector<DUO::scene*> DUO::application::sceneVect;
 
 DUO::application::application(std::string title, short w, short h) { //constructor taking a title, width and height as parameters
 
     SDL_SetWindowSize(mainWindow, w, h); //resizing the window using SDL_SetWindowSize
     SDL_SetWindowTitle(mainWindow, title.c_str()); //re-titling the window using the SDL_SetWindowTitle function
 
-    sceneVect.push_back(new DUO::scene(0, mainRenderer)); // adds a new scene to the scene vector 
+    DUO::application::sceneVect.push_back(new DUO::scene(0, mainRenderer)); // adds a new scene to the scene vector 
 
 };
 
 void DUO::application::update() {
 
-    sceneVect[curScene]->update(); //calls the current scene's update method
+    DUO::application::sceneVect[DUO::application::curScene]->update(); //calls the current scene's update method
     
     if (curFrame == TICKS_PER_SECOND) {
 
@@ -33,7 +39,8 @@ void DUO::application::update() {
 
 void DUO::application::draw(float newInterpolation) {
 
-    sceneVect[curScene]->draw(interpolation); //calls the current scene's draw method
+    DUO::application::sceneVect[DUO::application::curScene]->draw(interpolation); //calls the current scene's draw method
+    
 
 }
 
@@ -68,6 +75,8 @@ void DUO::application::gameThread() {
 
         SDL_RenderClear(mainRenderer); //clears the renderer
 
+        //std::cout << "drawn\n";
+
         draw(interpolation); // calls the draw function
 
         SDL_RenderPresent(mainRenderer); //presents the changes to the renderer
@@ -100,12 +109,37 @@ int DUO::application::setupSDL() {
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0){ //initialises SDL video however if there is an error it exits the function and prints the error returning 1 otherwise it returns 0
 	
-    std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
+        std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
 	
-    return 1;
+        return 1;
     
+    }
+
+    int imgFlags = IMG_INIT_PNG;
+
+    if( !( IMG_Init( imgFlags ) & imgFlags ) ) {
+
+        std::cout << "SDL_Init Error: " << IMG_GetError() << std::endl;
+        return 2;
+
     }
 
     return 0;
 
 };
+
+void DUO::application::changeScene(int newScene) {
+
+    if (newScene > DUO::application::sceneVect.size()) {
+
+        std::cout << "new scene index excedes the size of the scenevect\n";
+        return;
+
+    } else {
+
+        DUO::application::curScene = newScene;
+        return;
+
+    }
+
+}

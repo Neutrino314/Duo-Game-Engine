@@ -16,7 +16,7 @@ namespace DUO{
         int myID; //the ID of this scene object to be used by the application instance to address which scene to update
         int curID{0}; //the current ID to be assigned to the next object in the game object vector
         SDL_Renderer* myRenderer; //a pointer to an SDL renderer object provided by the application object
-        std::vector<std::shared_ptr<DUO::gameObject>> objectVect; //a vector of shared pointers to gameObjects
+        std::vector<DUO::gameObject*> objectVect; //a vector of shared pointers to gameObjects
 
     public:
 
@@ -28,11 +28,11 @@ namespace DUO{
 
         void draw(float interpolation); //a draw method that returns a boolean value dependant on the success of the update
 
-        void addObject(std::shared_ptr<DUO::gameObject> newObject); //adds a new gameObject instance to the object vector
+        void addObject(DUO::gameObject* newObject); //adds a new gameObject instance to the object vector
 
         void removeObject(int objectID) {}; //removes a gameObject from the object vector with a specified ID 
 
-        std::shared_ptr<DUO::gameObject> getObject(int ID); //returns a shared pointer to the specified object
+        DUO::gameObject* getObject(int ID); //returns a shared pointer to the specified object
 
     };
 
