@@ -13,9 +13,9 @@ namespace DUO{
 
     private:
 
-        int myID; //the ID of this scene object to be used by the runtime instance to address which scene to update
+        int myID; //the ID of this scene object to be used by the application instance to address which scene to update
         int curID{0}; //the current ID to be assigned to the next object in the game object vector
-        SDL_Renderer* myRenderer; //a pointer to an SDL renderer object provided by the runtime object
+        SDL_Renderer* myRenderer; //a pointer to an SDL renderer object provided by the application object
         std::vector<std::shared_ptr<DUO::gameObject>> objectVect; //a vector of shared pointers to gameObjects
 
     public:

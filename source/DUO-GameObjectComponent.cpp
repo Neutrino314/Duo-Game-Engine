@@ -6,6 +6,7 @@
 #include "DUO-Graphics.h"
 #include "DUO-Keyboard.h"
 #include <iostream>
+#include <memory>
 
 DUO::gameObjectComponent::gameObjectComponent(int newID, DUO::gameObject* newObject) : myObject(newObject), myType(DUO::BASE) {
 

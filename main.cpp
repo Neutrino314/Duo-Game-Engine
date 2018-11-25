@@ -4,18 +4,18 @@
 #include "source/DUO-Engine.h"
 #include "source/userComponents.h"
 
-class game : public DUO::runtime { //creating a subclass of the runtime class that allows it to be instantiated
+class game : public DUO::application { //creating a subclass of the application class that allows it to be instantiated
 
 public:
 
-    game(std::string title, short w, short h) : DUO::runtime(title, w, h) {}; //constructor taking width, height and  a title as arguments then calling the super's constructor with those args
+    game(std::string title, short w, short h) : DUO::application(title, w, h) {}; //constructor taking width, height and  a title as arguments then calling the super's constructor with those args
     virtual void setup() override {}; //a setup function called before the game loop starts
 
 };
 
 int main(int argc, char* args[]) {
 
-    if (DUO::runtime::setupSDL() != 0) { //  
+    if (DUO::application::setupSDL() != 0) { //  
 
         return 1;
 

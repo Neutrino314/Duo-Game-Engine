@@ -1,6 +1,6 @@
 #include "DUO-Graphics.h"
 #include "DUO-Maths.h"
-#include "DUO-Runtime.h"
+#include "DUO-application.h"
 #include "DUO-Utils.h"
 #include "DUO-Scene.h"
 #include "DUO-GameObject.h"

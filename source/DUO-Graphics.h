@@ -12,10 +12,13 @@ namespace DUO {
     private:
 
         SDL_Texture* myTexture;
+        DUO::vector myDimensions{0.0, 0.0};
 
     public:
 
-        sprite(std::string path);
+        sprite(std::string path, double width, double height);
+
+        ~sprite();
 
         void render(double x, double y, double rotation);
 

@@ -7,7 +7,7 @@ output: DUO.a main.cpp
 	rm main.o DUO.a
 
 DUO.a: source/*.cpp source/*.h
-	$(CC) -std=c++14 -c source/DUO-Runtime.cpp -o DUO-Runtime.o
+	$(CC) -std=c++14 -c source/DUO-application.cpp -o DUO-application.o
 	$(CC) -std=c++14 -c source/DUO-Graphics.cpp -o DUO-Graphics.o
 	$(CC) -std=c++14 -c source/DUO-Maths.cpp -o DUO-Maths.o
 	$(CC) -std=c++14 -c source/DUO-Scene.cpp -o DUO-Scene.o

@@ -15,7 +15,7 @@ namespace DUO {
 
         int myID;
         DUO::componentTypes myType{DUO::BASE};
-        DUO::gameObject* myObject = NULL;
+        DUO::gameObject* myObject;
 
     public:
 

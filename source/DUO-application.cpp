@@ -1,12 +1,12 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include <iostream>
-#include "DUO-Runtime.h"
+#include "DUO-application.h"
 #include "DUO-Keyboard.h"
 #include "DUO-Graphics.h"
 #include <thread>
 
-DUO::runtime::runtime(std::string title, short w, short h) { //constructor taking a title, width and height as parameters
+DUO::application::application(std::string title, short w, short h) { //constructor taking a title, width and height as parameters
 
     SDL_SetWindowSize(mainWindow, w, h); //resizing the window using SDL_SetWindowSize
     SDL_SetWindowTitle(mainWindow, title.c_str()); //re-titling the window using the SDL_SetWindowTitle function
@@ -15,7 +15,7 @@ DUO::runtime::runtime(std::string title, short w, short h) { //constructor takin
 
 };
 
-void DUO::runtime::update() {
+void DUO::application::update() {
 
     sceneVect[curScene]->update(); //calls the current scene's update method
     
@@ -29,17 +29,15 @@ void DUO::runtime::update() {
 
     }
 
-    std::cout << curFrame << std::endl;
-
 }
 
-void DUO::runtime::draw(float newInterpolation) {
+void DUO::application::draw(float newInterpolation) {
 
     sceneVect[curScene]->draw(interpolation); //calls the current scene's draw method
 
 }
 
-void DUO::runtime::gameThread() {
+void DUO::application::gameThread() {
 
     while (isRunning) { //while loop that runs while isRunning is true
 
@@ -80,11 +78,11 @@ void DUO::runtime::gameThread() {
 
 };
 
-void DUO::runtime::start() {
+void DUO::application::start() {
 
     setup(); //calls the setup function
 
-    std::thread gameLoop(&DUO::runtime::gameThread, this); //creates a thread running the gameThread function
+    std::thread gameLoop(&DUO::application::gameThread, this); //creates a thread running the gameThread function
     gameLoop.join(); //joins the thread
 
     delete event; //once the thread has ended delete the event variable and set the pointer's address to nullptr
@@ -98,7 +96,7 @@ void DUO::runtime::start() {
 
 };
 
-int DUO::runtime::setupSDL() {
+int DUO::application::setupSDL() {
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0){ //initialises SDL video however if there is an error it exits the function and prints the error returning 1 otherwise it returns 0
 	
