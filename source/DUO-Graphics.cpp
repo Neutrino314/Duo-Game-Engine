@@ -3,7 +3,9 @@
 #include <utility> //used for std::swap
 #include <cmath> //provides a set of maths functions including round and sqrt
 #include <iostream>
+#include <string>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 void DUO::floodScreen(SDL_Renderer* renderer, short r, short g, short b, short a) {
 
@@ -332,3 +334,15 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
      }
  ;}
 
+SDL_Texture* DUO::loadImage(std::string path, SDL_Renderer* renderer) {
+
+    SDL_Surface* tempSurface = IMG_Load(path.c_str());
+
+    SDL_Texture* returnTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+
+    SDL_FreeSurface(tempSurface);
+    tempSurface = nullptr;
+
+    return returnTexture;
+
+}

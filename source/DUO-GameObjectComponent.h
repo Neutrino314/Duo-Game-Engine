@@ -3,6 +3,7 @@
 #include "DUO-Utils.h"
 #include <SDL2/SDL.h>
 #include "DUO-Maths.h"
+#include "DUO-Graphics.h"
 #include <memory>
 
 namespace DUO {class gameObject;}
@@ -15,7 +16,7 @@ namespace DUO {
 
         int myID;
         DUO::componentTypes myType{DUO::BASE};
-        DUO::gameObject* myObject = NULL;
+        DUO::gameObject* myObject;
 
     public:
 
@@ -86,6 +87,20 @@ namespace DUO {
     public:
 
         polygonRenderer(int newID, DUO::gameObject* newObject, double width, double height, int newR, int newG, int newB, int sides);
+
+        virtual void update(DUO::vector objectPos) override;
+
+    };
+
+    class spriteRenderer : public renderComponent {
+
+    private:
+
+        SDL_Texture* myTexture = NULL;
+
+    public:
+
+        spriteRenderer(std::string path, int newID, DUO::gameObject* newObject, double width = 1.0, double height = 1.0);
 
         virtual void update(DUO::vector objectPos) override;
 

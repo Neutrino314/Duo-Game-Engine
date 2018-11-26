@@ -6,6 +6,7 @@
 #include "DUO-Graphics.h"
 #include "DUO-Keyboard.h"
 #include <iostream>
+#include <memory>
 
 DUO::gameObjectComponent::gameObjectComponent(int newID, DUO::gameObject* newObject) : myObject(newObject), myType(DUO::BASE) {
 
@@ -117,5 +118,29 @@ void DUO::polygonRenderer::update(DUO::vector objectPos) {
         DUO::drawPolygon(numberOfSides, width, objectPos.getXComponent(), objectPos.getYComponent(), r, g, b, myObject->getRenderer(), myTransform->getRotation());
 
     }
+
+}
+
+DUO::spriteRenderer::spriteRenderer(std::string path, int newID, DUO::gameObject* newObject, double width, double height) : renderComponent(newID, newObject, width, height) {
+
+    myType = DUO::RENDERER;
+
+    myTexture = DUO::loadImage(path, newObject->getRenderer());
+
+    int x, y;
+
+    SDL_QueryTexture(myTexture, NULL, NULL, &x, &y);
+
+    dimensions.setVector(x, y);
+
+}
+
+void DUO::spriteRenderer::update(DUO::vector objectPos) {
+
+    SDL_Rect tempRect {0, 0, static_cast<int>(dimensions.getXComponent()), static_cast<int>(dimensions.getYComponent())};
+
+    SDL_Point centre{static_cast<int>(objectPos.getXComponent()), static_cast<int>(objectPos.getYComponent())};
+
+    SDL_RenderCopyEx(myObject->getRenderer(), myTexture, NULL, &tempRect, myTransform->getRotation(), &centre, SDL_FLIP_NONE);
 
 }
