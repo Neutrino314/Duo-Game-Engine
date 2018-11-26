@@ -137,10 +137,13 @@ DUO::spriteRenderer::spriteRenderer(std::string path, int newID, DUO::gameObject
 
 void DUO::spriteRenderer::update(DUO::vector objectPos) {
 
-    SDL_Rect tempRect {0, 0, static_cast<int>(dimensions.getXComponent()), static_cast<int>(dimensions.getYComponent())};
+    int x = static_cast<int>(objectPos.getXComponent());
+    int y = static_cast<int>(objectPos.getYComponent());
 
-    SDL_Point centre{static_cast<int>(objectPos.getXComponent()), static_cast<int>(objectPos.getYComponent())};
+    SDL_Rect tempRect {x, y, static_cast<int>(dimensions.getXComponent()), static_cast<int>(dimensions.getYComponent())};
 
-    SDL_RenderCopyEx(myObject->getRenderer(), myTexture, NULL, &tempRect, myTransform->getRotation(), &centre, SDL_FLIP_NONE);
+    SDL_Point centre{x, y};
+
+    SDL_RenderCopyEx(myObject->getRenderer(), myTexture, NULL, &tempRect, myTransform->getRotation(), NULL, SDL_FLIP_NONE);
 
 }
