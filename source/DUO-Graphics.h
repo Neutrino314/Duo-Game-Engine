@@ -8,7 +8,7 @@
 namespace DUO {
 
     void floodScreen(SDL_Renderer* renderer, short r, short g, short b, short a); //a rednerClear-ish type command that fills the window with a certain colour
-    void drawVector(SDL_Renderer* renderer, DUO::vector* vect); //draws a vector as a line from the origin taking a DUO::vector object and a renderer as arguments
+    void drawVector(SDL_Renderer* renderer, DUO::vector2* vect); //draws a vector as a line from the origin taking a DUO::vector2 object and a renderer as arguments
 
     void drawTriangle(short x1, short y1, short x2, short y2, short x3, short y3, short r, short g, short b, SDL_Renderer* renderer); //a triangle draw function taking 3 sets of sequential points
     void fillTopTriangle(double x1, double y1, double x2, double y2, double x3, double y3, short r, short g, short b, SDL_Renderer* renderer); // a triangle fill function that draws a trinagle with y of the 1 and 3 points being lower than the 2

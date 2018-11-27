@@ -29,9 +29,9 @@ DUO::transformComponent::transformComponent(double newX, double newY, double new
 
 void DUO::transformComponent::setPosition(double x, double y) {position.setVector(x, y);}
 
-DUO::vector DUO::transformComponent::getPosition() {return position;}
+DUO::vector2 DUO::transformComponent::getPosition() {return position;}
 
-DUO::vector DUO::transformComponent::getScale() {return scale;}
+DUO::vector2 DUO::transformComponent::getScale() {return scale;}
 
 double DUO::transformComponent::getRotation() {return rotation;}
 
@@ -94,7 +94,7 @@ DUO::renderComponent::renderComponent(int newID, DUO::gameObject* newObject, dou
 
 }
 
-DUO::vector DUO::renderComponent::getDimensions() {return dimensions;}
+DUO::vector2 DUO::renderComponent::getDimensions() {return dimensions;}
 
 void DUO::renderComponent::setDimensions(double newWidth, double newHeight) {dimensions.setVector(newWidth, newHeight);}
 
@@ -102,7 +102,7 @@ void DUO::renderComponent::setDimensions(double newWidth, double newHeight) {dim
 DUO::polygonRenderer::polygonRenderer(int newID, DUO::gameObject* newObject, double width, double height, int newR, int newG, int newB, int sides) : 
 renderComponent(newID, newObject, width, height), r(newR), g(newG), b(newB), numberOfSides(sides) {}
 
-void DUO::polygonRenderer::update(DUO::vector objectPos) {
+void DUO::polygonRenderer::update(DUO::vector2 objectPos) {
 
     double x{myTransform->getPosition().getXComponent()};
     double y{myTransform->getPosition().getYComponent()};
@@ -135,15 +135,18 @@ DUO::spriteRenderer::spriteRenderer(std::string path, int newID, DUO::gameObject
 
 }
 
-void DUO::spriteRenderer::update(DUO::vector objectPos) {
+void DUO::spriteRenderer::update(DUO::vector2 objectPos) {
 
     int x = static_cast<int>(objectPos.getXComponent());
     int y = static_cast<int>(objectPos.getYComponent());
 
+<<<<<<< HEAD
+=======
     SDL_Rect tempRect {x, y, static_cast<int>(dimensions.getXComponent()), static_cast<int>(dimensions.getYComponent())};
 
     SDL_Point centre{x, y};
 
+>>>>>>> 7e3f76c20471135ffcb469fc4876e8f0a0feef89
     SDL_RenderCopyEx(myObject->getRenderer(), myTexture, NULL, &tempRect, myTransform->getRotation(), NULL, SDL_FLIP_NONE);
 
 }

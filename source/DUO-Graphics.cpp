@@ -1,5 +1,5 @@
 #include "DUO-Graphics.h"
-#include "DUO-Maths.h" //provides the use of DUO::vector
+#include "DUO-Maths.h" //provides the use of DUO::vector2
 #include <utility> //used for std::swap
 #include <cmath> //provides a set of maths functions including round and sqrt
 #include <iostream>
@@ -14,7 +14,7 @@ void DUO::floodScreen(SDL_Renderer* renderer, short r, short g, short b, short a
 
 };
 
-void DUO::drawVector(SDL_Renderer* renderer, DUO::vector* vect) {
+void DUO::drawVector(SDL_Renderer* renderer, DUO::vector2* vect) {
 
     //draws a line from the origin to the components of the vector using the SDL_Drawline function
 
@@ -119,9 +119,9 @@ void DUO::fillTriangle(double x1, double y1, double x2, double y2, double x3, do
         */
 
 
-        DUO::vector pointVectors[] = {DUO::vector(x1, y1), //creates an array of vectors whose components are based on the position variables passed as arguments
-                                    DUO::vector(x2, y2),
-                                    DUO::vector(x3, y3)};
+        DUO::vector2 pointVectors[] = {DUO::vector2(x1, y1), //creates an array of vectors whose components are based on the position variables passed as arguments
+                                    DUO::vector2(x2, y2),
+                                    DUO::vector2(x3, y3)};
 
         bool sortFinished {false}; // creates a boolean called sortFinished to be used to tell whether the sort has ended
 
@@ -162,10 +162,10 @@ void DUO::fillTriangle(double x1, double y1, double x2, double y2, double x3, do
 
 void DUO::drawRect(short x, short y, double rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height) {
 
-    DUO::vector vectorArray[] = {DUO::vector(-(width / 2), -(height / 2)), //creates an array of vectors for each point of the rectangle starting in the top left going clockwise
-                                 DUO::vector(width / 2, -(height / 2)),
-                                 DUO::vector(width / 2, height / 2),
-                                 DUO::vector(-(width / 2), height / 2)};
+    DUO::vector2 vectorArray[] = {DUO::vector2(-(width / 2), -(height / 2)), //creates an array of vectors for each point of the rectangle starting in the top left going clockwise
+                                 DUO::vector2(width / 2, -(height / 2)),
+                                 DUO::vector2(width / 2, height / 2),
+                                 DUO::vector2(-(width / 2), height / 2)};
 
     SDL_Point pointArray[5]; //creating an array of SDL_Points to be used later in the SDL_RenderDrawLines function
 
@@ -188,12 +188,12 @@ void DUO::drawRect(short x, short y, double rotation, short r, short g, short b,
 
 void DUO::fillRect(short x, short y, double rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height) {
 
-    DUO::vector vectorArray[] = {DUO::vector(-(width / 2), -(height / 2)), //creates an array of vectors for each point of the rectangle starting in the top left going clockwise
-                                 DUO::vector(width / 2, -(height / 2)),
-                                 DUO::vector(width / 2, height / 2),
-                                 DUO::vector(-(width / 2), height / 2)};
+    DUO::vector2 vectorArray[] = {DUO::vector2(-(width / 2), -(height / 2)), //creates an array of vectors for each point of the rectangle starting in the top left going clockwise
+                                 DUO::vector2(width / 2, -(height / 2)),
+                                 DUO::vector2(width / 2, height / 2),
+                                 DUO::vector2(-(width / 2), height / 2)};
 
-    for (DUO::vector &element : vectorArray) { // a foreach loop running through each vector in the array by reference
+    for (DUO::vector2 &element : vectorArray) { // a foreach loop running through each vector in the array by reference
 
         element.rotateVector(rotation); //rotates the vector
         element.increment(x, y); //increments the vector's components by the centre point
@@ -259,7 +259,7 @@ void DUO::fillCircle(short x, short y, short radius, short r, short g, short b, 
 
 void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation) {
      
-    DUO::vector vectorArray[numberOfSides];
+    DUO::vector2 vectorArray[numberOfSides];
 
      double centreAngle {static_cast<double>(360 / numberOfSides)};
 
@@ -267,11 +267,11 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
 
      double halfLength{static_cast<double>(sideLength / 2)};
 
-     vectorArray[0] = DUO::vector(halfLength, static_cast<double>((std::tan(DUO::deg2Rad(cornerAngle / 2))) * halfLength));
+     vectorArray[0] = DUO::vector2(halfLength, static_cast<double>((std::tan(DUO::deg2Rad(cornerAngle / 2))) * halfLength));
      
      for (int i = 1; i < numberOfSides; i ++) {
      
-         DUO::vector tempVect = vectorArray[i - 1];
+         DUO::vector2 tempVect = vectorArray[i - 1];
      
          tempVect.rotateVector(centreAngle);
      
@@ -300,7 +300,7 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
  
  void DUO::fillPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation) {
      
-     DUO::vector vectorArray[numberOfSides];
+     DUO::vector2 vectorArray[numberOfSides];
      
      double centreAngle {static_cast<double>(360 / numberOfSides)};
      
@@ -308,11 +308,11 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
      
      double halfLength{static_cast<double>(sideLength / 2)};
      
-     vectorArray[0] = DUO::vector(halfLength, static_cast<double>((std::tan(DUO::deg2Rad(cornerAngle / 2))) * halfLength));
+     vectorArray[0] = DUO::vector2(halfLength, static_cast<double>((std::tan(DUO::deg2Rad(cornerAngle / 2))) * halfLength));
      
      for (int i = 1; i < numberOfSides; i ++) {
      
-         DUO::vector tempVect = vectorArray[i - 1];
+         DUO::vector2 tempVect = vectorArray[i - 1];
          tempVect.rotateVector(centreAngle);
          vectorArray[i] = tempVect;        
      

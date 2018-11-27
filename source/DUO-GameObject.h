@@ -18,7 +18,7 @@ namespace DUO {
         SDL_Renderer* myRenderer = NULL; //a poiner to an sdl renderer provided by the constructor
         int curRenderID{0}; //the id to be assigned to the next component in the renderComponentVect
         int curComponentID{0}; //the id to be assigned to the next component in the component vector
-        DUO::vector myAcceleration{0.0, 0.0};
+        DUO::vector2 myAcceleration{0.0, 0.0};
 
         DUO::transformComponent* myTransform = NULL; //a pointer to a transform component to be instantiated in the constructor
 
@@ -46,6 +46,8 @@ namespace DUO {
         DUO::transformComponent* getTransform();
 
         SDL_Renderer* getRenderer();
+
+        std::shared_ptr<DUO::gameObjectComponent> getComponent(int compID, DUO::componentTypes compType);
 
     };
 

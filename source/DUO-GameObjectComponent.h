@@ -38,16 +38,16 @@ namespace DUO {
 
     private:
 
-        DUO::vector position{0.0, 0.0};
-        DUO::vector scale{1.0, 1.0};
+        DUO::vector2 position{0.0, 0.0};
+        DUO::vector2 scale{1.0, 1.0};
         double rotation{0.0};
 
     public:
 
         transformComponent(double newX, double newY, double newXScale, double newYScale, double newRotation, int newID, DUO::gameObject* newGameObject);
 
-        DUO::vector getPosition();
-        DUO::vector getScale();
+        DUO::vector2 getPosition();
+        DUO::vector2 getScale();
         double getRotation();
 
         bool translate(double xInc, double yInc);
@@ -61,7 +61,7 @@ namespace DUO {
 
     protected:
 
-        DUO::vector dimensions{0.0, 0.0};
+        DUO::vector2 dimensions{0.0, 0.0};
         transformComponent* myTransform = NULL;
 
     public:
@@ -69,9 +69,9 @@ namespace DUO {
         renderComponent(int newID, DUO::gameObject* newObject, double width, double height);
 
         virtual void setup() override {};
-        virtual void update(DUO::vector objectPos){};
+        virtual void update(DUO::vector2 objectPos){};
 
-        DUO::vector getDimensions();
+        DUO::vector2 getDimensions();
         void setDimensions(double newWidth = 1.0, double newHeight = 1.0);
 
     };
@@ -88,7 +88,7 @@ namespace DUO {
 
         polygonRenderer(int newID, DUO::gameObject* newObject, double width, double height, int newR, int newG, int newB, int sides);
 
-        virtual void update(DUO::vector objectPos) override;
+        virtual void update(DUO::vector2 objectPos) override;
 
     };
 
@@ -102,7 +102,7 @@ namespace DUO {
 
         spriteRenderer(std::string path, int newID, DUO::gameObject* newObject, double width = 1.0, double height = 1.0);
 
-        virtual void update(DUO::vector objectPos) override;
+        virtual void update(DUO::vector2 objectPos) override;
 
     };
 

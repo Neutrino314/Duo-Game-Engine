@@ -100,8 +100,8 @@ void DUO::gameObject::update() {
 
 void DUO::gameObject::draw(float interpolation) {
 
-    DUO::vector displayPos{myAcceleration * interpolation};
-    DUO::vector oldPos = myTransform->getPosition();
+    DUO::vector2 displayPos{myAcceleration * interpolation};
+    DUO::vector2 oldPos = myTransform->getPosition();
 
     displayPos = oldPos + displayPos;
 
@@ -143,5 +143,25 @@ int DUO::gameObject::getCurID(DUO::componentTypes compType) {
     }
 
     return DUO::BASE;
+
+}
+
+std::shared_ptr<DUO::gameObjectComponent> DUO::gameObject::getComponent(int compID, DUO::componentTypes compType) {
+
+    switch (compType) {
+
+    case DUO::BASE:
+
+        return componentVect[compID];
+
+    case DUO::RENDERER:
+
+        return renderComponentVect[compID];
+
+    default:
+
+        return componentVect[compID];
+
+    }
 
 }

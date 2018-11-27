@@ -2,7 +2,6 @@
 #include <SDL2/SDL.h>
 #include <string>
 #include "source/DUO-Engine.h"
-#include "source/userComponents.h"
 
 class game : public DUO::application { //creating a subclass of the application class that allows it to be instantiated
 
