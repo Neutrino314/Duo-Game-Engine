@@ -140,13 +140,10 @@ void DUO::spriteRenderer::update(DUO::vector2 objectPos) {
     int x = static_cast<int>(objectPos.getXComponent());
     int y = static_cast<int>(objectPos.getYComponent());
 
-<<<<<<< HEAD
-=======
     SDL_Rect tempRect {x, y, static_cast<int>(dimensions.getXComponent()), static_cast<int>(dimensions.getYComponent())};
 
     SDL_Point centre{x, y};
 
->>>>>>> 7e3f76c20471135ffcb469fc4876e8f0a0feef89
     SDL_RenderCopyEx(myObject->getRenderer(), myTexture, NULL, &tempRect, myTransform->getRotation(), NULL, SDL_FLIP_NONE);
 
 }
