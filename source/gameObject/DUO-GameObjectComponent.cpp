@@ -4,7 +4,7 @@
 #include "DUO-GameObject.h"
 #include "DUO-Scene.h"
 #include "DUO-Graphics.h"
-#include "DUO-Keyboard.h"
+#include <runtime/DUO-Keyboard.h>
 #include <iostream>
 #include <memory>
 

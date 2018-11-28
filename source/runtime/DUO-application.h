@@ -1,6 +1,6 @@
 #include <SDL2/SDL.h>
 #include <iostream>
-#include "DUO-Scene.h"
+#include <DUO-Scene.h>
 #include <vector>
 #include <string>
 

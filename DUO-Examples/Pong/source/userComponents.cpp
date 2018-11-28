@@ -24,11 +24,11 @@ void DUO::ballComponent::update() {
 
     if (myTransform->getPosition().getYComponent() - 25 <= 0) {
 
-        velocity.setYComponent(8.0);
+        velocity.setYComponent(4.0);
 
     } else if (myTransform->getPosition().getYComponent() + 25 >= 600) {
 
-        velocity.setYComponent(-8.0);
+        velocity.setYComponent(-4.0);
 
     }
 
@@ -41,7 +41,7 @@ void DUO::ballComponent::update() {
 
             if (myTransform->getPosition().getXComponent() - 25 < paddle1->getTransform()->getPosition().getXComponent() + 25 && myTransform->getPosition().getXComponent() - 25 > paddle1->getTransform()->getPosition().getXComponent()) {
 
-                velocity.setVector(8, -8);
+                velocity.setVector(8, -4);
 
             }
             
@@ -49,7 +49,7 @@ void DUO::ballComponent::update() {
 
             if (myTransform->getPosition().getXComponent() - 25 < paddle1->getTransform()->getPosition().getXComponent() + 25 && myTransform->getPosition().getXComponent() - 25 > paddle1->getTransform()->getPosition().getXComponent()) {
 
-                velocity.setVector(8, 8);
+                velocity.setVector(8, 4);
 
             }
             
@@ -59,7 +59,7 @@ void DUO::ballComponent::update() {
 
             if (myTransform->getPosition().getXComponent() - 25 < paddle1->getTransform()->getPosition().getXComponent() + 25 && myTransform->getPosition().getXComponent() - 25 > paddle1->getTransform()->getPosition().getXComponent()) {
 
-                velocity.setVector(8, 0);
+                velocity.setVector(8, 4);
 
             }
 
@@ -73,7 +73,7 @@ void DUO::ballComponent::update() {
 
             if (myTransform->getPosition().getXComponent() + 25 > paddle2->getTransform()->getPosition().getXComponent() - 25 && myTransform->getPosition().getXComponent() - 25 < paddle2->getTransform()->getPosition().getXComponent()) {
 
-                velocity.setVector(-8, -8);
+                velocity.setVector(-8, -4);
 
             }
             
@@ -81,7 +81,7 @@ void DUO::ballComponent::update() {
 
             if (myTransform->getPosition().getXComponent() + 25 > paddle2->getTransform()->getPosition().getXComponent() - 25 && myTransform->getPosition().getXComponent() - 25 < paddle2->getTransform()->getPosition().getXComponent()) {
 
-                velocity.setVector(-8, 8);
+                velocity.setVector(-8, 4);
 
             }
             

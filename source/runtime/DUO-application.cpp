@@ -4,8 +4,8 @@
 #include <iostream>
 #include "DUO-application.h"
 #include "DUO-Keyboard.h"
-#include "DUO-Graphics.h"
-#include "DUO-Scene.h"
+#include <DUO-Graphics.h>
+#include <DUO-Scene.h>
 #include <thread>
 #include <vector>
 
@@ -34,6 +34,8 @@ void DUO::application::update() {
         curFrame ++;
 
     }
+
+    std::cout << "Kill yourself Cian!\n";
 
 }
 

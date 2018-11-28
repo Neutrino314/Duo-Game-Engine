@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <string>
+#include <cstdlib>
 #include "source/DUO-Engine.h"
 #include "source/userComponents.h"
 
@@ -23,7 +24,7 @@ public:
         sceneVect[0]->addObject(new DUO::gameObject(2, mainRenderer));
         sceneVect[0]->getObject(2)->move(400.0, 300.0);
         sceneVect[0]->getObject(2)->addComponent(DUO::BASE, std::make_shared<DUO::ballComponent>(0, sceneVect[0]->getObject(2), sceneVect[0]->getObject(2)->getTransform(), sceneVect[0]->getObject(1), sceneVect[0]->getObject(0)));
-        sceneVect[0]->getObject(2)->addComponent(DUO::RENDERER, std::make_shared<DUO::ballRenderer>(0, sceneVect[0]->getObject(2), 25.0, 255, 255, 255));
+        sceneVect[0]->getObject(2)->addComponent(DUO::RENDERER, std::make_shared<DUO::ballRenderer>(0, sceneVect[0]->getObject(2), 25.0, std::rand() % 255, std::rand() % 255, std::rand() % 255));
 
     }; //a setup function called before the game loop starts
 

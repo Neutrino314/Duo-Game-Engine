@@ -1,11 +1,11 @@
 #include "DUO-Graphics.h"
 #include "DUO-Maths.h"
-#include "DUO-application.h"
+#include <runtime/DUO-application.h>
 #include "DUO-Utils.h"
-#include "DUO-Scene.h"
-#include "DUO-GameObject.h"
-#include "DUO-GameObjectComponent.h"
-#include "DUO-Keyboard.h"
+#include <gameObject/DUO-Scene.h>
+#include <gameObject/DUO-GameObject.h>
+#include <gameObject/DUO-GameObjectComponent.h>
+#include "runtime/DUO-Keyboard.h"
 
 #ifndef DUO_ENGINE
 #define DUO_ENGINE
