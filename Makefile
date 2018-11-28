@@ -9,8 +9,8 @@ output: DUO.a main.cpp
 
 DUO.a: source/*.cpp source/*.h
 	$(CC) $(INCLUDE_DIRS) -std=c++14 -c source/runtime/DUO-application.cpp -o DUO-application.o
-	$(CC) $(INCLUDE_DIRS) -std=c++14 -c source/DUO-Graphics.cpp -o DUO-Graphics.o
-	$(CC) $(INCLUDE_DIRS) -std=c++14 -c source/DUO-Maths.cpp -o DUO-Maths.o
+	$(CC) $(INCLUDE_DIRS) -std=c++14 -c source/graphics/DUO-Graphics.cpp -o DUO-Graphics.o
+	$(CC) $(INCLUDE_DIRS) -std=c++14 -c source/maths/DUO-Maths.cpp -o DUO-Maths.o
 	$(CC) $(INCLUDE_DIRS) -std=c++14 -c source/gameObject/DUO-Scene.cpp -o DUO-Scene.o
 	$(CC) $(INCLUDE_DIRS) -std=c++14 -c source/gameObject/DUO-GameObject.cpp -o DUO-GameObject.o
 	$(CC) $(INCLUDE_DIRS) -std=c++14 -c source/gameObject/DUO-GameObjectComponent.cpp -o DUO-GameObjectComponent.o

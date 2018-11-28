@@ -2,8 +2,8 @@
 
 #include "DUO-Utils.h"
 #include <SDL2/SDL.h>
-#include "DUO-Maths.h"
-#include "DUO-Graphics.h"
+#include <maths/DUO-Maths.h>
+#include <graphics/DUO-Graphics.h>
 #include <memory>
 
 namespace DUO {class gameObject;}

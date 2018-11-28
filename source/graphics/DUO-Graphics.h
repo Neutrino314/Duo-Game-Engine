@@ -2,7 +2,7 @@
 #define DUO_GRAPHICS
 
 #include <SDL2/SDL.h>
-#include "DUO-Maths.h"
+#include <maths/DUO-Maths.h>
 #include <string>
 
 namespace DUO {

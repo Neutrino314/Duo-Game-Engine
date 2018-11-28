@@ -1,7 +1,7 @@
 #pragma once
 
 #include "DUO-Utils.h"
-#include "DUO-Maths.h"
+#include <maths/DUO-Maths.h>
 #include <vector>
 #include <memory>
 #include <SDL2/SDL.h>

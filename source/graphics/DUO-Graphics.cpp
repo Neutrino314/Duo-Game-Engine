@@ -1,5 +1,5 @@
 #include "DUO-Graphics.h"
-#include "DUO-Maths.h" //provides the use of DUO::vector2
+#include <maths/DUO-Maths.h> //provides the use of DUO::vector2
 #include <utility> //used for std::swap
 #include <cmath> //provides a set of maths functions including round and sqrt
 #include <iostream>

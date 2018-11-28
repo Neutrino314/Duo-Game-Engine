@@ -1,9 +1,9 @@
 #include "DUO-Utils.h"
-#include "DUO-Maths.h"
+#include <maths/DUO-Maths.h>
 #include "DUO-GameObjectComponent.h"
 #include "DUO-GameObject.h"
 #include "DUO-Scene.h"
-#include "DUO-Graphics.h"
+#include <graphics/DUO-Graphics.h>
 #include <runtime/DUO-Keyboard.h>
 #include <iostream>
 #include <memory>
