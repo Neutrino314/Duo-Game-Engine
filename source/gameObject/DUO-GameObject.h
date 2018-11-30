@@ -6,7 +6,7 @@
 #include <memory>
 #include <SDL2/SDL.h>
 
-namespace DUO {class scene; class gameObjectComponent; class renderComponent; class transformComponent;}
+namespace DUO {class scene; class gameObjectComponent; class renderComponent; class transformComponent; class objectManager;}
 
 namespace DUO {
 
@@ -47,8 +47,7 @@ namespace DUO {
 
         SDL_Renderer* getRenderer();
 
-        std::shared_ptr<DUO::gameObjectComponent> getComponent(int compID, DUO::componentTypes compType);
-
+        friend class DUO::objectManager;
     };
 
 }

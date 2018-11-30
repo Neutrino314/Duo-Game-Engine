@@ -146,22 +146,3 @@ int DUO::gameObject::getCurID(DUO::componentTypes compType) {
 
 }
 
-std::shared_ptr<DUO::gameObjectComponent> DUO::gameObject::getComponent(int compID, DUO::componentTypes compType) {
-
-    switch (compType) {
-
-    case DUO::BASE:
-
-        return componentVect[compID];
-
-    case DUO::RENDERER:
-
-        return renderComponentVect[compID];
-
-    default:
-
-        return componentVect[compID];
-
-    }
-
-}
