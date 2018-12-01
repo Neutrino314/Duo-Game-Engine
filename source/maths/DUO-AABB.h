@@ -23,7 +23,7 @@ public:
 
     DUO::vector2 getCentre();  // gets the coordinates of the AABB
 
-    bool pointInThis(DUO::vector2); //tests whether a point is inside the AABB
+    bool pointInThis(DUO::vector2 point); //tests whether a point is inside the AABB
 
     bool intersectsAABB(AABB box1); //tests whether this intersects with another AABB
 

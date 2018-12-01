@@ -1,0 +1,97 @@
+[
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/output.dir/source/main.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/main.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/main.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/engine_lib.dir/source/gameObject/DUO-GameObject.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObject.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObject.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/engine_lib.dir/source/gameObject/DUO-GameObjectComponent.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObjectComponent.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObjectComponent.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/engine_lib.dir/source/gameObject/DUO-Scene.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Scene.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Scene.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/engine_lib.dir/source/gameObject/DUO-Utils.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Utils.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Utils.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/engine_lib.dir/source/graphics/DUO-Graphics.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/graphics/DUO-Graphics.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/graphics/DUO-Graphics.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/runtime/DUO-Keyboard.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/runtime/DUO-Keyboard.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/runtime/DUO-application.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/runtime/DUO-application.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/gameObject.dir/source/gameObject/DUO-GameObject.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObject.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObject.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/gameObject.dir/source/gameObject/DUO-GameObjectComponent.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObjectComponent.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObjectComponent.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/gameObject.dir/source/gameObject/DUO-Scene.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Scene.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Scene.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/gameObject.dir/source/gameObject/DUO-Utils.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Utils.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Utils.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/graphics.dir/source/graphics/DUO-Graphics.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/graphics/DUO-Graphics.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/graphics/DUO-Graphics.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/maths.dir/source/maths/DUO-AABB.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/maths.dir/source/maths/DUO-Maths.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/runtime.dir/source/runtime/DUO-Keyboard.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/runtime/DUO-Keyboard.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/runtime/DUO-Keyboard.cpp"
+},
+{
+  "directory": "/home/alex/programming/Duo-Game-Engine/build",
+  "command": "/usr/bin/g++-8     -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/ -g   -std=gnu++14 -o CMakeFiles/runtime.dir/source/runtime/DUO-application.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/runtime/DUO-application.cpp",
+  "file": "/home/alex/programming/Duo-Game-Engine/source/runtime/DUO-application.cpp"
+}
+]

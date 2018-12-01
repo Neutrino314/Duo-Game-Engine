@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libgameObject.a  CMakeFiles/gameObject.dir/source/gameObject/DUO-GameObject.cpp.o CMakeFiles/gameObject.dir/source/gameObject/DUO-GameObjectComponent.cpp.o CMakeFiles/gameObject.dir/source/gameObject/DUO-Scene.cpp.o CMakeFiles/gameObject.dir/source/gameObject/DUO-Utils.cpp.o
+/usr/bin/ranlib lib/libgameObject.a

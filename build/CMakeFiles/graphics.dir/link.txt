@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libgraphics.a  CMakeFiles/graphics.dir/source/graphics/DUO-Graphics.cpp.o
+/usr/bin/ranlib lib/libgraphics.a

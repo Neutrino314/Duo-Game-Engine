@@ -41,6 +41,5 @@
         "typeinfo": "cpp",
         "utility": "cpp"
     },
-    "cmake.configureOnOpen": false,
-    "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools"
+    "cmake.configureOnOpen": false
 }
