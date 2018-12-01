@@ -1,6 +1,7 @@
 #include <graphics/DUO-Graphics.h>
 
 #include <maths/DUO-Maths.h>
+#include <maths/DUO-AABB.h>
 
 #include <runtime/DUO-application.h>
 #include <runtime/DUO-Keyboard.h>

@@ -1,0 +1,1 @@
+/usr/bin/c++   -lpthread -lSDL2 -lSDL2_image -I/home/alex/programming/Duo-Game-Engine/source/   CMakeFiles/output.dir/source/main.cpp.o  -o output lib/libengine_lib.a /usr/lib/x86_64-linux-gnu/libSDL2.so /usr/lib/x86_64-linux-gnu/libSDL2_image.so /usr/lib/x86_64-linux-gnu/libpthread.so 
