@@ -25,7 +25,7 @@ memory
 /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObject.h
 DUO-Utils.h
 /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Utils.h
-maths/DUO-Maths.h
+maths/DUO-Vector2.h
 -
 vector
 -
@@ -37,7 +37,7 @@ SDL2/SDL.h
 /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObjectComponent.cpp
 DUO-Utils.h
 /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Utils.h
-maths/DUO-Maths.h
+maths/DUO-Vector2.h
 -
 DUO-GameObjectComponent.h
 /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-GameObjectComponent.h
@@ -59,7 +59,7 @@ DUO-Utils.h
 /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Utils.h
 SDL2/SDL.h
 -
-maths/DUO-Maths.h
+maths/DUO-Vector2.h
 -
 graphics/DUO-Graphics.h
 -
@@ -100,5 +100,7 @@ ctime
 
 /home/alex/programming/Duo-Game-Engine/source/gameObject/DUO-Utils.h
 ctime
+-
+string
 -
 

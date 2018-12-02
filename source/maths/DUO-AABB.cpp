@@ -1,4 +1,4 @@
-#include "DUO-Maths.h"
+#include "DUO-Vector2.h"
 #include "DUO-AABB.h"
 
 DUO::AABB::AABB(double x, double y, double width, double height) {

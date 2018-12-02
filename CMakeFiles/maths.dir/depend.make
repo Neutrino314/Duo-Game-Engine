@@ -4,7 +4,12 @@
 CMakeFiles/maths.dir/source/maths/DUO-AABB.cpp.o: source/maths/DUO-AABB.cpp
 CMakeFiles/maths.dir/source/maths/DUO-AABB.cpp.o: source/maths/DUO-AABB.h
 CMakeFiles/maths.dir/source/maths/DUO-AABB.cpp.o: source/maths/DUO-Maths.h
+CMakeFiles/maths.dir/source/maths/DUO-AABB.cpp.o: source/maths/DUO-Vector2.h
 
 CMakeFiles/maths.dir/source/maths/DUO-Maths.cpp.o: source/maths/DUO-Maths.cpp
 CMakeFiles/maths.dir/source/maths/DUO-Maths.cpp.o: source/maths/DUO-Maths.h
+
+CMakeFiles/maths.dir/source/maths/DUO-Vector2.cpp.o: source/maths/DUO-Maths.h
+CMakeFiles/maths.dir/source/maths/DUO-Vector2.cpp.o: source/maths/DUO-Vector2.cpp
+CMakeFiles/maths.dir/source/maths/DUO-Vector2.cpp.o: source/maths/DUO-Vector2.h
 

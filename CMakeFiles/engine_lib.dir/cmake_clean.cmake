@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/engine_lib.dir/source/graphics/DUO-Graphics.cpp.o"
   "CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o"
   "CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.o"
+  "CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o"
   "CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o"
   "CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o"
   "lib/libengine_lib.pdb"

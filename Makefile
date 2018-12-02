@@ -425,6 +425,36 @@ source/maths/DUO-Maths.cpp.s:
 	$(MAKE) -f CMakeFiles/maths.dir/build.make CMakeFiles/maths.dir/source/maths/DUO-Maths.cpp.s
 .PHONY : source/maths/DUO-Maths.cpp.s
 
+source/maths/DUO-Vector2.o: source/maths/DUO-Vector2.cpp.o
+
+.PHONY : source/maths/DUO-Vector2.o
+
+# target to build an object file
+source/maths/DUO-Vector2.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o
+	$(MAKE) -f CMakeFiles/maths.dir/build.make CMakeFiles/maths.dir/source/maths/DUO-Vector2.cpp.o
+.PHONY : source/maths/DUO-Vector2.cpp.o
+
+source/maths/DUO-Vector2.i: source/maths/DUO-Vector2.cpp.i
+
+.PHONY : source/maths/DUO-Vector2.i
+
+# target to preprocess a source file
+source/maths/DUO-Vector2.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.i
+	$(MAKE) -f CMakeFiles/maths.dir/build.make CMakeFiles/maths.dir/source/maths/DUO-Vector2.cpp.i
+.PHONY : source/maths/DUO-Vector2.cpp.i
+
+source/maths/DUO-Vector2.s: source/maths/DUO-Vector2.cpp.s
+
+.PHONY : source/maths/DUO-Vector2.s
+
+# target to generate assembly for a file
+source/maths/DUO-Vector2.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.s
+	$(MAKE) -f CMakeFiles/maths.dir/build.make CMakeFiles/maths.dir/source/maths/DUO-Vector2.cpp.s
+.PHONY : source/maths/DUO-Vector2.cpp.s
+
 source/runtime/DUO-Keyboard.o: source/runtime/DUO-Keyboard.cpp.o
 
 .PHONY : source/runtime/DUO-Keyboard.o
@@ -523,6 +553,9 @@ help:
 	@echo "... source/maths/DUO-Maths.o"
 	@echo "... source/maths/DUO-Maths.i"
 	@echo "... source/maths/DUO-Maths.s"
+	@echo "... source/maths/DUO-Vector2.o"
+	@echo "... source/maths/DUO-Vector2.i"
+	@echo "... source/maths/DUO-Vector2.s"
 	@echo "... source/runtime/DUO-Keyboard.o"
 	@echo "... source/runtime/DUO-Keyboard.i"
 	@echo "... source/runtime/DUO-Keyboard.s"

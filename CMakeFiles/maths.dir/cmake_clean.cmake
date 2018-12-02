@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/maths.dir/source/maths/DUO-AABB.cpp.o"
   "CMakeFiles/maths.dir/source/maths/DUO-Maths.cpp.o"
+  "CMakeFiles/maths.dir/source/maths/DUO-Vector2.cpp.o"
   "lib/libmaths.pdb"
   "lib/libmaths.a"
 )

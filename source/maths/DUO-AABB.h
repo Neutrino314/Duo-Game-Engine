@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DUO-Maths.h"
+#include "DUO-Vector2.h"
 
 namespace DUO {
 

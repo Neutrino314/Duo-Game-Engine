@@ -8,7 +8,7 @@
 
 DUO::gameObject::gameObject(int newID, SDL_Renderer* newRenderer) : myID(newID), myRenderer(newRenderer), myTransform(new DUO::transformComponent(0.0, 0.0, 1.0, 1.0, 0.0, 0, this)) {}
 
-void DUO::gameObject::addComponent(DUO::componentTypes newType, std::shared_ptr<DUO::gameObjectComponent> newComponent) {
+void DUO::gameObject::addComponent(DUO::broadType newType, std::shared_ptr<DUO::gameObjectComponent> newComponent) {
 
     switch (newType) {
 
@@ -31,7 +31,7 @@ void DUO::gameObject::addComponent(DUO::componentTypes newType, std::shared_ptr<
 
 }
 
-void DUO::gameObject::removeComponent(DUO::componentTypes compType, int compID) {
+void DUO::gameObject::removeComponent(DUO::broadType compType, int compID) {
 
     switch (compType) {
 
@@ -123,7 +123,7 @@ SDL_Renderer* DUO::gameObject::getRenderer() {return myRenderer;}
 
 DUO::transformComponent* DUO::gameObject::getTransform() {return myTransform;}
 
-int DUO::gameObject::getCurID(DUO::componentTypes compType) {
+int DUO::gameObject::getCurID(DUO::broadType compType) {
 
     switch (compType) {
 

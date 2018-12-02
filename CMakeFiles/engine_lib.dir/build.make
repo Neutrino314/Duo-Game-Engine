@@ -148,9 +148,22 @@ CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.cpp -o CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.s
 
+CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o: CMakeFiles/engine_lib.dir/flags.make
+CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o: source/maths/DUO-Vector2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/programming/Duo-Game-Engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.cpp
+
+CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.cpp > CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.i
+
+CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.cpp -o CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.s
+
 CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o: CMakeFiles/engine_lib.dir/flags.make
 CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o: source/runtime/DUO-Keyboard.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/programming/Duo-Game-Engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/programming/Duo-Game-Engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/runtime/DUO-Keyboard.cpp
 
 CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.s: cmake_force
 
 CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o: CMakeFiles/engine_lib.dir/flags.make
 CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o: source/runtime/DUO-application.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/programming/Duo-Game-Engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/programming/Duo-Game-Engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o -c /home/alex/programming/Duo-Game-Engine/source/runtime/DUO-application.cpp
 
 CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.i: cmake_force
@@ -183,6 +196,7 @@ engine_lib_OBJECTS = \
 "CMakeFiles/engine_lib.dir/source/graphics/DUO-Graphics.cpp.o" \
 "CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o" \
 "CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.o" \
+"CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o" \
 "CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o" \
 "CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o"
 
@@ -196,11 +210,12 @@ lib/libengine_lib.a: CMakeFiles/engine_lib.dir/source/gameObject/DUO-Utils.cpp.o
 lib/libengine_lib.a: CMakeFiles/engine_lib.dir/source/graphics/DUO-Graphics.cpp.o
 lib/libengine_lib.a: CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o
 lib/libengine_lib.a: CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.o
+lib/libengine_lib.a: CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o
 lib/libengine_lib.a: CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o
 lib/libengine_lib.a: CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o
 lib/libengine_lib.a: CMakeFiles/engine_lib.dir/build.make
 lib/libengine_lib.a: CMakeFiles/engine_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/programming/Duo-Game-Engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library lib/libengine_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/programming/Duo-Game-Engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library lib/libengine_lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/engine_lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine_lib.dir/link.txt --verbose=$(VERBOSE)
 

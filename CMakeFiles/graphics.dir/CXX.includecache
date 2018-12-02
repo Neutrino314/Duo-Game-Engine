@@ -9,7 +9,7 @@
 /home/alex/programming/Duo-Game-Engine/source/graphics/DUO-Graphics.cpp
 DUO-Graphics.h
 /home/alex/programming/Duo-Game-Engine/source/graphics/DUO-Graphics.h
-maths/DUO-Maths.h
+maths/DUO-Vector2.h
 -
 utility
 -
@@ -27,7 +27,7 @@ SDL2/SDL_image.h
 /home/alex/programming/Duo-Game-Engine/source/graphics/DUO-Graphics.h
 SDL2/SDL.h
 -
-maths/DUO-Maths.h
+maths/DUO-Vector2.h
 -
 string
 -

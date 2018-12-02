@@ -2,7 +2,7 @@
 
 #include "DUO-Utils.h"
 #include <SDL2/SDL.h>
-#include <maths/DUO-Maths.h>
+#include <maths/DUO-Vector2.h>
 #include <graphics/DUO-Graphics.h>
 #include <memory>
 
@@ -15,7 +15,7 @@ namespace DUO {
     protected:
 
         int myID;
-        DUO::componentTypes myType{DUO::BASE};
+        DUO::broadType myType{DUO::BASE};
         DUO::gameObject* myObject;
 
     public:
@@ -26,7 +26,7 @@ namespace DUO {
 
         void setID(int newID);
 
-        DUO::componentTypes getType();
+        DUO::broadType getType();
 
         virtual void setup() {};
 

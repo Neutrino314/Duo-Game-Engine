@@ -1,7 +1,7 @@
 #pragma once
 
 #include "DUO-Utils.h"
-#include <maths/DUO-Maths.h>
+#include <maths/DUO-Vector2.h>
 #include <vector>
 #include <memory>
 #include <SDL2/SDL.h>
@@ -29,9 +29,9 @@ namespace DUO {
 
         gameObject(int newID, SDL_Renderer* newRenderer); 
 
-        void addComponent(DUO::componentTypes newType, std::shared_ptr<DUO::gameObjectComponent> newComponent);
+        void addComponent(DUO::broadType newType, std::shared_ptr<DUO::gameObjectComponent> newComponent);
 
-        void removeComponent(DUO::componentTypes compType, int compID);
+        void removeComponent(DUO::broadType compType, int compID);
 
         void setup();
 
@@ -41,7 +41,7 @@ namespace DUO {
 
         void move(double x, double y);
 
-        int getCurID(DUO::componentTypes compType);
+        int getCurID(DUO::broadType compType);
 
         DUO::transformComponent* getTransform();
 

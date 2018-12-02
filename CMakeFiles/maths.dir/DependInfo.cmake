@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/maths.dir/source/maths/DUO-AABB.cpp.o"
   "/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/maths.dir/source/maths/DUO-Maths.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/maths.dir/source/maths/DUO-Vector2.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

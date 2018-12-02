@@ -2,6 +2,7 @@
 #define DUO_UTILS
 
 #include <ctime>
+#include <string>
 
 namespace DUO {
 
@@ -19,7 +20,13 @@ public:
 
 };
 
-enum componentTypes {BASE, RENDERER, TRANSFORM, PHYSICS, USERDEFINED, UI};
+enum broadType {BASE, RENDERER, TRANSFORM, PHYSICS, USERDEFINED, UI};
+
+struct compType {
+
+    std::string name;
+
+};
 
 };
 

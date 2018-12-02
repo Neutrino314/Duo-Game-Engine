@@ -1,2 +1,2 @@
-/usr/bin/ar qc lib/libmaths.a  CMakeFiles/maths.dir/source/maths/DUO-AABB.cpp.o CMakeFiles/maths.dir/source/maths/DUO-Maths.cpp.o
+/usr/bin/ar qc lib/libmaths.a  CMakeFiles/maths.dir/source/maths/DUO-AABB.cpp.o CMakeFiles/maths.dir/source/maths/DUO-Maths.cpp.o CMakeFiles/maths.dir/source/maths/DUO-Vector2.cpp.o
 /usr/bin/ranlib lib/libmaths.a

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/alex/programming/Duo-Game-Engine/source/graphics/DUO-Graphics.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/source/graphics/DUO-Graphics.cpp.o"
   "/home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o"
   "/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o"
   "/home/alex/programming/Duo-Game-Engine/source/runtime/DUO-Keyboard.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o"
   "/home/alex/programming/Duo-Game-Engine/source/runtime/DUO-application.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o"
   )

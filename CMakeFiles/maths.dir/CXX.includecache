@@ -7,16 +7,38 @@
 #IncludeRegexTransform: 
 
 /home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.cpp
-DUO-Maths.h
-/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.h
+DUO-Vector2.h
+/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.h
 DUO-AABB.h
 /home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.h
 
 /home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.h
+DUO-Vector2.h
+/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.h
+
+/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.cpp
+cmath
+-
+iostream
+-
+iomanip
+-
 DUO-Maths.h
 /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.h
 
 /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.h
 iomanip
 -
+
+/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.cpp
+DUO-Vector2.h
+/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.h
+cmath
+-
+iostream
+-
+
+/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.h
+DUO-Maths.h
+/home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.h
 

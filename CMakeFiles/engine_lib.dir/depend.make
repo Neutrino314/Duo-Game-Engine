@@ -28,9 +28,14 @@ CMakeFiles/engine_lib.dir/source/graphics/DUO-Graphics.cpp.o: source/graphics/DU
 CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o: source/maths/DUO-AABB.cpp
 CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o: source/maths/DUO-AABB.h
 CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o: source/maths/DUO-Maths.h
+CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o: source/maths/DUO-Vector2.h
 
 CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.o: source/maths/DUO-Maths.cpp
 CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.o: source/maths/DUO-Maths.h
+
+CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o: source/maths/DUO-Maths.h
+CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o: source/maths/DUO-Vector2.cpp
+CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o: source/maths/DUO-Vector2.h
 
 CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o: source/runtime/DUO-Keyboard.cpp
 CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o: source/runtime/DUO-Keyboard.h

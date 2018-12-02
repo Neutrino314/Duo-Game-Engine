@@ -29,9 +29,14 @@ CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o
  /home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.cpp
  /home/alex/programming/Duo-Game-Engine/source/maths/DUO-AABB.h
  /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.h
+ /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.h
 CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.o
  /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.cpp
  /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.h
+CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o
+ /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Maths.h
+ /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.cpp
+ /home/alex/programming/Duo-Game-Engine/source/maths/DUO-Vector2.h
 CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o
  /home/alex/programming/Duo-Game-Engine/source/runtime/DUO-Keyboard.cpp
  /home/alex/programming/Duo-Game-Engine/source/runtime/DUO-Keyboard.h

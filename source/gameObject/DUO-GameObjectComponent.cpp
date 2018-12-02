@@ -1,5 +1,5 @@
 #include "DUO-Utils.h"
-#include <maths/DUO-Maths.h>
+#include <maths/DUO-Vector2.h>
 #include "DUO-GameObjectComponent.h"
 #include "DUO-GameObject.h"
 #include "DUO-Scene.h"
@@ -18,7 +18,7 @@ int DUO::gameObjectComponent::getID() {return myID;}
 
 void DUO::gameObjectComponent::setID(int newID) {myID = newID;}
 
-DUO::componentTypes DUO::gameObjectComponent::getType() {return myType;}
+DUO::broadType DUO::gameObjectComponent::getType() {return myType;}
 
 DUO::transformComponent::transformComponent(double newX, double newY, double newXScale, double newYScale, double newRotation, int newID, DUO::gameObject* newObject) : rotation(newRotation), gameObjectComponent(newID, newObject) {
 
