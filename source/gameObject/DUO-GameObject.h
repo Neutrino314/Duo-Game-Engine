@@ -4,7 +4,9 @@
 #include <maths/DUO-Vector2.h>
 #include <vector>
 #include <memory>
+#include <map>
 #include <SDL2/SDL.h>
+#include <typeinfo>
 
 namespace DUO {class scene; class gameObjectComponent; class renderComponent; class transformComponent; class objectManager;}
 
@@ -24,6 +26,10 @@ namespace DUO {
 
         std::vector<std::shared_ptr<DUO::gameObjectComponent>> componentVect; //a vector of shared_ptrs to basic components
         std::vector<std::shared_ptr<DUO::renderComponent>> renderComponentVect; //a vector of shared_ptrs to renderer components
+
+        std::map<DUO::broadType, std::map<const char*, int>> compMap;
+        //This above me is a map of maps which uses a DUO::broadType as a key, the maps it stores consists of ints with compTypes as keys
+        //these ints are the indexes of the corresponding components
 
     public:
 

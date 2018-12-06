@@ -10,6 +10,7 @@
 #include <gameObject/DUO-Scene.h>
 #include <gameObject/DUO-GameObject.h>
 #include <gameObject/DUO-GameObjectComponent.h>
+#include <gameObject/DUO-ObjectManager.h>
 
 #ifndef DUO_ENGINE
 #define DUO_ENGINE

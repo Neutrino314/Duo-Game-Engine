@@ -45,8 +45,4 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/output.dir/DependInfo.cmake"
   "CMakeFiles/engine_lib.dir/DependInfo.cmake"
-  "CMakeFiles/gameObject.dir/DependInfo.cmake"
-  "CMakeFiles/graphics.dir/DependInfo.cmake"
-  "CMakeFiles/maths.dir/DependInfo.cmake"
-  "CMakeFiles/runtime.dir/DependInfo.cmake"
   )

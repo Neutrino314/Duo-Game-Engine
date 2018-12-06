@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <maths/DUO-Vector2.h>
 #include <graphics/DUO-Graphics.h>
+#include <runtime/DUO-application.h>
 #include <memory>
 
 namespace DUO {class gameObject;}
@@ -20,7 +21,7 @@ namespace DUO {
 
     public:
 
-        gameObjectComponent(int newID, DUO::gameObject* newObject);
+        gameObjectComponent(int newID, DUO::gameObject* newObject = NULL);
 
         int getID();
 
@@ -29,7 +30,6 @@ namespace DUO {
         DUO::broadType getType();
 
         virtual void setup() {};
-
         virtual void update() {};
 
     };
@@ -44,7 +44,9 @@ namespace DUO {
 
     public:
 
-        transformComponent(double newX, double newY, double newXScale, double newYScale, double newRotation, int newID, DUO::gameObject* newGameObject);
+        transformComponent(int newID, DUO::gameObject* newGameObject, double newX, double newY, double newXScale, double newYScale, double newRotation);
+
+        transformComponent(int newID, DUO::gameObject* newGameObject);
 
         DUO::vector2 getPosition();
         DUO::vector2 getScale();
@@ -68,6 +70,8 @@ namespace DUO {
 
         renderComponent(int newID, DUO::gameObject* newObject, double width, double height);
 
+        renderComponent(int newID, DUO::gameObject* newObject);
+
         virtual void setup() override {};
         virtual void update(DUO::vector2 objectPos){};
 
@@ -80,13 +84,17 @@ namespace DUO {
 
     private:
 
-        int r, g, b;
+        int r = 0, g = 0, b = 0;
         int numberOfSides{3};
         bool isFilled = true;
 
     public:
 
         polygonRenderer(int newID, DUO::gameObject* newObject, double width, double height, int newR, int newG, int newB, int sides);
+
+        polygonRenderer(int newID, DUO::gameObject* newObject);
+
+        void setColour(int newR, int newB, int newG);
 
         virtual void update(DUO::vector2 objectPos) override;
 
@@ -101,6 +109,10 @@ namespace DUO {
     public:
 
         spriteRenderer(std::string path, int newID, DUO::gameObject* newObject, double width = 1.0, double height = 1.0);
+
+        spriteRenderer(int newID, DUO::gameObject* newObject);
+
+        void setPath(std::string newPath);
 
         virtual void update(DUO::vector2 objectPos) override;
 

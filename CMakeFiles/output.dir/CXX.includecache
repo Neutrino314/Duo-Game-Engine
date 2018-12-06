@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/alex/programming/Duo-Game-Engine/source/DUO-Engine.h
+/home/alex/Desktop/Duo-Game-Engine/source/DUO-Engine.h
 graphics/DUO-Graphics.h
 -
 maths/DUO-Maths.h
@@ -25,8 +25,10 @@ gameObject/DUO-GameObject.h
 -
 gameObject/DUO-GameObjectComponent.h
 -
+gameObject/DUO-ObjectManager.h
+-
 
-/home/alex/programming/Duo-Game-Engine/source/main.cpp
+/home/alex/Desktop/Duo-Game-Engine/source/main.cpp
 iostream
 -
 SDL2/SDL.h
@@ -34,5 +36,5 @@ SDL2/SDL.h
 string
 -
 DUO-Engine.h
-/home/alex/programming/Duo-Game-Engine/source/DUO-Engine.h
+/home/alex/Desktop/Duo-Game-Engine/source/DUO-Engine.h
 

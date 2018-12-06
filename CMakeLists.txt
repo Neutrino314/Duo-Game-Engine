@@ -19,16 +19,6 @@ file(GLOB runtime_files "${source_dir}runtime/*.cpp")
 
 set(LIBRARY_OUTPUT_PATH  "${CMAKE_BINARY_DIR}/lib/")
 
-add_library(gameObject STATIC ${gameObject_files})
-
-add_library(graphics STATIC ${graphics_files})
-
-add_library(maths STATIC ${maths_files})
-
-add_library(runtime STATIC ${runtime_files})
-
-file(GLOB lib_Files "${LIBRARY_OUTPUT_PATH}/")
-
 find_library(SDL "SDL2")
 
 find_library(SDL_image "SDL2_image")

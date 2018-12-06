@@ -5,8 +5,17 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <memory>
+#include <map>
 
-DUO::gameObject::gameObject(int newID, SDL_Renderer* newRenderer) : myID(newID), myRenderer(newRenderer), myTransform(new DUO::transformComponent(0.0, 0.0, 1.0, 1.0, 0.0, 0, this)) {}
+DUO::gameObject::gameObject(int newID, SDL_Renderer* newRenderer) : myID(newID), myRenderer(newRenderer), myTransform(new DUO::transformComponent(0 ,this ,0.0, 0.0, 1.0, 1.0, 0.0)) {
+
+    static std::map<const char*, int> baseMap;
+    static std::map<const char*, int> rendererMap;
+
+    compMap[DUO::BASE] = baseMap;
+    compMap[DUO::RENDERER] = rendererMap;
+
+}
 
 void DUO::gameObject::addComponent(DUO::broadType newType, std::shared_ptr<DUO::gameObjectComponent> newComponent) {
 
