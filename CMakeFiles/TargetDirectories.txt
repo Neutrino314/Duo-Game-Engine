@@ -1,4 +1,4 @@
 /home/alex/Desktop/Duo-Game-Engine/CMakeFiles/rebuild_cache.dir
 /home/alex/Desktop/Duo-Game-Engine/CMakeFiles/edit_cache.dir
-/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/output.dir
+/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/Editor_exec.dir
 /home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir

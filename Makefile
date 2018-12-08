@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named output
+# Target rules for targets named Editor_exec
 
 # Build rule for target.
-output: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 output
-.PHONY : output
+Editor_exec: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Editor_exec
+.PHONY : Editor_exec
 
 # fast build rule for target.
-output/fast:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/build
-.PHONY : output/fast
+Editor_exec/fast:
+	$(MAKE) -f CMakeFiles/Editor_exec.dir/build.make CMakeFiles/Editor_exec.dir/build
+.PHONY : Editor_exec/fast
 
 #=============================================================================
 # Target rules for targets named engine_lib
@@ -136,302 +136,302 @@ engine_lib/fast:
 	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/build
 .PHONY : engine_lib/fast
 
-source/gameObject/DUO-GameObject.o: source/gameObject/DUO-GameObject.cpp.o
+DUO-Core/source/gameObject/DUO-GameObject.o: DUO-Core/source/gameObject/DUO-GameObject.cpp.o
 
-.PHONY : source/gameObject/DUO-GameObject.o
-
-# target to build an object file
-source/gameObject/DUO-GameObject.cpp.o:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-GameObject.cpp.o
-.PHONY : source/gameObject/DUO-GameObject.cpp.o
-
-source/gameObject/DUO-GameObject.i: source/gameObject/DUO-GameObject.cpp.i
-
-.PHONY : source/gameObject/DUO-GameObject.i
-
-# target to preprocess a source file
-source/gameObject/DUO-GameObject.cpp.i:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-GameObject.cpp.i
-.PHONY : source/gameObject/DUO-GameObject.cpp.i
-
-source/gameObject/DUO-GameObject.s: source/gameObject/DUO-GameObject.cpp.s
-
-.PHONY : source/gameObject/DUO-GameObject.s
-
-# target to generate assembly for a file
-source/gameObject/DUO-GameObject.cpp.s:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-GameObject.cpp.s
-.PHONY : source/gameObject/DUO-GameObject.cpp.s
-
-source/gameObject/DUO-GameObjectComponent.o: source/gameObject/DUO-GameObjectComponent.cpp.o
-
-.PHONY : source/gameObject/DUO-GameObjectComponent.o
+.PHONY : DUO-Core/source/gameObject/DUO-GameObject.o
 
 # target to build an object file
-source/gameObject/DUO-GameObjectComponent.cpp.o:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-GameObjectComponent.cpp.o
-.PHONY : source/gameObject/DUO-GameObjectComponent.cpp.o
+DUO-Core/source/gameObject/DUO-GameObject.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObject.cpp.o
+.PHONY : DUO-Core/source/gameObject/DUO-GameObject.cpp.o
 
-source/gameObject/DUO-GameObjectComponent.i: source/gameObject/DUO-GameObjectComponent.cpp.i
+DUO-Core/source/gameObject/DUO-GameObject.i: DUO-Core/source/gameObject/DUO-GameObject.cpp.i
 
-.PHONY : source/gameObject/DUO-GameObjectComponent.i
+.PHONY : DUO-Core/source/gameObject/DUO-GameObject.i
 
 # target to preprocess a source file
-source/gameObject/DUO-GameObjectComponent.cpp.i:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-GameObjectComponent.cpp.i
-.PHONY : source/gameObject/DUO-GameObjectComponent.cpp.i
+DUO-Core/source/gameObject/DUO-GameObject.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObject.cpp.i
+.PHONY : DUO-Core/source/gameObject/DUO-GameObject.cpp.i
 
-source/gameObject/DUO-GameObjectComponent.s: source/gameObject/DUO-GameObjectComponent.cpp.s
+DUO-Core/source/gameObject/DUO-GameObject.s: DUO-Core/source/gameObject/DUO-GameObject.cpp.s
 
-.PHONY : source/gameObject/DUO-GameObjectComponent.s
+.PHONY : DUO-Core/source/gameObject/DUO-GameObject.s
 
 # target to generate assembly for a file
-source/gameObject/DUO-GameObjectComponent.cpp.s:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-GameObjectComponent.cpp.s
-.PHONY : source/gameObject/DUO-GameObjectComponent.cpp.s
+DUO-Core/source/gameObject/DUO-GameObject.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObject.cpp.s
+.PHONY : DUO-Core/source/gameObject/DUO-GameObject.cpp.s
 
-source/gameObject/DUO-Scene.o: source/gameObject/DUO-Scene.cpp.o
+DUO-Core/source/gameObject/DUO-GameObjectComponent.o: DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.o
 
-.PHONY : source/gameObject/DUO-Scene.o
+.PHONY : DUO-Core/source/gameObject/DUO-GameObjectComponent.o
 
 # target to build an object file
-source/gameObject/DUO-Scene.cpp.o:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-Scene.cpp.o
-.PHONY : source/gameObject/DUO-Scene.cpp.o
+DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.o
+.PHONY : DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.o
 
-source/gameObject/DUO-Scene.i: source/gameObject/DUO-Scene.cpp.i
+DUO-Core/source/gameObject/DUO-GameObjectComponent.i: DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.i
 
-.PHONY : source/gameObject/DUO-Scene.i
+.PHONY : DUO-Core/source/gameObject/DUO-GameObjectComponent.i
 
 # target to preprocess a source file
-source/gameObject/DUO-Scene.cpp.i:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-Scene.cpp.i
-.PHONY : source/gameObject/DUO-Scene.cpp.i
+DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.i
+.PHONY : DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.i
 
-source/gameObject/DUO-Scene.s: source/gameObject/DUO-Scene.cpp.s
+DUO-Core/source/gameObject/DUO-GameObjectComponent.s: DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.s
 
-.PHONY : source/gameObject/DUO-Scene.s
+.PHONY : DUO-Core/source/gameObject/DUO-GameObjectComponent.s
 
 # target to generate assembly for a file
-source/gameObject/DUO-Scene.cpp.s:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-Scene.cpp.s
-.PHONY : source/gameObject/DUO-Scene.cpp.s
+DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.s
+.PHONY : DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.s
 
-source/gameObject/DUO-Utils.o: source/gameObject/DUO-Utils.cpp.o
+DUO-Core/source/gameObject/DUO-Scene.o: DUO-Core/source/gameObject/DUO-Scene.cpp.o
 
-.PHONY : source/gameObject/DUO-Utils.o
+.PHONY : DUO-Core/source/gameObject/DUO-Scene.o
 
 # target to build an object file
-source/gameObject/DUO-Utils.cpp.o:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-Utils.cpp.o
-.PHONY : source/gameObject/DUO-Utils.cpp.o
+DUO-Core/source/gameObject/DUO-Scene.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Scene.cpp.o
+.PHONY : DUO-Core/source/gameObject/DUO-Scene.cpp.o
 
-source/gameObject/DUO-Utils.i: source/gameObject/DUO-Utils.cpp.i
+DUO-Core/source/gameObject/DUO-Scene.i: DUO-Core/source/gameObject/DUO-Scene.cpp.i
 
-.PHONY : source/gameObject/DUO-Utils.i
+.PHONY : DUO-Core/source/gameObject/DUO-Scene.i
 
 # target to preprocess a source file
-source/gameObject/DUO-Utils.cpp.i:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-Utils.cpp.i
-.PHONY : source/gameObject/DUO-Utils.cpp.i
+DUO-Core/source/gameObject/DUO-Scene.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Scene.cpp.i
+.PHONY : DUO-Core/source/gameObject/DUO-Scene.cpp.i
 
-source/gameObject/DUO-Utils.s: source/gameObject/DUO-Utils.cpp.s
+DUO-Core/source/gameObject/DUO-Scene.s: DUO-Core/source/gameObject/DUO-Scene.cpp.s
 
-.PHONY : source/gameObject/DUO-Utils.s
+.PHONY : DUO-Core/source/gameObject/DUO-Scene.s
 
 # target to generate assembly for a file
-source/gameObject/DUO-Utils.cpp.s:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/gameObject/DUO-Utils.cpp.s
-.PHONY : source/gameObject/DUO-Utils.cpp.s
+DUO-Core/source/gameObject/DUO-Scene.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Scene.cpp.s
+.PHONY : DUO-Core/source/gameObject/DUO-Scene.cpp.s
 
-source/graphics/DUO-Graphics.o: source/graphics/DUO-Graphics.cpp.o
+DUO-Core/source/gameObject/DUO-Utils.o: DUO-Core/source/gameObject/DUO-Utils.cpp.o
 
-.PHONY : source/graphics/DUO-Graphics.o
+.PHONY : DUO-Core/source/gameObject/DUO-Utils.o
 
 # target to build an object file
-source/graphics/DUO-Graphics.cpp.o:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/graphics/DUO-Graphics.cpp.o
-.PHONY : source/graphics/DUO-Graphics.cpp.o
+DUO-Core/source/gameObject/DUO-Utils.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Utils.cpp.o
+.PHONY : DUO-Core/source/gameObject/DUO-Utils.cpp.o
 
-source/graphics/DUO-Graphics.i: source/graphics/DUO-Graphics.cpp.i
+DUO-Core/source/gameObject/DUO-Utils.i: DUO-Core/source/gameObject/DUO-Utils.cpp.i
 
-.PHONY : source/graphics/DUO-Graphics.i
+.PHONY : DUO-Core/source/gameObject/DUO-Utils.i
 
 # target to preprocess a source file
-source/graphics/DUO-Graphics.cpp.i:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/graphics/DUO-Graphics.cpp.i
-.PHONY : source/graphics/DUO-Graphics.cpp.i
+DUO-Core/source/gameObject/DUO-Utils.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Utils.cpp.i
+.PHONY : DUO-Core/source/gameObject/DUO-Utils.cpp.i
 
-source/graphics/DUO-Graphics.s: source/graphics/DUO-Graphics.cpp.s
+DUO-Core/source/gameObject/DUO-Utils.s: DUO-Core/source/gameObject/DUO-Utils.cpp.s
 
-.PHONY : source/graphics/DUO-Graphics.s
+.PHONY : DUO-Core/source/gameObject/DUO-Utils.s
 
 # target to generate assembly for a file
-source/graphics/DUO-Graphics.cpp.s:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/graphics/DUO-Graphics.cpp.s
-.PHONY : source/graphics/DUO-Graphics.cpp.s
+DUO-Core/source/gameObject/DUO-Utils.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Utils.cpp.s
+.PHONY : DUO-Core/source/gameObject/DUO-Utils.cpp.s
 
-source/main.o: source/main.cpp.o
+DUO-Core/source/graphics/DUO-Graphics.o: DUO-Core/source/graphics/DUO-Graphics.cpp.o
 
-.PHONY : source/main.o
+.PHONY : DUO-Core/source/graphics/DUO-Graphics.o
 
 # target to build an object file
-source/main.cpp.o:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/source/main.cpp.o
-.PHONY : source/main.cpp.o
+DUO-Core/source/graphics/DUO-Graphics.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/graphics/DUO-Graphics.cpp.o
+.PHONY : DUO-Core/source/graphics/DUO-Graphics.cpp.o
 
-source/main.i: source/main.cpp.i
+DUO-Core/source/graphics/DUO-Graphics.i: DUO-Core/source/graphics/DUO-Graphics.cpp.i
 
-.PHONY : source/main.i
+.PHONY : DUO-Core/source/graphics/DUO-Graphics.i
 
 # target to preprocess a source file
-source/main.cpp.i:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/source/main.cpp.i
-.PHONY : source/main.cpp.i
+DUO-Core/source/graphics/DUO-Graphics.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/graphics/DUO-Graphics.cpp.i
+.PHONY : DUO-Core/source/graphics/DUO-Graphics.cpp.i
 
-source/main.s: source/main.cpp.s
+DUO-Core/source/graphics/DUO-Graphics.s: DUO-Core/source/graphics/DUO-Graphics.cpp.s
 
-.PHONY : source/main.s
+.PHONY : DUO-Core/source/graphics/DUO-Graphics.s
 
 # target to generate assembly for a file
-source/main.cpp.s:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/source/main.cpp.s
-.PHONY : source/main.cpp.s
+DUO-Core/source/graphics/DUO-Graphics.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/graphics/DUO-Graphics.cpp.s
+.PHONY : DUO-Core/source/graphics/DUO-Graphics.cpp.s
 
-source/maths/DUO-AABB.o: source/maths/DUO-AABB.cpp.o
+DUO-Core/source/maths/DUO-AABB.o: DUO-Core/source/maths/DUO-AABB.cpp.o
 
-.PHONY : source/maths/DUO-AABB.o
+.PHONY : DUO-Core/source/maths/DUO-AABB.o
 
 # target to build an object file
-source/maths/DUO-AABB.cpp.o:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o
-.PHONY : source/maths/DUO-AABB.cpp.o
+DUO-Core/source/maths/DUO-AABB.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-AABB.cpp.o
+.PHONY : DUO-Core/source/maths/DUO-AABB.cpp.o
 
-source/maths/DUO-AABB.i: source/maths/DUO-AABB.cpp.i
+DUO-Core/source/maths/DUO-AABB.i: DUO-Core/source/maths/DUO-AABB.cpp.i
 
-.PHONY : source/maths/DUO-AABB.i
+.PHONY : DUO-Core/source/maths/DUO-AABB.i
 
 # target to preprocess a source file
-source/maths/DUO-AABB.cpp.i:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.i
-.PHONY : source/maths/DUO-AABB.cpp.i
+DUO-Core/source/maths/DUO-AABB.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-AABB.cpp.i
+.PHONY : DUO-Core/source/maths/DUO-AABB.cpp.i
 
-source/maths/DUO-AABB.s: source/maths/DUO-AABB.cpp.s
+DUO-Core/source/maths/DUO-AABB.s: DUO-Core/source/maths/DUO-AABB.cpp.s
 
-.PHONY : source/maths/DUO-AABB.s
+.PHONY : DUO-Core/source/maths/DUO-AABB.s
 
 # target to generate assembly for a file
-source/maths/DUO-AABB.cpp.s:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.s
-.PHONY : source/maths/DUO-AABB.cpp.s
+DUO-Core/source/maths/DUO-AABB.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-AABB.cpp.s
+.PHONY : DUO-Core/source/maths/DUO-AABB.cpp.s
 
-source/maths/DUO-Maths.o: source/maths/DUO-Maths.cpp.o
+DUO-Core/source/maths/DUO-Maths.o: DUO-Core/source/maths/DUO-Maths.cpp.o
 
-.PHONY : source/maths/DUO-Maths.o
+.PHONY : DUO-Core/source/maths/DUO-Maths.o
 
 # target to build an object file
-source/maths/DUO-Maths.cpp.o:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.o
-.PHONY : source/maths/DUO-Maths.cpp.o
+DUO-Core/source/maths/DUO-Maths.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Maths.cpp.o
+.PHONY : DUO-Core/source/maths/DUO-Maths.cpp.o
 
-source/maths/DUO-Maths.i: source/maths/DUO-Maths.cpp.i
+DUO-Core/source/maths/DUO-Maths.i: DUO-Core/source/maths/DUO-Maths.cpp.i
 
-.PHONY : source/maths/DUO-Maths.i
+.PHONY : DUO-Core/source/maths/DUO-Maths.i
 
 # target to preprocess a source file
-source/maths/DUO-Maths.cpp.i:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.i
-.PHONY : source/maths/DUO-Maths.cpp.i
+DUO-Core/source/maths/DUO-Maths.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Maths.cpp.i
+.PHONY : DUO-Core/source/maths/DUO-Maths.cpp.i
 
-source/maths/DUO-Maths.s: source/maths/DUO-Maths.cpp.s
+DUO-Core/source/maths/DUO-Maths.s: DUO-Core/source/maths/DUO-Maths.cpp.s
 
-.PHONY : source/maths/DUO-Maths.s
+.PHONY : DUO-Core/source/maths/DUO-Maths.s
 
 # target to generate assembly for a file
-source/maths/DUO-Maths.cpp.s:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.s
-.PHONY : source/maths/DUO-Maths.cpp.s
+DUO-Core/source/maths/DUO-Maths.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Maths.cpp.s
+.PHONY : DUO-Core/source/maths/DUO-Maths.cpp.s
 
-source/maths/DUO-Vector2.o: source/maths/DUO-Vector2.cpp.o
+DUO-Core/source/maths/DUO-Vector2.o: DUO-Core/source/maths/DUO-Vector2.cpp.o
 
-.PHONY : source/maths/DUO-Vector2.o
+.PHONY : DUO-Core/source/maths/DUO-Vector2.o
 
 # target to build an object file
-source/maths/DUO-Vector2.cpp.o:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o
-.PHONY : source/maths/DUO-Vector2.cpp.o
+DUO-Core/source/maths/DUO-Vector2.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Vector2.cpp.o
+.PHONY : DUO-Core/source/maths/DUO-Vector2.cpp.o
 
-source/maths/DUO-Vector2.i: source/maths/DUO-Vector2.cpp.i
+DUO-Core/source/maths/DUO-Vector2.i: DUO-Core/source/maths/DUO-Vector2.cpp.i
 
-.PHONY : source/maths/DUO-Vector2.i
+.PHONY : DUO-Core/source/maths/DUO-Vector2.i
 
 # target to preprocess a source file
-source/maths/DUO-Vector2.cpp.i:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.i
-.PHONY : source/maths/DUO-Vector2.cpp.i
+DUO-Core/source/maths/DUO-Vector2.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Vector2.cpp.i
+.PHONY : DUO-Core/source/maths/DUO-Vector2.cpp.i
 
-source/maths/DUO-Vector2.s: source/maths/DUO-Vector2.cpp.s
+DUO-Core/source/maths/DUO-Vector2.s: DUO-Core/source/maths/DUO-Vector2.cpp.s
 
-.PHONY : source/maths/DUO-Vector2.s
+.PHONY : DUO-Core/source/maths/DUO-Vector2.s
 
 # target to generate assembly for a file
-source/maths/DUO-Vector2.cpp.s:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.s
-.PHONY : source/maths/DUO-Vector2.cpp.s
+DUO-Core/source/maths/DUO-Vector2.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Vector2.cpp.s
+.PHONY : DUO-Core/source/maths/DUO-Vector2.cpp.s
 
-source/runtime/DUO-Keyboard.o: source/runtime/DUO-Keyboard.cpp.o
+DUO-Core/source/runtime/DUO-Keyboard.o: DUO-Core/source/runtime/DUO-Keyboard.cpp.o
 
-.PHONY : source/runtime/DUO-Keyboard.o
+.PHONY : DUO-Core/source/runtime/DUO-Keyboard.o
 
 # target to build an object file
-source/runtime/DUO-Keyboard.cpp.o:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o
-.PHONY : source/runtime/DUO-Keyboard.cpp.o
+DUO-Core/source/runtime/DUO-Keyboard.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-Keyboard.cpp.o
+.PHONY : DUO-Core/source/runtime/DUO-Keyboard.cpp.o
 
-source/runtime/DUO-Keyboard.i: source/runtime/DUO-Keyboard.cpp.i
+DUO-Core/source/runtime/DUO-Keyboard.i: DUO-Core/source/runtime/DUO-Keyboard.cpp.i
 
-.PHONY : source/runtime/DUO-Keyboard.i
+.PHONY : DUO-Core/source/runtime/DUO-Keyboard.i
 
 # target to preprocess a source file
-source/runtime/DUO-Keyboard.cpp.i:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.i
-.PHONY : source/runtime/DUO-Keyboard.cpp.i
+DUO-Core/source/runtime/DUO-Keyboard.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-Keyboard.cpp.i
+.PHONY : DUO-Core/source/runtime/DUO-Keyboard.cpp.i
 
-source/runtime/DUO-Keyboard.s: source/runtime/DUO-Keyboard.cpp.s
+DUO-Core/source/runtime/DUO-Keyboard.s: DUO-Core/source/runtime/DUO-Keyboard.cpp.s
 
-.PHONY : source/runtime/DUO-Keyboard.s
+.PHONY : DUO-Core/source/runtime/DUO-Keyboard.s
 
 # target to generate assembly for a file
-source/runtime/DUO-Keyboard.cpp.s:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.s
-.PHONY : source/runtime/DUO-Keyboard.cpp.s
+DUO-Core/source/runtime/DUO-Keyboard.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-Keyboard.cpp.s
+.PHONY : DUO-Core/source/runtime/DUO-Keyboard.cpp.s
 
-source/runtime/DUO-application.o: source/runtime/DUO-application.cpp.o
+DUO-Core/source/runtime/DUO-application.o: DUO-Core/source/runtime/DUO-application.cpp.o
 
-.PHONY : source/runtime/DUO-application.o
+.PHONY : DUO-Core/source/runtime/DUO-application.o
 
 # target to build an object file
-source/runtime/DUO-application.cpp.o:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o
-.PHONY : source/runtime/DUO-application.cpp.o
+DUO-Core/source/runtime/DUO-application.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-application.cpp.o
+.PHONY : DUO-Core/source/runtime/DUO-application.cpp.o
 
-source/runtime/DUO-application.i: source/runtime/DUO-application.cpp.i
+DUO-Core/source/runtime/DUO-application.i: DUO-Core/source/runtime/DUO-application.cpp.i
 
-.PHONY : source/runtime/DUO-application.i
+.PHONY : DUO-Core/source/runtime/DUO-application.i
 
 # target to preprocess a source file
-source/runtime/DUO-application.cpp.i:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.i
-.PHONY : source/runtime/DUO-application.cpp.i
+DUO-Core/source/runtime/DUO-application.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-application.cpp.i
+.PHONY : DUO-Core/source/runtime/DUO-application.cpp.i
 
-source/runtime/DUO-application.s: source/runtime/DUO-application.cpp.s
+DUO-Core/source/runtime/DUO-application.s: DUO-Core/source/runtime/DUO-application.cpp.s
 
-.PHONY : source/runtime/DUO-application.s
+.PHONY : DUO-Core/source/runtime/DUO-application.s
 
 # target to generate assembly for a file
-source/runtime/DUO-application.cpp.s:
-	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.s
-.PHONY : source/runtime/DUO-application.cpp.s
+DUO-Core/source/runtime/DUO-application.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-application.cpp.s
+.PHONY : DUO-Core/source/runtime/DUO-application.cpp.s
+
+Editor/src/main.o: Editor/src/main.cpp.o
+
+.PHONY : Editor/src/main.o
+
+# target to build an object file
+Editor/src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/Editor_exec.dir/build.make CMakeFiles/Editor_exec.dir/Editor/src/main.cpp.o
+.PHONY : Editor/src/main.cpp.o
+
+Editor/src/main.i: Editor/src/main.cpp.i
+
+.PHONY : Editor/src/main.i
+
+# target to preprocess a source file
+Editor/src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/Editor_exec.dir/build.make CMakeFiles/Editor_exec.dir/Editor/src/main.cpp.i
+.PHONY : Editor/src/main.cpp.i
+
+Editor/src/main.s: Editor/src/main.cpp.s
+
+.PHONY : Editor/src/main.s
+
+# target to generate assembly for a file
+Editor/src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/Editor_exec.dir/build.make CMakeFiles/Editor_exec.dir/Editor/src/main.cpp.s
+.PHONY : Editor/src/main.cpp.s
 
 # Help Target
 help:
@@ -441,41 +441,41 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... output"
+	@echo "... Editor_exec"
 	@echo "... engine_lib"
-	@echo "... source/gameObject/DUO-GameObject.o"
-	@echo "... source/gameObject/DUO-GameObject.i"
-	@echo "... source/gameObject/DUO-GameObject.s"
-	@echo "... source/gameObject/DUO-GameObjectComponent.o"
-	@echo "... source/gameObject/DUO-GameObjectComponent.i"
-	@echo "... source/gameObject/DUO-GameObjectComponent.s"
-	@echo "... source/gameObject/DUO-Scene.o"
-	@echo "... source/gameObject/DUO-Scene.i"
-	@echo "... source/gameObject/DUO-Scene.s"
-	@echo "... source/gameObject/DUO-Utils.o"
-	@echo "... source/gameObject/DUO-Utils.i"
-	@echo "... source/gameObject/DUO-Utils.s"
-	@echo "... source/graphics/DUO-Graphics.o"
-	@echo "... source/graphics/DUO-Graphics.i"
-	@echo "... source/graphics/DUO-Graphics.s"
-	@echo "... source/main.o"
-	@echo "... source/main.i"
-	@echo "... source/main.s"
-	@echo "... source/maths/DUO-AABB.o"
-	@echo "... source/maths/DUO-AABB.i"
-	@echo "... source/maths/DUO-AABB.s"
-	@echo "... source/maths/DUO-Maths.o"
-	@echo "... source/maths/DUO-Maths.i"
-	@echo "... source/maths/DUO-Maths.s"
-	@echo "... source/maths/DUO-Vector2.o"
-	@echo "... source/maths/DUO-Vector2.i"
-	@echo "... source/maths/DUO-Vector2.s"
-	@echo "... source/runtime/DUO-Keyboard.o"
-	@echo "... source/runtime/DUO-Keyboard.i"
-	@echo "... source/runtime/DUO-Keyboard.s"
-	@echo "... source/runtime/DUO-application.o"
-	@echo "... source/runtime/DUO-application.i"
-	@echo "... source/runtime/DUO-application.s"
+	@echo "... DUO-Core/source/gameObject/DUO-GameObject.o"
+	@echo "... DUO-Core/source/gameObject/DUO-GameObject.i"
+	@echo "... DUO-Core/source/gameObject/DUO-GameObject.s"
+	@echo "... DUO-Core/source/gameObject/DUO-GameObjectComponent.o"
+	@echo "... DUO-Core/source/gameObject/DUO-GameObjectComponent.i"
+	@echo "... DUO-Core/source/gameObject/DUO-GameObjectComponent.s"
+	@echo "... DUO-Core/source/gameObject/DUO-Scene.o"
+	@echo "... DUO-Core/source/gameObject/DUO-Scene.i"
+	@echo "... DUO-Core/source/gameObject/DUO-Scene.s"
+	@echo "... DUO-Core/source/gameObject/DUO-Utils.o"
+	@echo "... DUO-Core/source/gameObject/DUO-Utils.i"
+	@echo "... DUO-Core/source/gameObject/DUO-Utils.s"
+	@echo "... DUO-Core/source/graphics/DUO-Graphics.o"
+	@echo "... DUO-Core/source/graphics/DUO-Graphics.i"
+	@echo "... DUO-Core/source/graphics/DUO-Graphics.s"
+	@echo "... DUO-Core/source/maths/DUO-AABB.o"
+	@echo "... DUO-Core/source/maths/DUO-AABB.i"
+	@echo "... DUO-Core/source/maths/DUO-AABB.s"
+	@echo "... DUO-Core/source/maths/DUO-Maths.o"
+	@echo "... DUO-Core/source/maths/DUO-Maths.i"
+	@echo "... DUO-Core/source/maths/DUO-Maths.s"
+	@echo "... DUO-Core/source/maths/DUO-Vector2.o"
+	@echo "... DUO-Core/source/maths/DUO-Vector2.i"
+	@echo "... DUO-Core/source/maths/DUO-Vector2.s"
+	@echo "... DUO-Core/source/runtime/DUO-Keyboard.o"
+	@echo "... DUO-Core/source/runtime/DUO-Keyboard.i"
+	@echo "... DUO-Core/source/runtime/DUO-Keyboard.s"
+	@echo "... DUO-Core/source/runtime/DUO-application.o"
+	@echo "... DUO-Core/source/runtime/DUO-application.i"
+	@echo "... DUO-Core/source/runtime/DUO-application.s"
+	@echo "... Editor/src/main.o"
+	@echo "... Editor/src/main.i"
+	@echo "... Editor/src/main.s"
 .PHONY : help
 
 

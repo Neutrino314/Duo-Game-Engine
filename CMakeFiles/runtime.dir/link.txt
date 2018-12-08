@@ -1,2 +1,0 @@
-/usr/bin/ar qc lib/libruntime.a  CMakeFiles/runtime.dir/source/runtime/DUO-Keyboard.cpp.o CMakeFiles/runtime.dir/source/runtime/DUO-application.cpp.o
-/usr/bin/ranlib lib/libruntime.a

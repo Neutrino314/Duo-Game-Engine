@@ -133,7 +133,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=DUO-Engine
+CMAKE_PROJECT_NAME:STATIC=Editor-Engine
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -195,10 +195,10 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-DUO-Engine_BINARY_DIR:STATIC=/home/alex/Desktop/Duo-Game-Engine
+Editor-Engine_BINARY_DIR:STATIC=/home/alex/Desktop/Duo-Game-Engine
 
 //Value Computed by CMake
-DUO-Engine_SOURCE_DIR:STATIC=/home/alex/Desktop/Duo-Game-Engine
+Editor-Engine_SOURCE_DIR:STATIC=/home/alex/Desktop/Duo-Game-Engine
 
 //Path to a library.
 PTHREAD:FILEPATH=/usr/lib/x86_64-linux-gnu/libpthread.so
@@ -208,6 +208,9 @@ SDL:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2.so
 
 //Path to a library.
 SDL_image:FILEPATH=/usr/lib/x86_64-linux-gnu/libSDL2_image.so
+
+//Path to a file.
+engine_header:FILEPATH=engine_header-NOTFOUND
 
 //Dependencies for the target
 engine_lib_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libSDL2.so;general;/usr/lib/x86_64-linux-gnu/libSDL2_image.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;

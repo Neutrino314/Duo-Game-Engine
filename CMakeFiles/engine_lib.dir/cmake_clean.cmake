@@ -1,16 +1,16 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/engine_lib.dir/source/gameObject/DUO-GameObject.cpp.o"
-  "CMakeFiles/engine_lib.dir/source/gameObject/DUO-GameObjectComponent.cpp.o"
-  "CMakeFiles/engine_lib.dir/source/gameObject/DUO-Scene.cpp.o"
-  "CMakeFiles/engine_lib.dir/source/gameObject/DUO-Utils.cpp.o"
-  "CMakeFiles/engine_lib.dir/source/graphics/DUO-Graphics.cpp.o"
-  "CMakeFiles/engine_lib.dir/source/maths/DUO-AABB.cpp.o"
-  "CMakeFiles/engine_lib.dir/source/maths/DUO-Maths.cpp.o"
-  "CMakeFiles/engine_lib.dir/source/maths/DUO-Vector2.cpp.o"
-  "CMakeFiles/engine_lib.dir/source/runtime/DUO-Keyboard.cpp.o"
-  "CMakeFiles/engine_lib.dir/source/runtime/DUO-application.cpp.o"
-  "lib/libengine_lib.pdb"
-  "lib/libengine_lib.a"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObject.cpp.o"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.o"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Scene.cpp.o"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Utils.cpp.o"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/graphics/DUO-Graphics.cpp.o"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-AABB.cpp.o"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Maths.cpp.o"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Vector2.cpp.o"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-Keyboard.cpp.o"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-application.cpp.o"
+  "DUO-Core/lib/libengine_lib.pdb"
+  "DUO-Core/lib/libengine_lib.so"
 )
 
 # Per-language clean rules from dependency scanning.

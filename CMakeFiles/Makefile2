@@ -65,39 +65,39 @@ CMAKE_SOURCE_DIR = /home/alex/Desktop/Duo-Game-Engine
 CMAKE_BINARY_DIR = /home/alex/Desktop/Duo-Game-Engine
 
 #=============================================================================
-# Target rules for target CMakeFiles/output.dir
+# Target rules for target CMakeFiles/Editor_exec.dir
 
 # All Build rule for target.
-CMakeFiles/output.dir/all: CMakeFiles/engine_lib.dir/all
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/depend
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/Desktop/Duo-Game-Engine/CMakeFiles --progress-num=12,13 "Built target output"
-.PHONY : CMakeFiles/output.dir/all
+CMakeFiles/Editor_exec.dir/all: CMakeFiles/engine_lib.dir/all
+	$(MAKE) -f CMakeFiles/Editor_exec.dir/build.make CMakeFiles/Editor_exec.dir/depend
+	$(MAKE) -f CMakeFiles/Editor_exec.dir/build.make CMakeFiles/Editor_exec.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/Desktop/Duo-Game-Engine/CMakeFiles --progress-num=1,2 "Built target Editor_exec"
+.PHONY : CMakeFiles/Editor_exec.dir/all
 
 # Include target in all.
-all: CMakeFiles/output.dir/all
+all: CMakeFiles/Editor_exec.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/output.dir/rule: cmake_check_build_system
+CMakeFiles/Editor_exec.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/Desktop/Duo-Game-Engine/CMakeFiles 13
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/output.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Editor_exec.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/Desktop/Duo-Game-Engine/CMakeFiles 0
-.PHONY : CMakeFiles/output.dir/rule
+.PHONY : CMakeFiles/Editor_exec.dir/rule
 
 # Convenience name for target.
-output: CMakeFiles/output.dir/rule
+Editor_exec: CMakeFiles/Editor_exec.dir/rule
 
-.PHONY : output
-
-# clean rule for target.
-CMakeFiles/output.dir/clean:
-	$(MAKE) -f CMakeFiles/output.dir/build.make CMakeFiles/output.dir/clean
-.PHONY : CMakeFiles/output.dir/clean
+.PHONY : Editor_exec
 
 # clean rule for target.
-clean: CMakeFiles/output.dir/clean
+CMakeFiles/Editor_exec.dir/clean:
+	$(MAKE) -f CMakeFiles/Editor_exec.dir/build.make CMakeFiles/Editor_exec.dir/clean
+.PHONY : CMakeFiles/Editor_exec.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Editor_exec.dir/clean
 
 .PHONY : clean
 
@@ -108,7 +108,7 @@ clean: CMakeFiles/output.dir/clean
 CMakeFiles/engine_lib.dir/all:
 	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/depend
 	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/Desktop/Duo-Game-Engine/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target engine_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/Desktop/Duo-Game-Engine/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13 "Built target engine_lib"
 .PHONY : CMakeFiles/engine_lib.dir/all
 
 # Include target in all.
