@@ -132,7 +132,7 @@ int DUO::application::setupSDL() {
 
 void DUO::application::changeScene(int newScene) {
 
-    if (newScene > DUO::application::sceneVect.size()) {
+    if (newScene > static_cast<int>(DUO::application::sceneVect.size())) {
 
         std::cout << "new scene index excedes the size of the scenevect\n";
         return;

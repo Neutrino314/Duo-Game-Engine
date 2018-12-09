@@ -1,4 +1,4 @@
-# Install script for directory: /home/alex/Desktop/Duo-Game-Engine
+# Install script for directory: /home/alex/programming/Duo-Game-Engine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/alex/Desktop/Duo-Game-Engine/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/alex/programming/Duo-Game-Engine/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

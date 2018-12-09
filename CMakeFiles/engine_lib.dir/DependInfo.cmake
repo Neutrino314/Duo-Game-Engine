@@ -4,16 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/alex/Desktop/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-GameObject.cpp" "/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObject.cpp.o"
-  "/home/alex/Desktop/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp" "/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.o"
-  "/home/alex/Desktop/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-Scene.cpp" "/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Scene.cpp.o"
-  "/home/alex/Desktop/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-Utils.cpp" "/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Utils.cpp.o"
-  "/home/alex/Desktop/Duo-Game-Engine/DUO-Core/source/graphics/DUO-Graphics.cpp" "/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/graphics/DUO-Graphics.cpp.o"
-  "/home/alex/Desktop/Duo-Game-Engine/DUO-Core/source/maths/DUO-AABB.cpp" "/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-AABB.cpp.o"
-  "/home/alex/Desktop/Duo-Game-Engine/DUO-Core/source/maths/DUO-Maths.cpp" "/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Maths.cpp.o"
-  "/home/alex/Desktop/Duo-Game-Engine/DUO-Core/source/maths/DUO-Vector2.cpp" "/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Vector2.cpp.o"
-  "/home/alex/Desktop/Duo-Game-Engine/DUO-Core/source/runtime/DUO-Keyboard.cpp" "/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-Keyboard.cpp.o"
-  "/home/alex/Desktop/Duo-Game-Engine/DUO-Core/source/runtime/DUO-application.cpp" "/home/alex/Desktop/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-application.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-GameObject.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObject.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-Scene.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Scene.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-Utils.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Utils.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/graphics/DUO-Graphics.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/graphics/DUO-Graphics.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/maths/DUO-AABB.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-AABB.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/maths/DUO-Maths.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Maths.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/maths/DUO-Vector2.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/maths/DUO-Vector2.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/runtime/DUO-Keyboard.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-Keyboard.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/runtime/DUO-application.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-application.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

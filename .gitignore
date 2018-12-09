@@ -1,5 +1,6 @@
-CMakeFiles/*
-cmake_install.cmake
-CMakeCache.txt
+CMakeFiles/
+build/
 Makefile
 Editor_exec
+CMakeCache.txt
+cmake_install.cmake

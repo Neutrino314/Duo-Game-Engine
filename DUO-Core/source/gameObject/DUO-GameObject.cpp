@@ -55,7 +55,7 @@ void DUO::gameObject::removeComponent(DUO::broadType compType, int compID) {
         componentVect[compID].reset();
         componentVect.erase(componentVect.begin() + compID);
 
-        for (int i = compID; i < componentVect.size(); i++) {
+        for (int i = compID; i < static_cast<int>(componentVect.size()); i++) {
 
             componentVect[i]->setID(i);
 
@@ -68,7 +68,7 @@ void DUO::gameObject::removeComponent(DUO::broadType compType, int compID) {
         componentVect[compID].reset();
         componentVect.erase(componentVect.begin() + compID);
 
-        for (int i = compID; i < componentVect.size(); i++) {
+        for (int i = compID; i < static_cast<int>(componentVect.size()); i++) {
 
             componentVect[i]->setID(i);
 

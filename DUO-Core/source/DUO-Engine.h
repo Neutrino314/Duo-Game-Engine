@@ -11,6 +11,7 @@
 #include <gameObject/DUO-GameObject.h>
 #include <gameObject/DUO-GameObjectComponent.h>
 #include <gameObject/DUO-ObjectManager.h>
+#include <gameObject/DUO-UIComponent.h>
 
 #ifndef DUO_ENGINE
 #define DUO_ENGINE

@@ -8,22 +8,40 @@
 
 namespace DUO {
 
+// button componments
+
     class buttonComp : public DUO::gameObjectComponent {
 
     private:
 
         DUO::AABB myHitBox{0, 0, 10, 10};
 
-        bool clicked() {
+        bool isPressed() {
 
-            if (SDL_MOUSEBUTTONDOWN) {
+            if (DUO::application::getEvent()->type == SDL_MOUSEBUTTONDOWN || DUO::application::getEvent()->type == SDL_MOUSEBUTTONUP) {
 
+                if (myHitBox.pointInThis(DUO::application::getMousePos())) {
 
-                
+                    return true;
+
+                }
+
             }
+
+            return false;
 
         }
 
+    public:
+
+        virtual void update() override {
+
+
+
+        };
+
     };
+
+
     
 }

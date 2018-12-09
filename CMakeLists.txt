@@ -3,7 +3,7 @@ project(Editor-Engine)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpthread -lSDL2 -lSDL2_image -I${PROJECT_SOURCE_DIR}/DUO-Core/source/ -I${PROJECT_SOURCE_DIR}/")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpthread -lSDL2 -lSDL2_image -I${PROJECT_SOURCE_DIR}/DUO-Core/source/ -I${PROJECT_SOURCE_DIR}/ -W")
 
 set(engine_source_dir "${PROJECT_SOURCE_DIR}/DUO-Core/source/")
 
