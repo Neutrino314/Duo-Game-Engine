@@ -12,6 +12,14 @@ DUO::scene::scene(int newID, SDL_Renderer* newRenderer) : myID(newID), myRendere
 
 }
 
+void DUO::scene::setRenderer(SDL_Renderer* newRenderer) {
+
+    myRenderer = newRenderer;
+
+}
+
+int DUO::scene::getCurID() {return curID;}
+
 void DUO::scene::setup() {
 
     for (auto object : objectVect) {

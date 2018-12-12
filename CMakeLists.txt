@@ -39,9 +39,7 @@ set(editor_source_dir "${PROJECT_SOURCE_DIR}/Editor/src/")
 
 file(GLOB editor_CLI_files "${editor_source_dir}CLI/*.cpp")
 
-file(GLOB editor_Saving_files "${editor_source_dir}Saving/*.cpp")
-
-add_executable(Editor_exec "${editor_CLI_files};${editor_Saving_files};${editor_source_dir}main.cpp;")
+add_executable(Editor_exec "${editor_CLI_files};${editor_source_dir}main.cpp;")
 
 target_link_libraries(Editor_exec ${SDL})
 

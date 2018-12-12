@@ -406,6 +406,33 @@ DUO-Core/source/runtime/DUO-application.cpp.s:
 	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/runtime/DUO-application.cpp.s
 .PHONY : DUO-Core/source/runtime/DUO-application.cpp.s
 
+Editor/src/CLI/sceneEditor.o: Editor/src/CLI/sceneEditor.cpp.o
+
+.PHONY : Editor/src/CLI/sceneEditor.o
+
+# target to build an object file
+Editor/src/CLI/sceneEditor.cpp.o:
+	$(MAKE) -f CMakeFiles/Editor_exec.dir/build.make CMakeFiles/Editor_exec.dir/Editor/src/CLI/sceneEditor.cpp.o
+.PHONY : Editor/src/CLI/sceneEditor.cpp.o
+
+Editor/src/CLI/sceneEditor.i: Editor/src/CLI/sceneEditor.cpp.i
+
+.PHONY : Editor/src/CLI/sceneEditor.i
+
+# target to preprocess a source file
+Editor/src/CLI/sceneEditor.cpp.i:
+	$(MAKE) -f CMakeFiles/Editor_exec.dir/build.make CMakeFiles/Editor_exec.dir/Editor/src/CLI/sceneEditor.cpp.i
+.PHONY : Editor/src/CLI/sceneEditor.cpp.i
+
+Editor/src/CLI/sceneEditor.s: Editor/src/CLI/sceneEditor.cpp.s
+
+.PHONY : Editor/src/CLI/sceneEditor.s
+
+# target to generate assembly for a file
+Editor/src/CLI/sceneEditor.cpp.s:
+	$(MAKE) -f CMakeFiles/Editor_exec.dir/build.make CMakeFiles/Editor_exec.dir/Editor/src/CLI/sceneEditor.cpp.s
+.PHONY : Editor/src/CLI/sceneEditor.cpp.s
+
 Editor/src/main.o: Editor/src/main.cpp.o
 
 .PHONY : Editor/src/main.o
@@ -473,6 +500,9 @@ help:
 	@echo "... DUO-Core/source/runtime/DUO-application.o"
 	@echo "... DUO-Core/source/runtime/DUO-application.i"
 	@echo "... DUO-Core/source/runtime/DUO-application.s"
+	@echo "... Editor/src/CLI/sceneEditor.o"
+	@echo "... Editor/src/CLI/sceneEditor.i"
+	@echo "... Editor/src/CLI/sceneEditor.s"
 	@echo "... Editor/src/main.o"
 	@echo "... Editor/src/main.i"
 	@echo "... Editor/src/main.s"

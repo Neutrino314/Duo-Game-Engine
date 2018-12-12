@@ -36,7 +36,7 @@ namespace DUO { //All functions and classes from the engine fall under the names
 
         static int setupSDL(); //forward declaration of a static function that initialises all SDL modules
         application(std::string title, short w, short h); //forward declaration of the constructor taking a title and dimensions for the window
-        virtual void setup() = 0; //The setup method that is called before the game loop starts
+        void setup(); //The setup method that is called before the game loop starts
         virtual void draw(float newInterpolation); //the draw method that will be overriden by the user and called after the update
         virtual void update(); //method is overriden by user and callled after event loop
         void gameThread(); //this method runs in a separate thread and incorporates the setup draw and update methods along with the rest of the game loop

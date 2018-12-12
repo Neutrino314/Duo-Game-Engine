@@ -89,6 +89,12 @@ void DUO::application::gameThread() {
 
 };
 
+void DUO::application::setup() {
+
+    sceneVect[curScene]->setup();
+
+}
+
 void DUO::application::start() {
 
     setup(); //calls the setup function

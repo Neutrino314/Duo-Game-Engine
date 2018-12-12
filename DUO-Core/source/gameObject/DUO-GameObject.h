@@ -7,6 +7,7 @@
 #include <map>
 #include <SDL2/SDL.h>
 #include <typeinfo>
+#include <iostream>
 
 namespace DUO {class scene; class gameObjectComponent; class renderComponent; class transformComponent; class objectManager;}
 
@@ -32,7 +33,7 @@ namespace DUO {
         //these ints are the indexes of the corresponding components
 
     public:
-
+    
         gameObject(int newID, SDL_Renderer* newRenderer); 
 
         void addComponent(DUO::broadType newType, std::shared_ptr<DUO::gameObjectComponent> newComponent);

@@ -32,7 +32,11 @@ namespace DUO{
 
         void removeObject(int objectID) {}; //removes a gameObject from the object vector with a specified ID 
 
+        void setRenderer(SDL_Renderer* newRenderer);
+
         DUO::gameObject* getObject(int ID); //returns a shared pointer to the specified object
+
+        int getCurID();
 
     };
 

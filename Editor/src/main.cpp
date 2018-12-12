@@ -2,14 +2,13 @@
 #include <typeinfo>
 #include <iostream>
 #include <SDL2/SDL.h>
+#include "CLI/CLI.h"
 
-class editor : public DUO::application {
+class play : public DUO::application {
 
 public:
 
-    editor(const char* title, int width, int height) : application(title, width, height) {}
-
-    virtual void setup() {};
+    play(const char* title, int width, int height) : application(title, width, height) {}
 
 };
 
@@ -22,7 +21,7 @@ int main() {
 
     }
 
-    editor program("DUO Editor", 800, 600);
+    play program("DUO Editor", 800, 600);
 
     program.start();
 

@@ -1,6 +1,5 @@
-#pragma once
-
+#include "sceneEditor.h"
 #include <DUO-Core/source/DUO-Engine.h>
-#include <SDL2/SDL.h>
 #include <vector>
+#include <iostream>
 
