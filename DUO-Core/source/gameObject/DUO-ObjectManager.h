@@ -2,81 +2,126 @@
 
 #include "DUO-GameObject.h"
 #include "DUO-GameObjectComponent.h"
+#include "DUO-Scene.h"
 #include "DUO-Utils.h"
 #include <memory>
 #include <typeinfo>
+#include <vector>
 
-namespace DUO {
+namespace DUO 
+{
 
-    class objectManager {
-
-    public:
-
-        template <typename T>
-        static std::shared_ptr<T> getComp(DUO::gameObject* obj);
+    class objectManager
+    {
 
         template <typename T>
-        static void addComp(DUO::broadType key1, DUO::gameObject* obj);
+        static T* getComponent(DUO::gameObject* obj);//gets a comp of type T from the object's component vectors
+
+        template <typename T>
+        static std::vector<T*> getComponents(DUO::gameObject* obj);//returns a std::vector of pointers to game object components of type T in an object
+
+        template <typename T>
+        static void addComponent(DUO::gameObject* obj, DUO::broadType broadCompType);//adds a component of type T with defaultt values to an object
+
+        static void refresh(DUO::scene* scn); //removes any elements in the objectVect of a scene that are nullptrs
 
     };
 
 }
 
 template <typename T>
+T* DUO::objectManager::getComponent(DUO::gameObject* obj)
+{
 
-void DUO::objectManager::addComp(DUO::broadType key1, DUO::gameObject* obj) {
+    for (const auto& component : obj->componentVect) //iterates through each component in the object's component vector
+    {
 
-    switch (key1) {
+        if (component->getType() == typeid(T*).name()) //compares the components's "type" with that of the type T*
+        {
 
-    case DUO::BASE:
+            return component.get(); //if true then it returns a raw pointer to the comp
 
-        obj->compMap[DUO::BASE][typeid(T).name()] = obj->curRenderID;
-        obj->componentVect.push_back(std::make_shared<T>(obj->curComponentID, obj));
-        obj->curComponentID++;
-        break;
-
-    case DUO::RENDERER:
-
-        obj->compMap[DUO::RENDERER][typeid(T).name()] = obj->curRenderID;
-        obj->renderComponentVect.push_back(std::make_shared<T>(obj->curRenderID, obj));
-        obj->curRenderID++;
-        break;
-
-    default:
-
-        obj->compMap[DUO::BASE][typeid(T).name()] = obj->curRenderID;
-        obj->componentVect.push_back(std::make_shared<T>(obj->curComponentID, obj));
-        obj->curComponentID++;
-        break;
+        }
 
     }
+
+    for (const auto& component : obj->renderCompVect) //iterates through each component in the object's render component vector
+    {
+
+        if (component->getType() == typeid(T*).name()) //compares the components's "type" with that of the type T*
+        {
+
+            return component.get(); //if true then it returns a raw pointer to the comp
+
+        }
+
+    }
+
+    return nullptr; //if the component was not found then return nullptr
 
 }
 
 template <typename T>
+std::vector<T*> DUO::objectManager::getComponents(DUO::gameObject* obj)
+{
 
-std::shared_ptr<T> DUO::objectManager::getComp(DUO::gameObject* obj) {
+    static std::vector<T*> components; //creating a static vector of components
 
-    auto foundKey = obj->compMap[DUO::BASE].find(typeid(T).name());
+    const char* typeString = typeid(T*).name(); //storing the type of T* as a char array
 
-    if (foundKey != obj->compMap[DUO::BASE].end()) {
+    for (const auto& component : obj->componentVect) //iterating through each component in the object's component vector
+    {
 
-        int index = obj->compMap[DUO::BASE][typeid(T).name()];
+        if (typeString == component->getType()) //if the typeString is equal to the comp's type 
+        {
 
-        return std::dynamic_pointer_cast<T>(obj->componentVect[index]);
+            components.emplace_back(component.get()); //add the comp's pointer to the component vector
 
-    }
-
-    foundKey = obj->compMap[DUO::RENDERER].find(typeid(T).name());
-
-    if (foundKey != obj->compMap[DUO::RENDERER].end()) {
-
-        int index = obj->compMap[DUO::BASE][typeid(T).name()];
-
-        return std::dynamic_pointer_cast<T>(obj->renderComponentVect[index]);
+        }
 
     }
 
-    return nullptr;
+    for (const auto& component : obj->renderCompVect) //iterating through each component in the object's render component vector
+    {
+
+        if (typeString == component->getType()) //if the typeString is equal to the comp's type
+        {
+
+            components.emplace_back(component.get()); //add the comp's pointer to the component vector
+
+        }
+
+    }
+
+    return components; //returns the component vector
+
+}
+
+template <typename T>
+void DUO::objectManager::addComponent(DUO::gameObject* obj, DUO::broadType broadCompType)
+{
+
+    switch (broadCompType)
+    {
+
+        case DUO::BASE:
+
+            obj->componentVect.emplace_back(std::unique_ptr<T>(new T(obj->nextCompID, obj->myRenderer)));
+            obj->nextCompID++;
+            break;
+
+        case DUO::RENDERER:
+
+            obj->renderCompVect.emplace_back(std::unique_ptr<T>(new T(obj->nextCompID, obj->myRenderer)));
+            obj->nextRenderCompID++;
+            break;
+
+        default:
+
+            obj->componentVect.emplace_back(std::unique_ptr<T>(new T(obj->nextCompID, obj->myRenderer)));
+            obj->nextCompID++;
+            break;
+
+    }
 
 }

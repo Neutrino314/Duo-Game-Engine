@@ -11,50 +11,35 @@
 
 namespace DUO {class scene; class gameObjectComponent; class renderComponent; class transformComponent; class objectManager;}
 
-namespace DUO {
+namespace DUO 
+{
 
-    class gameObject {
+    class gameObject 
+    {
 
     private:
 
-        int myID; //the id of this object
-        SDL_Renderer* myRenderer = NULL; //a poiner to an sdl renderer provided by the constructor
-        int curRenderID{0}; //the id to be assigned to the next component in the renderComponentVect
-        int curComponentID{0}; //the id to be assigned to the next component in the component vector
-        DUO::vector2 myAcceleration{0.0, 0.0};
+        SDL_Renderer* myRenderer = NULL;
 
-        DUO::transformComponent* myTransform = NULL; //a pointer to a transform component to be instantiated in the constructor
+        int myID; //the object's ID
+        int nextCompID = 0; //the next id to be assigned to a component
+        int nextRenderCompID = 0; //the next ID to be assigned to a render component
 
-        std::vector<std::shared_ptr<DUO::gameObjectComponent>> componentVect; //a vector of shared_ptrs to basic components
-        std::vector<std::shared_ptr<DUO::renderComponent>> renderComponentVect; //a vector of shared_ptrs to renderer components
-
-        std::map<DUO::broadType, std::map<const char*, int>> compMap;
-        //This above me is a map of maps which uses a DUO::broadType as a key, the maps it stores consists of ints with compTypes as keys
-        //these ints are the indexes of the corresponding components
+        std::vector<std::unique_ptr<DUO::gameObjectComponent>> componentVect; //holds a vector of unique pointers to components
+        std::vector<std::unique_ptr<DUO::renderComponent>> renderCompVect; //holds a vector of unique pointers to render components
 
     public:
-    
-        gameObject(int newID, SDL_Renderer* newRenderer); 
 
-        void addComponent(DUO::broadType newType, std::shared_ptr<DUO::gameObjectComponent> newComponent);
+        std::unique_ptr<DUO::transformComponent> myTransform; // a unique pointer to a transform component
 
-        void removeComponent(DUO::broadType compType, int compID);
+        DUO::vector2 myVel{0.0, 0.0}; //a vector2 that holds the object's velocity
 
-        void setup();
+        gameObject(int newID, SDL_Renderer* renderer); //constructor for the class
 
-        void update();
-
-        void draw(float interpolation);
-
-        void move(double x, double y);
-
-        int getCurID(DUO::broadType compType);
-
-        DUO::transformComponent* getTransform();
-
-        SDL_Renderer* getRenderer();
+        void setup(); //this is called by the scene setup method
+        void update(); //this is called by the scene supdate method
+        void draw(float interpolation); //this is called by the scene draw method
 
         friend class DUO::objectManager;
     };
-
 }

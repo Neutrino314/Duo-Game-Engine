@@ -6,55 +6,47 @@
 #include <memory>
 #include <SDL2/SDL.h>
 
-DUO::scene::scene(int newID, SDL_Renderer* newRenderer) : myID(newID), myRenderer(newRenderer) {
+DUO::scene::scene(int newID, SDL_Renderer* renderer) : myID(newID), myRenderer(renderer)
+{ //on instantiation myID is assigned the value of newID and the renderer pointer is assigned to the myRenderer object
 
-    DUO::scene::addObject(new DUO::gameObject(curID, myRenderer));
-
-}
-
-void DUO::scene::setRenderer(SDL_Renderer* newRenderer) {
-
-    myRenderer = newRenderer;
+    objectVect.emplace_back(std::unique_ptr<DUO::gameObject>(new DUO::gameObject(nextObjectID, myRenderer)));
+//  ^---adding a new object to the object vector with curID as the ID and passing a pointer to myRenderer
+    nextObjectID++;
 
 }
 
-int DUO::scene::getCurID() {return curID;}
+void DUO::scene::setup() 
+{
 
-void DUO::scene::setup() {
+    for (const auto& object : objectVect)  //foreach loop iterating through the object vector
+    {
 
-    for (auto object : objectVect) {
-
-        object->setup();
+        object->setup(); //calling the object's setup() method
 
     }
 
 }
 
-void DUO::scene::update() {
+void DUO::scene::update()
+{
 
-    for (auto object : objectVect) {
+    for (const auto& object : objectVect)
+    {
 
-        object->update();
-
-    }
-
-}
-
-void DUO::scene::draw(float interpolation) {
-
-    for (auto object : objectVect) {
-
-        object->draw(interpolation);
+        object->update(); //calling the object's update() method
 
     }
 
 }
 
-void DUO::scene::addObject(DUO::gameObject* newObject) {
+void DUO::scene::draw(float interpolation)
+{
 
-    objectVect.push_back(newObject);
-    curID ++;
+    for (const auto& object : objectVect) 
+    {
+
+        object->draw(interpolation); //calling the object's draw method
+
+    }
 
 }
-
-DUO::gameObject* DUO::scene::getObject(int ID) {return objectVect[ID];}

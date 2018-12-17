@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-GameObject.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObject.cpp.o"
   "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.o"
+  "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-ObjectManager.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-ObjectManager.cpp.o"
   "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-Scene.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Scene.cpp.o"
   "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/gameObject/DUO-Utils.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Utils.cpp.o"
   "/home/alex/programming/Duo-Game-Engine/DUO-Core/source/graphics/DUO-Graphics.cpp" "/home/alex/programming/Duo-Game-Engine/CMakeFiles/engine_lib.dir/DUO-Core/source/graphics/DUO-Graphics.cpp.o"

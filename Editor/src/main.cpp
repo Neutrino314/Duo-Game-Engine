@@ -12,7 +12,6 @@ public:
 
 };
 
-
 int main() {
 
     if (DUO::application::setupSDL() != 0) {

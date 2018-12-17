@@ -9,113 +9,63 @@
 
 namespace DUO {class gameObject;}
 
-namespace DUO {
+namespace DUO 
+{
 
-    class gameObjectComponent {
-
-    protected:
-
-        int myID;
-        DUO::broadType myType{DUO::BASE};
-        DUO::gameObject* myObject;
-
-    public:
-
-        gameObjectComponent(int newID, DUO::gameObject* newObject = NULL);
-
-        int getID();
-
-        void setID(int newID);
-
-        DUO::broadType getType();
-
-        virtual void setup() {};
-        virtual void update() {};
-
-    };
-
-    class transformComponent : public gameObjectComponent {
-
-    private:
-
-        DUO::vector2 position{0.0, 0.0};
-        DUO::vector2 scale{1.0, 1.0};
-        double rotation{0.0};
-
-    public:
-
-        transformComponent(int newID, DUO::gameObject* newGameObject, double newX, double newY, double newXScale, double newYScale, double newRotation);
-
-        transformComponent(int newID, DUO::gameObject* newGameObject);
-
-        DUO::vector2 getPosition();
-        DUO::vector2 getScale();
-        double getRotation();
-
-        bool translate(double xInc, double yInc);
-        bool rotate(double rotInc);
-        bool rescale(double xScale, double yScale);
-        void setPosition(double x, double y);
-
-    };
-
-    class renderComponent : public gameObjectComponent {
+    class gameObjectComponent 
+    {
 
     protected:
 
-        DUO::vector2 dimensions{0.0, 0.0};
-        transformComponent* myTransform = NULL;
+        DUO::broadType myBroadType; //stores the comp's broad type
+        int myID; //the comp's ID
+        DUO::gameObject* myObject = NULL; //a pointer to a game object
+        const char* myType;
 
     public:
 
-        renderComponent(int newID, DUO::gameObject* newObject, double width, double height);
+        gameObjectComponent(int newID, DUO::gameObject* newObject); //constructor
 
-        renderComponent(int newID, DUO::gameObject* newObject);
+        virtual void update() {}; //an update method that all further classes that inherit from this class will override this method
 
-        virtual void setup() override {};
-        virtual void update(DUO::vector2 objectPos){};
+        virtual void setup() {}; //a setup update that will be overriden from deriving classes
 
-        DUO::vector2 getDimensions();
-        void setDimensions(double newWidth = 1.0, double newHeight = 1.0);
+        int getID(); //returns the ID of this component
+
+        void setID(int newID); //changes the component's ID
+
+        const char* getType(); //returns the type of this component as a char array obtained using the typeid().name() function
 
     };
 
-    class polygonRenderer : public renderComponent {
-
-    private:
-
-        int r = 0, g = 0, b = 0;
-        int numberOfSides{3};
-        bool isFilled = true;
+    class transformComponent : public gameObjectComponent 
+    {
 
     public:
 
-        polygonRenderer(int newID, DUO::gameObject* newObject, double width, double height, int newR, int newG, int newB, int sides);
+        double rotation{0.0}; //a double that holds the rotation in degrees
 
-        polygonRenderer(int newID, DUO::gameObject* newObject);
+        DUO::vector2 scale{1.0, 1.0}; //a vector2 that stores the scale attribute of the transform
 
-        void setColour(int newR, int newB, int newG);
+        DUO::vector2 pos{0.0, 0.0}; //a vector2 that stores the position of the transform
 
-        virtual void update(DUO::vector2 objectPos) override;
+        transformComponent(int newID, DUO::gameObject* newObject, double x = 0.0, double y = 0.0, double xScale = 1.0, double yScale = 1.0, double newRot = 0.0); //constructor for the transform
+
+        void translate(double x = 0.0, double y = 0.0); //a translation method that translates it a certain amount of units
 
     };
 
-    class spriteRenderer : public renderComponent {
-
-    private:
-
-        SDL_Texture* myTexture = NULL;
+    class renderComponent : public gameObjectComponent
+    {
 
     public:
 
-        spriteRenderer(std::string path, int newID, DUO::gameObject* newObject, double width = 1.0, double height = 1.0);
+        DUO::vector2 dimensions{1.0, 1.0}; //the dimensions of the component stored as a vector2
 
-        spriteRenderer(int newID, DUO::gameObject* newObject);
+        renderComponent(int newID, DUO::gameObject* newObject, double width = 1.0, double height = 1.0); //constructor
 
-        void setPath(std::string newPath);
-
-        virtual void update(DUO::vector2 objectPos) override;
+        virtual void update(DUO::vector2 displayPos) {}; //overloaded update method taking the position of the object as a parameter
 
     };
-
+   
 }

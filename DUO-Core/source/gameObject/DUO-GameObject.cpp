@@ -7,151 +7,53 @@
 #include <memory>
 #include <map>
 
-DUO::gameObject::gameObject(int newID, SDL_Renderer* newRenderer) : myID(newID), myRenderer(newRenderer), myTransform(new DUO::transformComponent(0 ,this ,0.0, 0.0, 1.0, 1.0, 0.0)) {
+DUO::gameObject::gameObject(int newID, SDL_Renderer* renderer) : myRenderer(renderer), myID(newID)
+{
 
-    static std::map<const char*, int> baseMap;
-    static std::map<const char*, int> rendererMap;
-
-    compMap[DUO::BASE] = baseMap;
-    compMap[DUO::RENDERER] = rendererMap;
+    myTransform = std::unique_ptr<DUO::transformComponent>(new DUO::transformComponent(0, this));
+    //adding a new transform to the object with default values and a pointer to the object
 
 }
 
-void DUO::gameObject::addComponent(DUO::broadType newType, std::shared_ptr<DUO::gameObjectComponent> newComponent) {
+void DUO::gameObject::setup() 
+{
 
-    switch (newType) {
+    for (const auto& comp : componentVect)
+    {
 
-    case DUO::RENDERER :
-
-        renderComponentVect.push_back(std::dynamic_pointer_cast<DUO::renderComponent>(newComponent));
-        break;
-
-    case DUO::BASE :
-
-        componentVect.push_back(newComponent);
-        break;
-
-    default :
-
-        componentVect.push_back(newComponent);
-        break;
+        comp->setup();
 
     }
 
 }
 
-void DUO::gameObject::removeComponent(DUO::broadType compType, int compID) {
+void DUO::gameObject::update()
+{
 
-    switch (compType) {
+    for (const auto& comp : componentVect)
+    {
 
-    case DUO::RENDERER :
-
-        renderComponentVect[compID].reset();
-        renderComponentVect.erase(renderComponentVect.begin() + compID);
-        break;
-
-    case DUO::BASE :
-
-        componentVect[compID].reset();
-        componentVect.erase(componentVect.begin() + compID);
-
-        for (int i = compID; i < static_cast<int>(componentVect.size()); i++) {
-
-            componentVect[i]->setID(i);
-
-        }
-
-        break;
-
-    default :
-
-        componentVect[compID].reset();
-        componentVect.erase(componentVect.begin() + compID);
-
-        for (int i = compID; i < static_cast<int>(componentVect.size()); i++) {
-
-            componentVect[i]->setID(i);
-
-        }
-        break;
+        comp->update();
 
     }
+
+    myTransform->translate(myVel.getXComponent(), myVel.getYComponent());
 
 }
 
-void DUO::gameObject::setup() {
+void DUO::gameObject::draw(float interpolation)
+{
 
-    for (auto element : componentVect) {
-
-        element->setup();
-
-    }
-
-    for (auto element : renderComponentVect) {
-
-        element->setup();
-
-    }
-
-}
-
-void DUO::gameObject::update() {
-
-    for (auto element : componentVect) {
-
-        element->update();
-
-    }
-
-    myTransform->translate(myAcceleration.getXComponent(), myAcceleration.getYComponent());
-
-}
-
-void DUO::gameObject::draw(float interpolation) {
-
-    DUO::vector2 displayPos{myAcceleration * interpolation};
-    DUO::vector2 oldPos = myTransform->getPosition();
+    DUO::vector2 displayPos{myVel * static_cast<double>(interpolation)};
+    DUO::vector2 oldPos{myTransform->pos};
 
     displayPos = oldPos + displayPos;
 
-    for (auto element : renderComponentVect) {
+    for (const auto& comp : renderCompVect)
+    {
 
-        element->update(displayPos);
-
-    }
-
-}
-
-void DUO::gameObject::move(double newX, double newY) {
-
-    myTransform->translate(newX, newY);
-
-}
-
-SDL_Renderer* DUO::gameObject::getRenderer() {return myRenderer;}
-
-DUO::transformComponent* DUO::gameObject::getTransform() {return myTransform;}
-
-int DUO::gameObject::getCurID(DUO::broadType compType) {
-
-    switch (compType) {
-
-    case DUO::BASE :
-
-        return curComponentID;
-
-    case DUO::RENDERER :
-
-        return curRenderID;
-
-    default:
-
-        std::cout << "not recognised\n";
-        break;
+        comp->update(displayPos);
 
     }
 
-    return DUO::BASE;
-
 }
-

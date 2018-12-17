@@ -5,38 +5,34 @@
 #include <memory>
 #include "DUO-Utils.h"
 
-namespace DUO {class gameObject; class gameObjectComponent;}
+namespace DUO {class gameObject; class gameObjectComponent; class sceneManager;}
 
-namespace DUO{
+namespace DUO 
+{
 
-    class scene {
+    class scene 
+    {
 
     private:
 
-        int myID; //the ID of this scene object to be used by the application instance to address which scene to update
-        int curID{0}; //the current ID to be assigned to the next object in the game object vector
-        SDL_Renderer* myRenderer; //a pointer to an SDL renderer object provided by the application object
-        std::vector<DUO::gameObject*> objectVect; //a vector of shared pointers to gameObjects
+        SDL_Renderer* myRenderer = NULL; //pointer to an SDL_Renderer provided by the application class
+        int myID; //an integer holding the object's ID which can be used to find it in a scene vector
+
+        int nextObjectID = 0; //the next ID to be assigned to a game object in the vector
+
+        std::vector<std::unique_ptr<DUO::gameObject>> objectVect; //a std::vector of unique pointers to game objects
 
     public:
 
-        scene(int newID, SDL_Renderer* newRenderer); //constructor for the scene class taking an ID and a renderer object
+        scene(int newID, SDL_Renderer* renderer); //constructor for the scene object taking a new ID and a pointer to a Renderer object
 
-        void setup(); //a setup function that is called before the first update method
+        void setup(); //a method that is when the scene is loaded
 
-        void update(); //an update method that returns a boolean value
+        void update(); //this is called by the application::update() method and updates each object in the object vector
+        
+        void draw(float interpolation); //renders the objects in the object vector and supplies interpolation to the objects
 
-        void draw(float interpolation); //a draw method that returns a boolean value dependant on the success of the update
-
-        void addObject(DUO::gameObject* newObject); //adds a new gameObject instance to the object vector
-
-        void removeObject(int objectID) {}; //removes a gameObject from the object vector with a specified ID 
-
-        void setRenderer(SDL_Renderer* newRenderer);
-
-        DUO::gameObject* getObject(int ID); //returns a shared pointer to the specified object
-
-        int getCurID();
+        friend class DUO::sceneManager; //friend class that will provide an interface for this class
 
     };
 

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObject.cpp.o"
   "CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-GameObjectComponent.cpp.o"
+  "CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-ObjectManager.cpp.o"
   "CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Scene.cpp.o"
   "CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Utils.cpp.o"
   "CMakeFiles/engine_lib.dir/DUO-Core/source/graphics/DUO-Graphics.cpp.o"
