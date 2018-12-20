@@ -19,12 +19,14 @@ namespace DUO
 
         DUO::broadType myBroadType; //stores the comp's broad type
         int myID; //the comp's ID
-        DUO::gameObject* myObject = NULL; //a pointer to a game object
         const char* myType;
 
     public:
 
-        gameObjectComponent(int newID, DUO::gameObject* newObject); //constructor
+        gameObjectComponent(int newID); //constructor
+
+
+        virtual ~gameObjectComponent() {};
 
         virtual void update() {}; //an update method that all further classes that inherit from this class will override this method
 
@@ -49,7 +51,9 @@ namespace DUO
 
         DUO::vector2 pos{0.0, 0.0}; //a vector2 that stores the position of the transform
 
-        transformComponent(int newID, DUO::gameObject* newObject, double x = 0.0, double y = 0.0, double xScale = 1.0, double yScale = 1.0, double newRot = 0.0); //constructor for the transform
+        transformComponent(int newID, double x = 0.0, double y = 0.0, double xScale = 1.0, double yScale = 1.0, double newRot = 0.0); //constructor for the transform
+
+        virtual ~transformComponent() {};
 
         void translate(double x = 0.0, double y = 0.0); //a translation method that translates it a certain amount of units
 
@@ -62,7 +66,9 @@ namespace DUO
 
         DUO::vector2 dimensions{1.0, 1.0}; //the dimensions of the component stored as a vector2
 
-        renderComponent(int newID, DUO::gameObject* newObject, double width = 1.0, double height = 1.0); //constructor
+        renderComponent(int newID, double width = 1.0, double height = 1.0); //constructor
+
+        virtual ~renderComponent() {};
 
         virtual void update(DUO::vector2 displayPos) {}; //overloaded update method taking the position of the object as a parameter
 

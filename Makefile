@@ -244,6 +244,33 @@ DUO-Core/source/gameObject/DUO-Scene.cpp.s:
 	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-Scene.cpp.s
 .PHONY : DUO-Core/source/gameObject/DUO-Scene.cpp.s
 
+DUO-Core/source/gameObject/DUO-SceneManager.o: DUO-Core/source/gameObject/DUO-SceneManager.cpp.o
+
+.PHONY : DUO-Core/source/gameObject/DUO-SceneManager.o
+
+# target to build an object file
+DUO-Core/source/gameObject/DUO-SceneManager.cpp.o:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-SceneManager.cpp.o
+.PHONY : DUO-Core/source/gameObject/DUO-SceneManager.cpp.o
+
+DUO-Core/source/gameObject/DUO-SceneManager.i: DUO-Core/source/gameObject/DUO-SceneManager.cpp.i
+
+.PHONY : DUO-Core/source/gameObject/DUO-SceneManager.i
+
+# target to preprocess a source file
+DUO-Core/source/gameObject/DUO-SceneManager.cpp.i:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-SceneManager.cpp.i
+.PHONY : DUO-Core/source/gameObject/DUO-SceneManager.cpp.i
+
+DUO-Core/source/gameObject/DUO-SceneManager.s: DUO-Core/source/gameObject/DUO-SceneManager.cpp.s
+
+.PHONY : DUO-Core/source/gameObject/DUO-SceneManager.s
+
+# target to generate assembly for a file
+DUO-Core/source/gameObject/DUO-SceneManager.cpp.s:
+	$(MAKE) -f CMakeFiles/engine_lib.dir/build.make CMakeFiles/engine_lib.dir/DUO-Core/source/gameObject/DUO-SceneManager.cpp.s
+.PHONY : DUO-Core/source/gameObject/DUO-SceneManager.cpp.s
+
 DUO-Core/source/gameObject/DUO-Utils.o: DUO-Core/source/gameObject/DUO-Utils.cpp.o
 
 .PHONY : DUO-Core/source/gameObject/DUO-Utils.o
@@ -509,6 +536,9 @@ help:
 	@echo "... DUO-Core/source/gameObject/DUO-Scene.o"
 	@echo "... DUO-Core/source/gameObject/DUO-Scene.i"
 	@echo "... DUO-Core/source/gameObject/DUO-Scene.s"
+	@echo "... DUO-Core/source/gameObject/DUO-SceneManager.o"
+	@echo "... DUO-Core/source/gameObject/DUO-SceneManager.i"
+	@echo "... DUO-Core/source/gameObject/DUO-SceneManager.s"
 	@echo "... DUO-Core/source/gameObject/DUO-Utils.o"
 	@echo "... DUO-Core/source/gameObject/DUO-Utils.i"
 	@echo "... DUO-Core/source/gameObject/DUO-Utils.s"

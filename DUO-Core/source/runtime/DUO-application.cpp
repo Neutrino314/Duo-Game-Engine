@@ -9,6 +9,7 @@
 #include <maths/DUO-Vector2.h>
 #include <thread>
 #include <vector>
+#include <gameObject/DUO-SceneManager.h>
 
 int DUO::application::curScene = 0;
 SDL_Event* DUO::application::event = new SDL_Event;
@@ -62,6 +63,8 @@ void DUO::application::gameThread() {
 
         }
 
+        DUO::keyboard::update();
+
         while (SDL_GetTicks() > nextGameTick && loops < MAX_SKIP) {
 
             update(); //calls the update function
@@ -83,7 +86,7 @@ void DUO::application::gameThread() {
 
         SDL_RenderPresent(mainRenderer); //presents the changes to the renderer
 
-        DUO::keyboard::update();
+        DUO::sceneManager::refreshObjs(DUO::application::sceneVect[curScene]);
 
     }
 

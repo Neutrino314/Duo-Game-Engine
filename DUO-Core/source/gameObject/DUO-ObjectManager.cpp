@@ -1,8 +1,4 @@
 #include "DUO-ObjectManager.h"
-
-void DUO::objectManager::refresh(DUO::scene* scn)
-{
-
-
-    
-}
+#include "DUO-Scene.h"
+#include "DUO-GameObject.h"
+#include <vector>

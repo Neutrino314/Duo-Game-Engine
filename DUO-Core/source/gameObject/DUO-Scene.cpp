@@ -21,7 +21,10 @@ void DUO::scene::setup()
     for (const auto& object : objectVect)  //foreach loop iterating through the object vector
     {
 
-        object->setup(); //calling the object's setup() method
+        if(object != nullptr)
+        {
+            object->setup(); //calling the object's setup() method
+        }
 
     }
 
@@ -33,7 +36,10 @@ void DUO::scene::update()
     for (const auto& object : objectVect)
     {
 
-        object->update(); //calling the object's update() method
+        if(object != nullptr)
+        {
+            object->update(); //calling the object's update() method
+        }
 
     }
 
@@ -44,8 +50,11 @@ void DUO::scene::draw(float interpolation)
 
     for (const auto& object : objectVect) 
     {
-
-        object->draw(interpolation); //calling the object's draw method
+        
+        if (object != nullptr)
+        {
+            object->draw(interpolation); //calling the object's draw method
+        }
 
     }
 

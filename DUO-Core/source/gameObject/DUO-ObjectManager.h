@@ -14,6 +14,8 @@ namespace DUO
     class objectManager
     {
 
+    public:
+
         template <typename T>
         static T* getComponent(DUO::gameObject* obj);//gets a comp of type T from the object's component vectors
 
@@ -22,8 +24,6 @@ namespace DUO
 
         template <typename T>
         static void addComponent(DUO::gameObject* obj, DUO::broadType broadCompType);//adds a component of type T with defaultt values to an object
-
-        static void refresh(DUO::scene* scn); //removes any elements in the objectVect of a scene that are nullptrs
 
     };
 
@@ -106,19 +106,19 @@ void DUO::objectManager::addComponent(DUO::gameObject* obj, DUO::broadType broad
 
         case DUO::BASE:
 
-            obj->componentVect.emplace_back(std::unique_ptr<T>(new T(obj->nextCompID, obj->myRenderer)));
+            obj->componentVect.emplace_back(std::unique_ptr<T>(new T(obj->nextCompID)));
             obj->nextCompID++;
             break;
 
         case DUO::RENDERER:
 
-            obj->renderCompVect.emplace_back(std::unique_ptr<T>(new T(obj->nextCompID, obj->myRenderer)));
+            obj->renderCompVect.emplace_back(std::unique_ptr<T>(new T(obj->nextCompID)));
             obj->nextRenderCompID++;
             break;
 
         default:
 
-            obj->componentVect.emplace_back(std::unique_ptr<T>(new T(obj->nextCompID, obj->myRenderer)));
+            obj->componentVect.emplace_back(std::unique_ptr<T>(new T(obj->nextCompID)));
             obj->nextCompID++;
             break;
 

@@ -8,7 +8,7 @@
 #include <iostream>
 #include <memory>
 
-DUO::gameObjectComponent::gameObjectComponent(int newID, DUO::gameObject* newObject) : myID(newID), myObject(newObject)
+DUO::gameObjectComponent::gameObjectComponent(int newID) : myID(newID)
 {
 
     myBroadType = DUO::BASE; //changes the myBroadType variable to DUO::BASE
@@ -22,7 +22,7 @@ void DUO::gameObjectComponent::setID(int ID) {myID = ID;} //sets the comp's ID
 
 const char* DUO::gameObjectComponent::getType() {return myType;} //returns myType
 
-DUO::transformComponent::transformComponent(int newID, DUO::gameObject* newObject, double x, double y, double xScale, double yScale, double newRot) : gameObjectComponent(newID, newObject), rotation(newRot)
+DUO::transformComponent::transformComponent(int newID, double x, double y, double xScale, double yScale, double newRot) : gameObjectComponent(newID), rotation(newRot)
 {
 
     myBroadType = DUO::TRANSFORM; //changes the broadType variable to a transform
@@ -35,7 +35,7 @@ DUO::transformComponent::transformComponent(int newID, DUO::gameObject* newObjec
 
 void DUO::transformComponent::translate(double x, double y) {pos.increment(x, y);} //increments the position vector
 
-DUO::renderComponent::renderComponent(int newID, DUO::gameObject* newObject, double width, double height) : gameObjectComponent(newID, newObject)
+DUO::renderComponent::renderComponent(int newID, double width, double height) : gameObjectComponent(newID)
 {
 
     myBroadType = DUO::RENDERER; //changes the broad type to that of a RENDERER

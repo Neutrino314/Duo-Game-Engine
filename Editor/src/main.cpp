@@ -1,7 +1,6 @@
 #include <DUO-Core/source/DUO-Engine.h>
 #include <typeinfo>
 #include <iostream>
-#include <SDL2/SDL.h>
 #include "CLI/CLI.h"
 
 class play : public DUO::application {

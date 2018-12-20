@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DUO-Utils.h"
+#include "DUO-GameObjectComponent.h"
 #include <maths/DUO-Vector2.h>
 #include <vector>
 #include <memory>
@@ -9,7 +10,7 @@
 #include <typeinfo>
 #include <iostream>
 
-namespace DUO {class scene; class gameObjectComponent; class renderComponent; class transformComponent; class objectManager;}
+namespace DUO {class objectManager;}
 
 namespace DUO 
 {
@@ -36,9 +37,14 @@ namespace DUO
 
         gameObject(int newID, SDL_Renderer* renderer); //constructor for the class
 
+        ~gameObject() {};
+
         void setup(); //this is called by the scene setup method
         void update(); //this is called by the scene supdate method
         void draw(float interpolation); //this is called by the scene draw method
+
+        void setID(int newID); //changes the object's ID
+        int getID();
 
         friend class DUO::objectManager;
     };

@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include "DUO-Utils.h"
+#include "DUO-Scene.h"
 
 namespace DUO {class gameObject; class gameObjectComponent; class sceneManager;}
 
