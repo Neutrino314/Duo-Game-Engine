@@ -18,7 +18,7 @@ void DUO::drawVector(SDL_Renderer* renderer, DUO::vector2* vect) {
 
     //draws a line from the origin to the components of the vector using the SDL_Drawline function
 
-    SDL_RenderDrawLine(renderer, 0, 0, static_cast<int>(vect->getXComponent()), static_cast<int>(vect->getYComponent()));
+    SDL_RenderDrawLine(renderer, 0, 0, static_cast<int>(vect->x), static_cast<int>(vect->y));
 
 };
 
@@ -129,17 +129,17 @@ void DUO::fillTriangle(double x1, double y1, double x2, double y2, double x3, do
 
             for (int i = 0; i < 2; i ++) { //for loop that goes from 0 to 1
 
-                if (pointVectors[0].getYComponent() <= pointVectors[1].getYComponent() && pointVectors[1].getYComponent() <= pointVectors[2].getYComponent()) { //if all of the vectors y components are larger than the first in an ascending order then the loop is broken and sortFinished is et to true
+                if (pointVectors[0].y <= pointVectors[1].y && pointVectors[1].y <= pointVectors[2].y) { //if all of the vectors y components are larger than the first in an ascending order then the loop is broken and sortFinished is et to true
 
                     sortFinished = true;
                     break;
 
-                }else if (pointVectors[i].getYComponent() > pointVectors[i + 1].getYComponent()) { //if the vector's y component is greater than the next element then swap those elements 
+                }else if (pointVectors[i].y > pointVectors[i + 1].y) { //if the vector's y component is greater than the next element then swap those elements 
 
                     std::swap(pointVectors[i], pointVectors[i + 1]);
                     continue;
 
-                } else if (pointVectors[i].getYComponent() < pointVectors[i + 1].getYComponent()) { //if the next element's y component is greater than the current element's then continue the for loop
+                } else if (pointVectors[i].y < pointVectors[i + 1].y) { //if the next element's y component is greater than the current element's then continue the for loop
 
                     continue;
 
@@ -149,12 +149,12 @@ void DUO::fillTriangle(double x1, double y1, double x2, double y2, double x3, do
         }
 
         //calculating the point at which the line intersects the other side:
-        double x4{pointVectors[0].getXComponent() + (((pointVectors[1].getYComponent() - pointVectors[0].getYComponent()) / (pointVectors[2].getYComponent() - pointVectors[0].getYComponent()) * (pointVectors[2].getXComponent() - pointVectors[0].getXComponent())))};
-        double y4 = pointVectors[1].getYComponent();
+        double x4{pointVectors[0].x + (((pointVectors[1].y - pointVectors[0].y) / (pointVectors[2].y - pointVectors[0].y) * (pointVectors[2].x - pointVectors[0].x)))};
+        double y4 = pointVectors[1].y;
 
         //fills the two newly created triangles
-        DUO::fillTopTriangle(pointVectors[1].getXComponent(), pointVectors[1].getYComponent(), pointVectors[2].getXComponent(), pointVectors[2].getYComponent(), x4, y4, r, g, b, renderer);
-        DUO::fillBottomTriangle(x4, y4, pointVectors[0].getXComponent(), pointVectors[0].getYComponent(), pointVectors[1].getXComponent(), pointVectors[1].getYComponent(), r, g, b, renderer);
+        DUO::fillTopTriangle(pointVectors[1].x, pointVectors[1].y, pointVectors[2].x, pointVectors[2].y, x4, y4, r, g, b, renderer);
+        DUO::fillBottomTriangle(x4, y4, pointVectors[0].x, pointVectors[0].y, pointVectors[1].x, pointVectors[1].y, r, g, b, renderer);
 
     }
 
@@ -174,7 +174,7 @@ void DUO::drawRect(short x, short y, double rotation, short r, short g, short b,
         vectorArray[i].rotateVector(rotation); //rotates the current element of the vector array by the amount specified by the variable rotation
 
         //adds the current vector to the point array and adding the centre point values to each component before rounding and casting to an integer:
-        pointArray[i] = {static_cast<int>(std::round(vectorArray[i].getXComponent())) + x, static_cast<int>(std::round(vectorArray[i].getYComponent())) + y};
+        pointArray[i] = {static_cast<int>(std::round(vectorArray[i].x)) + x, static_cast<int>(std::round(vectorArray[i].y)) + y};
 
     }
 
@@ -201,8 +201,8 @@ void DUO::fillRect(short x, short y, double rotation, short r, short g, short b,
     }
 
     //separates the rectangle into two triangles and then fills them
-    DUO::fillTriangle(vectorArray[0].getXComponent(), vectorArray[0].getYComponent(), vectorArray[1].getXComponent(), vectorArray[1].getYComponent(), vectorArray[2].getXComponent(), vectorArray[2].getYComponent(),  r, g, b, renderer);
-    DUO::fillTriangle(vectorArray[0].getXComponent(), vectorArray[0].getYComponent(), vectorArray[3].getXComponent(), vectorArray[3].getYComponent(), vectorArray[2].getXComponent(), vectorArray[2].getYComponent(), r, g, b, renderer);
+    DUO::fillTriangle(vectorArray[0].x, vectorArray[0].y, vectorArray[1].x, vectorArray[1].y, vectorArray[2].x, vectorArray[2].y,  r, g, b, renderer);
+    DUO::fillTriangle(vectorArray[0].x, vectorArray[0].y, vectorArray[3].x, vectorArray[3].y, vectorArray[2].x, vectorArray[2].y, r, g, b, renderer);
 
 };
 
@@ -285,7 +285,7 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
      
      for (int i = 0; i < numberOfSides; i ++) {
      
-         pointArray[i] = {static_cast<int>(std::round(vectorArray[i].getXComponent() + x)), static_cast<int>(std::round(vectorArray[i].getYComponent() + y))};
+         pointArray[i] = {static_cast<int>(std::round(vectorArray[i].x + x)), static_cast<int>(std::round(vectorArray[i].y + y))};
      
      }
      
@@ -325,11 +325,11 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
      
      }
      
-     DUO::fillTriangle(x, y, std::round(vectorArray[0].getXComponent()), std::round(vectorArray[0].getYComponent()), std::round(vectorArray[numberOfSides - 1].getXComponent()), std::round(vectorArray[numberOfSides - 1].getYComponent()), r, g, b, renderer);
+     DUO::fillTriangle(x, y, std::round(vectorArray[0].x), std::round(vectorArray[0].y), std::round(vectorArray[numberOfSides - 1].x), std::round(vectorArray[numberOfSides - 1].y), r, g, b, renderer);
      
      for (int i = 1; i < numberOfSides; i++) {
      
-         DUO::fillTriangle(x, y, std::round(vectorArray[i].getXComponent()), std::round(vectorArray[i].getYComponent()), std::round(vectorArray[i - 1].getXComponent()), std::round(vectorArray[i - 1].getYComponent()), r, g, b, renderer);
+         DUO::fillTriangle(x, y, std::round(vectorArray[i].x), std::round(vectorArray[i].y), std::round(vectorArray[i - 1].x), std::round(vectorArray[i - 1].y), r, g, b, renderer);
      
      }
  ;}

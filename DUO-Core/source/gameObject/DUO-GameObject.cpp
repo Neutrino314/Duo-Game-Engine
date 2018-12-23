@@ -7,7 +7,7 @@
 #include <memory>
 #include <map>
 
-DUO::gameObject::gameObject(int newID, SDL_Renderer* renderer) : myRenderer(renderer), myID(newID)
+DUO::gameObject::gameObject(int newID) : myID(newID)
 {
 
     myTransform = std::unique_ptr<DUO::transformComponent>(new DUO::transformComponent(0));
@@ -43,11 +43,11 @@ void DUO::gameObject::update()
 
     }
 
-    myTransform->translate(myVel.getXComponent(), myVel.getYComponent());
+    myTransform->translate(myVel.x, myVel.y);
 
 }
 
-void DUO::gameObject::draw(float interpolation)
+void DUO::gameObject::draw(float interpolation, SDL_Renderer* renderer)
 {
 
     DUO::vector2 displayPos{myVel * static_cast<double>(interpolation)};
@@ -60,7 +60,7 @@ void DUO::gameObject::draw(float interpolation)
 
         if (comp != nullptr)
         {
-        comp->update(displayPos);
+        comp->update(displayPos, renderer);
         }
         
     }

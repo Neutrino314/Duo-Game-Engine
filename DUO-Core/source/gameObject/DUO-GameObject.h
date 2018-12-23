@@ -20,8 +20,6 @@ namespace DUO
 
     private:
 
-        SDL_Renderer* myRenderer = NULL;
-
         int myID; //the object's ID
         int nextCompID = 0; //the next id to be assigned to a component
         int nextRenderCompID = 0; //the next ID to be assigned to a render component
@@ -35,13 +33,13 @@ namespace DUO
 
         DUO::vector2 myVel{0.0, 0.0}; //a vector2 that holds the object's velocity
 
-        gameObject(int newID, SDL_Renderer* renderer); //constructor for the class
+        gameObject(int newID); //constructor for the class
 
         ~gameObject() {};
 
         void setup(); //this is called by the scene setup method
         void update(); //this is called by the scene supdate method
-        void draw(float interpolation); //this is called by the scene draw method
+        void draw(float interpolation, SDL_Renderer* renderer); //this is called by the scene draw method
 
         void setID(int newID); //changes the object's ID
         int getID();

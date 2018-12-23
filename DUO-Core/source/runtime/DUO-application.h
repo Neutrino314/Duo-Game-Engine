@@ -34,6 +34,8 @@ namespace DUO { //All functions and classes from the engine fall under the names
         static std::vector<scene*> sceneVect;
         SDL_Renderer* mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
+        int nextScene{0};
+
         static int setupSDL(); //forward declaration of a static function that initialises all SDL modules
         application(std::string title, short w, short h); //forward declaration of the constructor taking a title and dimensions for the window
         void setup(); //The setup method that is called before the game loop starts

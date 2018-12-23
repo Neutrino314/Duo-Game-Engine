@@ -70,7 +70,7 @@ namespace DUO
 
         virtual ~renderComponent() {};
 
-        virtual void update(DUO::vector2 displayPos) {}; //overloaded update method taking the position of the object as a parameter
+        virtual void update(DUO::vector2 displayPos, SDL_Renderer* renderer) {}; //overloaded update method taking the position of the object as a parameter
 
     };
    

@@ -5,12 +5,10 @@ namespace DUO {
 
     class vector2 {
 
-    private:
-
-        double x{0}; //private x component
-        double y{0}; //private y component
-
     public:
+
+        double x;
+        double y;
 
         vector2(double x = 0.0, double y = 0.0) : x(x), y(y){}; //constructor that takes an x and y value as arguments
 

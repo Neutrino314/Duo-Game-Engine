@@ -19,10 +19,10 @@ void DUO::AABB::setDimensions(double newWidth, double newHeight) {dimensions.set
 
 bool DUO::AABB::pointInThis(DUO::vector2 point) {
 
-    if (point.getXComponent() >= centre.getXComponent() - dimensions.getXComponent() && point.getXComponent() <= centre.getXComponent() + dimensions.getXComponent()) {
+    if (point.x >= centre.x - dimensions.x && point.x <= centre.x + dimensions.x) {
     //^-----checks whether the point's x coordinate is within the boxes
 
-        if (point.getYComponent() >= centre.getYComponent() - dimensions.getYComponent() && point.getYComponent() <= centre.getYComponent() + dimensions.getYComponent()) {
+        if (point.y >= centre.y - dimensions.y && point.y <= centre.y + dimensions.y) {
         //^------checks whether the point's y coordinate is within the boxes
 
             return true;
@@ -40,8 +40,8 @@ bool DUO::AABB::intersectsAABB(AABB box1) {
     DUO::vector2 boxCentre = box1.getCentre();
     DUO::vector2 boxDimensions = box1.getDimensions();
 
-    if ((centre + dimensions).getXComponent() > (boxCentre - boxDimensions).getXComponent() && (centre - dimensions).getXComponent() < (boxCentre + boxDimensions).getXComponent()
-        && (centre + dimensions).getYComponent() > (boxCentre - boxDimensions).getYComponent() && (centre - dimensions).getYComponent() < (boxCentre + boxDimensions).getYComponent()) {
+    if ((centre + dimensions).x > (boxCentre - boxDimensions).x && (centre - dimensions).x < (boxCentre + boxDimensions).x
+        && (centre + dimensions).y > (boxCentre - boxDimensions).y && (centre - dimensions).y < (boxCentre + boxDimensions).y) {
 
             return true;
 

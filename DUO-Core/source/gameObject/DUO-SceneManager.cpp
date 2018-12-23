@@ -1,9 +1,12 @@
 #include "DUO-Scene.h"
 #include "DUO-GameObject.h"
 #include "DUO-SceneManager.h"
+#include <runtime/DUO-application.h>
 #include <vector>
 #include <iostream>
 #include <memory>
+
+DUO::scene* DUO::sceneManager::curScene = new DUO::scene(0);
 
 void DUO::sceneManager::refreshObjs(DUO::scene* scn)
 {
@@ -36,7 +39,7 @@ void DUO::sceneManager::refreshObjs(DUO::scene* scn)
 void DUO::sceneManager::addObject(DUO::scene* scn)
 {
 
-    scn->objectVect.emplace_back(std::unique_ptr<DUO::gameObject>(new DUO::gameObject(scn->nextObjectID, scn->myRenderer)));
+    scn->objectVect.emplace_back(std::unique_ptr<DUO::gameObject>(new DUO::gameObject(scn->nextObjectID)));
     scn->nextObjectID++;
 
 }

@@ -10,6 +10,7 @@
 #include <thread>
 #include <vector>
 #include <gameObject/DUO-SceneManager.h>
+#include <gameObject/DUO-SceneManager.h>
 
 int DUO::application::curScene = 0;
 SDL_Event* DUO::application::event = new SDL_Event;
@@ -20,13 +21,11 @@ DUO::application::application(std::string title, short w, short h) { //construct
     SDL_SetWindowSize(mainWindow, w, h); //resizing the window using SDL_SetWindowSize
     SDL_SetWindowTitle(mainWindow, title.c_str()); //re-titling the window using the SDL_SetWindowTitle function
 
-    DUO::application::sceneVect.push_back(new DUO::scene(0, mainRenderer)); // adds a new scene to the scene vector 
-
 };
 
 void DUO::application::update() {
 
-    DUO::application::sceneVect[DUO::application::curScene]->update(); //calls the current scene's update method
+    DUO::sceneManager::curScene->update(); //calls the current scene's update method
     
     if (curFrame == TICKS_PER_SECOND) {
 
@@ -42,7 +41,7 @@ void DUO::application::update() {
 
 void DUO::application::draw(float newInterpolation) {
 
-    DUO::application::sceneVect[DUO::application::curScene]->draw(interpolation); //calls the current scene's draw method
+    DUO::sceneManager::curScene->draw(interpolation, mainRenderer); //calls the current scene's draw method
     
 
 }
@@ -80,13 +79,11 @@ void DUO::application::gameThread() {
 
         SDL_RenderClear(mainRenderer); //clears the renderer
 
-        //std::cout << "drawn\n";
-
         draw(interpolation); // calls the draw function
 
         SDL_RenderPresent(mainRenderer); //presents the changes to the renderer
 
-        DUO::sceneManager::refreshObjs(DUO::application::sceneVect[curScene]);
+        DUO::sceneManager::refreshObjs(DUO::sceneManager::curScene);
 
     }
 
@@ -94,7 +91,7 @@ void DUO::application::gameThread() {
 
 void DUO::application::setup() {
 
-    sceneVect[curScene]->setup();
+    DUO::sceneManager::curScene->setup();
 
 }
 

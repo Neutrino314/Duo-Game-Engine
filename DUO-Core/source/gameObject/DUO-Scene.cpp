@@ -6,10 +6,10 @@
 #include <memory>
 #include <SDL2/SDL.h>
 
-DUO::scene::scene(int newID, SDL_Renderer* renderer) : myID(newID), myRenderer(renderer)
+DUO::scene::scene(int newID) : myID(newID)
 { //on instantiation myID is assigned the value of newID and the renderer pointer is assigned to the myRenderer object
 
-    objectVect.emplace_back(std::unique_ptr<DUO::gameObject>(new DUO::gameObject(nextObjectID, myRenderer)));
+    objectVect.emplace_back(std::unique_ptr<DUO::gameObject>(new DUO::gameObject(nextObjectID)));
 //  ^---adding a new object to the object vector with curID as the ID and passing a pointer to myRenderer
     nextObjectID++;
 
@@ -45,7 +45,7 @@ void DUO::scene::update()
 
 }
 
-void DUO::scene::draw(float interpolation)
+void DUO::scene::draw(float interpolation, SDL_Renderer* renderer)
 {
 
     for (const auto& object : objectVect) 
@@ -53,9 +53,16 @@ void DUO::scene::draw(float interpolation)
         
         if (object != nullptr)
         {
-            object->draw(interpolation); //calling the object's draw method
+            object->draw(interpolation, renderer); //calling the object's draw method
         }
 
     }
+
+}
+
+int DUO::scene::getID()
+{
+
+    return myID;
 
 }
