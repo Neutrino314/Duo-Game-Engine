@@ -1,7 +1,7 @@
 #include "DUO-Vector2.h"
 #include "DUO-AABB.h"
 
-DUO::AABB::AABB(double x, double y, double width, double height) {
+DUO::AABB::AABB(float x, float y, float width, float height) {
 
     centre.setVector(x, y); //sets the new centre position
 
@@ -13,9 +13,9 @@ DUO::vector2 DUO::AABB::getCentre() {return centre;} //returns a copy of the AAB
 
 DUO::vector2 DUO::AABB::getDimensions() {return dimensions;} //returns a copy of the AABB's dimesnions (half values)
 
-void DUO::AABB::move(double newX, double newY) {centre.setVector(newX, newY);} //moves the AABB to a new position
+void DUO::AABB::move(float newX, float newY) {centre.setVector(newX, newY);} //moves the AABB to a new position
 
-void DUO::AABB::setDimensions(double newWidth, double newHeight) {dimensions.setVector(newWidth / 2, newHeight / 2);} //sets the AABB's dimensions
+void DUO::AABB::setDimensions(float newWidth, float newHeight) {dimensions.setVector(newWidth / 2, newHeight / 2);} //sets the AABB's dimensions
 
 bool DUO::AABB::pointInThis(DUO::vector2 point) {
 

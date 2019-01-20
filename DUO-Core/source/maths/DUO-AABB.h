@@ -13,13 +13,13 @@ private:
 
 public:
 
-    AABB(double x, double y, double width, double height); //the defaul constructor for the class
+    AABB(float x, float y, float width, float height); //the defaul constructor for the class
 
-    void setDimensions(double newWidth, double newHeight); //sets the dimensions value
+    void setDimensions(float newWidth, float newHeight); //sets the dimensions value
 
     DUO::vector2 getDimensions(); //gets the dimensions value
 
-    void move(double newX, double newY); //moves the AABB to a new position
+    void move(float newX, float newY); //moves the AABB to a new position
 
     DUO::vector2 getCentre();  // gets the coordinates of the AABB
 

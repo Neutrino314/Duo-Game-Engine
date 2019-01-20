@@ -7,26 +7,26 @@ namespace DUO {
 
     public:
 
-        double x;
-        double y;
+        float x;
+        float y;
 
-        vector2(double x = 0.0, double y = 0.0) : x(x), y(y){}; //constructor that takes an x and y value as arguments
+        vector2(float x = 0.0f, float y = 0.0f) : x(x), y(y){}; //constructor that takes an x and y value as arguments
 
-        double getMagnitude(); // retruns the magnitude of the vector2
+        float getMagnitude(); // retruns the magnitude of the vector2
 
-        void setXComponent(double newX); // set's the x component
+        void setXComponent(float newX); // set's the x component
 
-        void setYComponent(double newY); //sets the y component
+        void setYComponent(float newY); //sets the y component
 
-        double getXComponent(); //returns the x component as a double
+        float getXComponent(); //returns the x component as a float
 
-        double getYComponent(); //returns the y component as a double
+        float getYComponent(); //returns the y component as a float
 
-        void increment(double xInc = 0.0, double yInc = 0.0); //increments the vectors components by a specified value
+        void increment(float xInc = 0.0f, float yInc = 0.0f); //increments the vectors components by a specified value
 
-        void setVector(double xInc = 0.0, double yInc = 0.0);
+        void setVector(float xInc = 0.0f, float yInc = 0.0f);
 
-        void rotateVector(double rotation = 0.0); // rotates the vector2 by a specified amount in degrees 
+        void rotateVector(float rotation = 0.0f); // rotates the vector2 by a specified amount in degrees 
 
         void print(); //prints the components of the vector2
 
@@ -34,9 +34,9 @@ namespace DUO {
 
         vector2 operator-(vector2& vect2); //subtracts 2 vectors and returns the new vector2
 
-        vector2 operator*(double multiple); //multiplies two vectors
+        vector2 operator*(float multiple); //multiplies two vectors
 
-        double dot(vector2& vect); //function that performs the dot product on two vectors
+        float dot(vector2& vect); //function that performs the dot product on two vectors
 
     };
 

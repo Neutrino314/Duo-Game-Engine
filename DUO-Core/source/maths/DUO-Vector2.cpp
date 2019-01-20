@@ -2,22 +2,22 @@
 #include <cmath>
 #include <iostream>
 
-double DUO::vector2::getMagnitude() {return std::sqrt( std::pow( x, 2 ) + std::pow( y, 2 ) );} //returns the magnitude of the vector2 using the pythagorean theorem using the vector2's components
+float DUO::vector2::getMagnitude() {return std::sqrt( std::pow( x, 2 ) + std::pow( y, 2 ) );} //returns the magnitude of the vector2 using the pythagorean theorem using the vector2's components
 
-double DUO::vector2::getXComponent() {return x;}; // returns the vector2's x component
+float DUO::vector2::getXComponent() {return x;}; // returns the vector2's x component
 
-double DUO::vector2::getYComponent() {return y;}; // returns the vector2's y component
+float DUO::vector2::getYComponent() {return y;}; // returns the vector2's y component
 
-void DUO::vector2::setXComponent(double newX) {x = newX;}; //sets the x component to a new value
+void DUO::vector2::setXComponent(float newX) {x = newX;}; //sets the x component to a new value
 
-void DUO::vector2::setYComponent(double newY) {y = newY;}; //sets the y component to a new value
+void DUO::vector2::setYComponent(float newY) {y = newY;}; //sets the y component to a new value
 
-void DUO::vector2::rotateVector(double rotation) {
+void DUO::vector2::rotateVector(float rotation) {
 
-    double prevX = x; //store;s the current x value in a variable to be used in calculations
-    double prevY = y; //store's the current y value in a variable to be used in calculations
+    float prevX = x; //store;s the current x value in a variable to be used in calculations
+    float prevY = y; //store's the current y value in a variable to be used in calculations
 
-    double rotationRads = deg2Rad(rotation); //converts the rotation angle to radians
+    float rotationRads = deg2Rad(rotation); //converts the rotation angle to radians
 
     x = (prevX * std::cos(rotationRads) - prevY * std::sin(rotationRads)); //rotates the vector2 by applying a rotation matrix
 
@@ -33,8 +33,8 @@ void DUO::vector2::print() {
 
 DUO::vector2 DUO::addVector(DUO::vector2 v1, DUO::vector2 v2) {
 
-    double xComp = v1.getXComponent() + v2.getXComponent(); // calculates the x component of the new vector2
-    double yComp = v1.getYComponent() + v2.getYComponent(); // calculates the y component of the new vector2
+    float xComp = v1.getXComponent() + v2.getXComponent(); // calculates the x component of the new vector2
+    float yComp = v1.getYComponent() + v2.getYComponent(); // calculates the y component of the new vector2
 
     return vector2(xComp, yComp); // returns a vector2 with the new components
 
@@ -44,18 +44,18 @@ DUO::vector2 DUO::vector2::operator+(vector2& vect2) {return DUO::vector2(this->
 
 DUO::vector2 DUO::vector2::operator-(vector2& vect2) {return DUO::vector2(this->getXComponent() - vect2.getXComponent(), this->getYComponent() - vect2.getYComponent());}
 
-double DUO::vector2::dot(vector2& vect) {return (this->getXComponent() * vect.getXComponent()) + (this->getYComponent() * vect.getYComponent());}
+float DUO::vector2::dot(vector2& vect) {return (this->getXComponent() * vect.getXComponent()) + (this->getYComponent() * vect.getYComponent());}
 
-void DUO::vector2::increment(double xInc, double yInc) {
+void DUO::vector2::increment(float xInc, float yInc) {
 
     x += xInc; //increments the vectors components by the values passed as arguments
     y += yInc;
 
 }
 
-DUO::vector2 DUO::vector2::operator*(double multiple) {return DUO::vector2(this->getXComponent() * multiple, this->getYComponent() * multiple);}
+DUO::vector2 DUO::vector2::operator*(float multiple) {return DUO::vector2(this->getXComponent() * multiple, this->getYComponent() * multiple);}
 
-void DUO::vector2::setVector(double xInc, double yInc) {
+void DUO::vector2::setVector(float xInc, float yInc) {
 
     x = xInc;
     y = yInc;

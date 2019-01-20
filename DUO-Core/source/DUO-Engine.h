@@ -13,6 +13,12 @@
 #include <gameObject/DUO-ObjectManager.h>
 #include <gameObject/DUO-SceneManager.h>
 
+#include <utils/stringUtils.h>
+#include <utils/fileUtils.h>
+
+#include <yaml/parser.h>
+#include <yaml/writer.cpp>
+
 #ifndef DUO_ENGINE
 #define DUO_ENGINE
 

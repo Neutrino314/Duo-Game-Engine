@@ -32,7 +32,7 @@ void DUO::drawTriangle(short x1, short y1, short x2, short y2, short x3, short y
 
 };
 
-void DUO::fillTopTriangle(double x1, double y1, double x2, double y2, double x3, double y3, short r, short g, short b, SDL_Renderer* renderer) {
+void DUO::fillTopTriangle(float x1, float y1, float x2, float y2, float x3, float y3, short r, short g, short b, SDL_Renderer* renderer) {
 
     SDL_SetRenderDrawColor(renderer, r, g, b, 255); //sets the renderer's drawing colour
 
@@ -42,11 +42,11 @@ void DUO::fillTopTriangle(double x1, double y1, double x2, double y2, double x3,
        credit to the http://www.sunshine2k.de/coding/java/TriangleRasterization/TriangleRasterization.html#algo2 for the algorithm
     */
 
-    double invSlope1{(x2 - x1) / (y2 - y1)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
-    double invSlope2{(x2 - x3) / (y2 - y3)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
+    float invSlope1{(x2 - x1) / (y2 - y1)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
+    float invSlope2{(x2 - x3) / (y2 - y3)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
 
-    double curX1{x2}; //this variable will hold the current x coordinate that is being used to step through the first side
-    double curX2{x2}; //this variable will hold the current x coordinate that is being used to step through the second side
+    float curX1{x2}; //this variable will hold the current x coordinate that is being used to step through the first side
+    float curX2{x2}; //this variable will hold the current x coordinate that is being used to step through the second side
 
     for (int scanLine = y2; scanLine > y1; scanLine --) { //for loop running through the y values in the triangle from the highest to lowest
 
@@ -66,7 +66,7 @@ void DUO::fillTopTriangle(double x1, double y1, double x2, double y2, double x3,
 
 };
 
-void DUO::fillBottomTriangle(double x1, double y1, double x2, double y2, double x3, double y3, short r, short g, short b, SDL_Renderer* renderer) {
+void DUO::fillBottomTriangle(float x1, float y1, float x2, float y2, float x3, float y3, short r, short g, short b, SDL_Renderer* renderer) {
 
     SDL_SetRenderDrawColor(renderer, r, g, b, 255); //sets the renderer's drawing colour
 
@@ -76,11 +76,11 @@ void DUO::fillBottomTriangle(double x1, double y1, double x2, double y2, double 
        credit to the http://www.sunshine2k.de/coding/java/TriangleRasterization/TriangleRasterization.html#algo2 for the algorithm
     */
 
-    double invSlope1{(x2 - x1) / (y2 - y1)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
-    double invSlope2{(x2 - x3) / (y2 - y3)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
+    float invSlope1{(x2 - x1) / (y2 - y1)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
+    float invSlope2{(x2 - x3) / (y2 - y3)}; //the amount that the x value must be increased in every time to achieve the correct slope of one side
 
-    double curX1{x2}; //this variable will hold the current x coordinate that is being used to step through the first side
-    double curX2{x2}; //decrements curX2 by the first inverse slope (dx2) so that the line will have the same slope as specified
+    float curX1{x2}; //this variable will hold the current x coordinate that is being used to step through the first side
+    float curX2{x2}; //decrements curX2 by the first inverse slope (dx2) so that the line will have the same slope as specified
 
     for (int scanLine = y2; scanLine < y1; scanLine ++) { //for loop running through the y values in the triangle from the lowest to highest
 
@@ -100,7 +100,7 @@ void DUO::fillBottomTriangle(double x1, double y1, double x2, double y2, double 
 
 };
 
-void DUO::fillTriangle(double x1, double y1, double x2, double y2, double x3, double y3, short r, short g, short b, SDL_Renderer* renderer) {
+void DUO::fillTriangle(float x1, float y1, float x2, float y2, float x3, float y3, short r, short g, short b, SDL_Renderer* renderer) {
 
     //check out http://www.sunshine2k.de/coding/java/TriangleRasterization/TriangleRasterization.html#algo2 for the algorithm explained
 
@@ -149,8 +149,8 @@ void DUO::fillTriangle(double x1, double y1, double x2, double y2, double x3, do
         }
 
         //calculating the point at which the line intersects the other side:
-        double x4{pointVectors[0].x + (((pointVectors[1].y - pointVectors[0].y) / (pointVectors[2].y - pointVectors[0].y) * (pointVectors[2].x - pointVectors[0].x)))};
-        double y4 = pointVectors[1].y;
+        float x4{pointVectors[0].x + (((pointVectors[1].y - pointVectors[0].y) / (pointVectors[2].y - pointVectors[0].y) * (pointVectors[2].x - pointVectors[0].x)))};
+        float y4 = pointVectors[1].y;
 
         //fills the two newly created triangles
         DUO::fillTopTriangle(pointVectors[1].x, pointVectors[1].y, pointVectors[2].x, pointVectors[2].y, x4, y4, r, g, b, renderer);
@@ -160,7 +160,7 @@ void DUO::fillTriangle(double x1, double y1, double x2, double y2, double x3, do
 
 };
 
-void DUO::drawRect(short x, short y, double rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height) {
+void DUO::drawRect(short x, short y, float rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height) {
 
     DUO::vector2 vectorArray[] = {DUO::vector2(-(width / 2), -(height / 2)), //creates an array of vectors for each point of the rectangle starting in the top left going clockwise
                                  DUO::vector2(width / 2, -(height / 2)),
@@ -186,7 +186,7 @@ void DUO::drawRect(short x, short y, double rotation, short r, short g, short b,
 
 };
 
-void DUO::fillRect(short x, short y, double rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height) {
+void DUO::fillRect(short x, short y, float rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height) {
 
     DUO::vector2 vectorArray[] = {DUO::vector2(-(width / 2), -(height / 2)), //creates an array of vectors for each point of the rectangle starting in the top left going clockwise
                                  DUO::vector2(width / 2, -(height / 2)),
@@ -257,17 +257,17 @@ void DUO::fillCircle(short x, short y, short radius, short r, short g, short b, 
 
 }
 
-void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation) {
+void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, float rotation) {
      
     DUO::vector2 vectorArray[numberOfSides];
 
-     double centreAngle {static_cast<double>(360 / numberOfSides)};
+     float centreAngle {static_cast<float>(360 / numberOfSides)};
 
-     double cornerAngle = static_cast<int>(180 * (numberOfSides - 2) / numberOfSides);
+     float cornerAngle = static_cast<int>(180 * (numberOfSides - 2) / numberOfSides);
 
-     double halfLength{static_cast<double>(sideLength / 2)};
+     float halfLength{static_cast<float>(sideLength / 2)};
 
-     vectorArray[0] = DUO::vector2(halfLength, static_cast<double>((std::tan(DUO::deg2Rad(cornerAngle / 2))) * halfLength));
+     vectorArray[0] = DUO::vector2(halfLength, static_cast<float>((std::tan(DUO::deg2Rad(cornerAngle / 2))) * halfLength));
      
      for (int i = 1; i < numberOfSides; i ++) {
      
@@ -298,17 +298,17 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
 };
 
  
- void DUO::fillPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, double rotation) {
+ void DUO::fillPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, float rotation) {
      
      DUO::vector2 vectorArray[numberOfSides];
      
-     double centreAngle {static_cast<double>(360 / numberOfSides)};
+     float centreAngle {static_cast<float>(360 / numberOfSides)};
      
-     double cornerAngle = static_cast<int>(180 * (numberOfSides - 2) / numberOfSides);
+     float cornerAngle = static_cast<int>(180 * (numberOfSides - 2) / numberOfSides);
      
-     double halfLength{static_cast<double>(sideLength / 2)};
+     float halfLength{static_cast<float>(sideLength / 2)};
      
-     vectorArray[0] = DUO::vector2(halfLength, static_cast<double>((std::tan(DUO::deg2Rad(cornerAngle / 2))) * halfLength));
+     vectorArray[0] = DUO::vector2(halfLength, static_cast<float>((std::tan(DUO::deg2Rad(cornerAngle / 2))) * halfLength));
      
      for (int i = 1; i < numberOfSides; i ++) {
      
@@ -321,7 +321,7 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
      for (int i = 0; i < numberOfSides; i ++) {
         
         vectorArray[i].rotateVector(rotation);
-        vectorArray[i].increment(static_cast<double>(x), static_cast<double>(y));
+        vectorArray[i].increment(static_cast<float>(x), static_cast<float>(y));
      
      }
      

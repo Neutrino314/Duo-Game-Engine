@@ -5,8 +5,13 @@
 #include <vector>
 #include <iostream>
 #include <memory>
+#include <string>
 
 DUO::scene* DUO::sceneManager::curScene = new DUO::scene(0);
+
+std::string DUO::sceneManager::curScenePath = "NULL";
+
+std::vector<std::pair<std::size_t, std::string>> DUO::sceneManager::sceneIDNameVect;
 
 void DUO::sceneManager::refreshObjs(DUO::scene* scn)
 {
@@ -20,7 +25,6 @@ void DUO::sceneManager::refreshObjs(DUO::scene* scn)
         {
 
             scn->objectVect.erase(scn->objectVect.begin() + i);
-            std::cout << "erased\n";
 
         } else
         {
@@ -66,5 +70,27 @@ void DUO::sceneManager::removeObject(DUO::scene* scn, std::size_t objID)
 
 }
 
+DUO::gameObject* DUO::sceneManager::getObject(std::size_t ID) 
+{
 
+    if (ID >= DUO::sceneManager::curScene->objectVect.size())
+    {
+
+        return nullptr;
+        
+    } else 
+    {
+
+        return DUO::sceneManager::curScene->objectVect[ID].get();
+
+    }
+
+}
+
+void DUO::sceneManager::addScene(DUO::application &app, std::string path)
+{
+
+    
+
+}
 

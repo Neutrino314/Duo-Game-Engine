@@ -17,6 +17,10 @@ file(GLOB maths_files "${engine_source_dir}maths/*.cpp")
 
 file(GLOB runtime_files "${engine_source_dir}runtime/*.cpp")
 
+file(GLOB util_files "${engine_source_dir}utils/*.cpp")
+
+file(GLOB yaml_files "${engine_source_dir}yaml/*.cpp")
+
 set(LIBRARY_OUTPUT_PATH  "${CMAKE_BINARY_DIR}/DUO-Core/lib/")
 
 find_library(SDL "SDL2")
@@ -25,9 +29,7 @@ find_library(SDL_image "SDL2_image")
 
 find_library(PTHREAD "pthread")
 
-message(STATUS "${SDL_image}")
-
-add_library(engine_lib SHARED "${gameObject_files};${graphics_files};${maths_files};${runtime_files};")
+add_library(engine_lib SHARED "${gameObject_files};${graphics_files};${maths_files};${runtime_files};${util_files};${yaml_files};")
 
 target_link_libraries(engine_lib ${SDL})
 
@@ -35,16 +37,18 @@ target_link_libraries(engine_lib ${SDL_image})
 
 target_link_libraries(engine_lib ${PTHREAD})
 
+target_link_libraries(engine_lib ${Boost_LIBRARIES})
+
 set(editor_source_dir "${PROJECT_SOURCE_DIR}/Editor/src/")
 
 file(GLOB editor_CLI_files "${editor_source_dir}CLI/*.cpp")
 
-add_executable(Editor_exec "${editor_CLI_files};${editor_source_dir}main.cpp;")
+add_executable(output "${editor_CLI_files};${editor_source_dir}main.cpp;")
 
-target_link_libraries(Editor_exec ${SDL})
+target_link_libraries(output ${SDL})
 
-target_link_libraries(Editor_exec ${SDL_image})
+target_link_libraries(output ${SDL_image})
 
-target_link_libraries(Editor_exec ${PTHREAD})
+target_link_libraries(output ${PTHREAD})
 
-target_link_libraries(Editor_exec engine_lib)
+target_link_libraries(output engine_lib)
