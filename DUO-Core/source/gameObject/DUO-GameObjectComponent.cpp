@@ -45,6 +45,13 @@ DUO::renderComponent::renderComponent(int newID, float width, float height, DUO:
 
 }
 
+void DUO::renderComponent::setTransform(DUO::transformComponent* transform)
+{
+
+    myTransform = transform;
+
+}
+
 DUO::polygonRenderer::polygonRenderer(int newID) : renderComponent(newID)
 {
 

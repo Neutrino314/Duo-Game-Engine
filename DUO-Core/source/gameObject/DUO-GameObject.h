@@ -35,7 +35,14 @@ namespace DUO
 
         gameObject(int newID); //constructor for the class
 
-        ~gameObject() {};
+        ~gameObject() {
+
+            componentVect.clear();
+            renderCompVect.clear();
+            myTransform.release();
+            myTransform.reset();
+
+        };
 
         void setup(); //this is called by the scene setup method
         void update(); //this is called by the scene supdate method

@@ -39,7 +39,9 @@ T* DUO::objectManager::getComponent(DUO::gameObject* obj)
         if (component->getType() == typeid(T*).name()) //compares the components's "type" with that of the type T*
         {
 
-            return component.get(); //if true then it returns a raw pointer to the comp
+            DUO::gameObjectComponent* tempRaw = component.get();
+
+            return static_cast<T*>(tempRaw);
 
         }
 
@@ -51,7 +53,9 @@ T* DUO::objectManager::getComponent(DUO::gameObject* obj)
         if (component->getType() == typeid(T*).name()) //compares the components's "type" with that of the type T*
         {
 
-            return component.get(); //if true then it returns a raw pointer to the comp
+            DUO::renderComponent* tempRaw = component.get();
+
+            return static_cast<T*>(tempRaw);
 
         }
 

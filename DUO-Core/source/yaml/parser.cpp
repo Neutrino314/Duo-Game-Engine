@@ -78,6 +78,17 @@ void DUO::sceneParser::parse()
 void DUO::sceneParser::printDict()
 {
 
+    for (std::size_t i = 0; i < objectDict.size(); i++)
+    {
+
+        for (const auto value : objectDict[i])
+        {
+
+            std::cout << value << std::endl;
+
+        }
+
+    }
 
 }
 
@@ -115,6 +126,9 @@ std::string DUO::sceneParser::getVal(std::string tag, std::size_t objID)
 
 DUO::vector2 DUO::sceneParser::getVector2(std::string tag, std::size_t objID)
 {
+
+    objectDict.find(objID);
+
     for (auto line : objectDict[objID])
     {
 
@@ -153,4 +167,23 @@ DUO::vector2 DUO::sceneParser::getVector2(std::string tag, std::size_t objID)
     DUO::vector2 vect{0.0f, 0.0f};
 
     return vect;
+}
+
+std::string DUO::sceneParser::getObjectType(std::size_t objID)
+{
+
+    if (objID >= objectDict.size())
+    {
+
+        std::cerr << "object out of range!\n";
+        exit(1);
+
+    }
+
+    std::string objectType = objectDict[objID][1];
+    objectType = DUO::removeChar(objectType, ':');
+    objectType = DUO::removeWhiteSpace(objectType);
+
+    return objectType;
+
 }

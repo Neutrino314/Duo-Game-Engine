@@ -76,6 +76,8 @@ namespace DUO
 
         virtual void update(DUO::vector2 displayPos, SDL_Renderer* renderer) {}; //overloaded update method taking the position of the object as a parameter
 
+        void setTransform(DUO::transformComponent* transform);
+
     };
 
     class polygonRenderer : public renderComponent

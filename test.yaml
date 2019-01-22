@@ -1,23 +1,51 @@
---- &1
+--- &0
 gameObject:
-  myID: 1
+  myID: 0
   Transform: {ID: 2}
-  Acceleration: {x: 0.0f, y: 0.0f}
+  myVel: {x: 0.0f, y: 0.0f}
   components: {}
   renderComponents: {ID: 3}
 
---- &2
+--- &1
 Transform:
   parent: {ID: 1}
   position: {x: 400.0f, y: 300.0f}
   scale: {x: 1.0f, y: 1.0f}
-  rotation: 0.0f  
+  rotation: 0.0  
 
---- &3
+--- &2
 PolygonRenderer:
   parent: {ID: 1}
   Transform: {ID: 2}
   dimensions: {x: 50, y: 50}
-  isFilled: true
-  numOfSides: 6
-  colour: [255, 255, 255]
+  isFilled: 1
+  numOfSides: 10
+  r: 255
+  g: 0
+  b: 0
+
+--- &3
+gameObject:
+  myID: 1
+  Transform: {ID: 4}
+  myVel: {x: 0.1f, y: 0.0f}
+  components: {}
+  renderComponents: {ID: 5}
+
+--- &4
+Transform:
+  parent: {ID: 3}
+  position: {x: 50.0f, y: 300.0f}
+  scale: {x: 1.0f, y: 1.0f}
+  rotation: 0.0  
+
+--- &5
+PolygonRenderer:
+  parent: {ID: 3}
+  Transform: {ID: 4}
+  dimensions: {x: 20, y: 20}
+  isFilled: 1
+  numOfSides: 4
+  r: 0
+  g: 0
+  b: 0

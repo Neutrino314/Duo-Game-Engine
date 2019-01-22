@@ -33,7 +33,8 @@ namespace DUO
         if (!(iss >> tempVal))
         {
 
-            return;
+            T ret;
+            return ret;
 
         }
 

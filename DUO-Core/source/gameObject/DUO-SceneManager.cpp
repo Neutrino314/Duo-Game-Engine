@@ -1,7 +1,12 @@
 #include "DUO-Scene.h"
 #include "DUO-GameObject.h"
 #include "DUO-SceneManager.h"
+#include "DUO-ObjectManager.h"
+
 #include <runtime/DUO-application.h>
+#include <utils/stringUtils.h>
+#include <yaml/parser.h>
+
 #include <vector>
 #include <iostream>
 #include <memory>
@@ -94,3 +99,64 @@ void DUO::sceneManager::addScene(DUO::application &app, std::string path)
 
 }
 
+void DUO::sceneManager::loadScene(std::string path)
+{
+
+    DUO::sceneParser scnLoader(path);
+    scnLoader.parse();
+
+    signed long curObject(-1);
+
+    if (DUO::sceneManager::curScene->objectVect.empty())
+    {
+
+
+    }
+    else
+    {
+        
+        curScene->objectVect.clear();
+        curScene->nextObjectID = 0;
+
+    }
+
+    for (std::size_t i = 0; i < scnLoader.getObjectAmount(); i++)
+    {
+
+        std::string type = scnLoader.getObjectType(i);
+        if (type == "gameObject")
+        {
+
+            addObject(curScene);
+            curObject++;
+            curScene->objectVect[curObject]->myVel = scnLoader.getVector2("myVel", i);
+
+        }
+        else if (type == "Transform")
+        {
+
+            curScene->objectVect[curObject]->myTransform->pos = scnLoader.getVector2("position", i);
+            curScene->objectVect[curObject]->myTransform->scale = scnLoader.getVector2("scale", i);
+            curScene->objectVect[curObject]->myTransform->rotation = scnLoader.getVal<float>("rotation", i);
+
+        }
+        else if (type == "PolygonRenderer")
+        {
+            
+            DUO::objectManager::addComponent<DUO::polygonRenderer>(curScene->objectVect[curObject].get(), DUO::RENDERER);
+            DUO::polygonRenderer* tempRenderer = DUO::objectManager::getComponent<DUO::polygonRenderer>(curScene->objectVect[curObject].get());
+
+            tempRenderer->dimensions = scnLoader.getVector2("dimensions", i);
+            tempRenderer->isFilled = scnLoader.getVal<bool>("isFilled", i);
+            tempRenderer->numOfSides = scnLoader.getVal<std::size_t>("numOfSides", i);
+            tempRenderer->setTransform(curScene->objectVect[curObject]->myTransform.get());
+
+            std::get<0>(tempRenderer->colour) = scnLoader.getVal<short>("r", i);
+            std::get<1>(tempRenderer->colour) = scnLoader.getVal<short>("g", i);
+            std::get<2>(tempRenderer->colour) = scnLoader.getVal<short>("b", i);
+            
+        }
+
+    }
+
+}

@@ -46,6 +46,10 @@ namespace DUO
 
         void printDict();
 
+        std::size_t getObjectAmount() {return objectDict.size();}
+
+        std::string getObjectType(std::size_t objID);
+
         std::string getVal(std::string tag, std::size_t objID);
 
         DUO::vector2 getVector2(std::string tag, std::size_t objID);
@@ -77,7 +81,9 @@ namespace DUO
 
             }
 
-            return;
+            T retEmpty;
+
+            return retEmpty;
 
         }
 
