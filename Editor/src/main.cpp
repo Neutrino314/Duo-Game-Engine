@@ -1,6 +1,10 @@
 #include <DUO-Core/source/DUO-Engine.h>
 #include "CLI/CLI.h"
 
+#include <vector>
+#include <string>
+#include <iostream>
+
 class play : public DUO::application {
 
 public:

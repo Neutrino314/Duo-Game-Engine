@@ -15,6 +15,7 @@
 
 #include <utils/stringUtils.h>
 #include <utils/fileUtils.h>
+#include <utils/tupleUtils.h>
 
 #include <yaml/parser.h>
 #include <yaml/writer.cpp>

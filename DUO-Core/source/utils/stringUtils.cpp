@@ -78,6 +78,36 @@ std::vector<std::string> DUO::split(std::string& targetStr, const char delimiter
 
 }
 
+std::vector<std::string> DUO::splitFirst(const char delimiter, const std::string& targetStr)
+{
+
+    std::stringstream ss(targetStr);
+    std::string curToken = "";
+
+    std::vector<std::string> returnVect;
+
+    bool isFirst{false};
+
+    for (std::size_t i = 0; i < targetStr.length(); i++)
+    {
+
+        if (targetStr[i] == delimiter && !isFirst)
+        {
+
+            std::string temp = targetStr.substr(0, (i++));
+            returnVect.emplace_back(temp);
+            temp = targetStr.substr(i, targetStr.length() - i);
+            returnVect.emplace_back(temp);     
+            break;     
+
+        }
+
+    }
+
+    return returnVect;
+
+}
+
 std::size_t DUO::countInstanceOf(const char delimiter, const std::string& targetStr)
 {
 
@@ -113,5 +143,67 @@ void DUO::removePattern(std::string& targetStr, std::string pattern)
     std::regex regPattern(pattern);
 
     targetStr = std::regex_replace(targetStr, regPattern, "");
+
+}
+
+
+void DUO::removeWhitespace(std::vector<std::string>& strVect)
+{
+
+    for (std::size_t i = 0; i < strVect.size(); i++)
+    {
+
+        if (strVect[i] == "" || strVect[i] == " ")
+        {
+
+            strVect.erase(strVect.begin() + i);
+            i--;
+
+        }        
+
+    }
+
+    for (auto& string : strVect)
+    {
+
+        DUO::removePattern(string, " ");
+
+    }
+
+}
+
+std::string DUO::removeWhiteSpace(std::string targetStr)
+{
+
+    DUO::removePattern(targetStr, " ");
+
+    return targetStr;
+
+}
+
+std::vector<std::string> DUO::removeEmpty(std::vector<std::string> strVect)
+{
+
+    std::vector<std::string> retVect;
+
+    for (const auto str : strVect)
+    {
+
+        if (str == "")
+        {
+
+            continue;
+
+        }
+        else 
+        {
+
+            retVect.emplace_back(str);
+
+        }
+
+    }
+
+    return retVect;
 
 }

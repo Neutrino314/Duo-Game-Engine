@@ -1,14 +1,23 @@
 --- &1
 gameObject:
-  myID: 0
+  myID: 1
   Transform: {ID: 2}
-  Acceleration: [0.0, 0.0]
+  Acceleration: {x: 0.0f, y: 0.0f}
   components: {}
-  renderComponents: {}
+  renderComponents: {ID: 3}
 
 --- &2
 Transform:
   parent: {ID: 1}
-  position: [0.0f, 0.0f]
-  scale: [1.0f, 1.0f]
+  position: {x: 400.0f, y: 300.0f}
+  scale: {x: 1.0f, y: 1.0f}
   rotation: 0.0f  
+
+--- &3
+PolygonRenderer:
+  parent: {ID: 1}
+  Transform: {ID: 2}
+  dimensions: {x: 50, y: 50}
+  isFilled: true
+  numOfSides: 6
+  colour: [255, 255, 255]

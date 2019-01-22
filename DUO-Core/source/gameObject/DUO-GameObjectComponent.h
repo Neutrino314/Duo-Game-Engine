@@ -5,7 +5,6 @@
 #include <maths/DUO-Vector2.h>
 #include <graphics/DUO-Graphics.h>
 #include <runtime/DUO-application.h>
-#include <boost/archive/text_oarchive.hpp>
 #include <memory>
 #include <tuple>
 
