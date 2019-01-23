@@ -15,7 +15,7 @@ DUO::scene::scene(int newID) : myID(newID)
 
 }
 
-void DUO::scene::setup() 
+void DUO::scene::setup(SDL_Renderer* renderer) 
 {
 
     for (const auto& object : objectVect)  //foreach loop iterating through the object vector
@@ -23,7 +23,7 @@ void DUO::scene::setup()
 
         if(object != nullptr)
         {
-            object->setup(); //calling the object's setup() method
+            object->setup(renderer); //calling the object's setup() method
         }
 
     }

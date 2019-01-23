@@ -91,7 +91,7 @@ void DUO::application::gameThread() {
 
 void DUO::application::setup() {
 
-    DUO::sceneManager::curScene->setup();
+    DUO::sceneManager::curScene->setup(mainRenderer);
 
 }
 

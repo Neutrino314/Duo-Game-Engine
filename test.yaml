@@ -8,18 +8,17 @@ gameObject:
 
 --- &1
 Transform:
-  parent: {ID: 1}
+  parent: {ID: 0}
   position: {x: 400.0f, y: 300.0f}
   scale: {x: 1.0f, y: 1.0f}
   rotation: 0.0  
 
 --- &2
-PolygonRenderer:
-  parent: {ID: 1}
-  Transform: {ID: 2}
-  dimensions: {x: 50, y: 50}
+polygonRenderer:
+  parent: {ID: 0}
+  dimensions: {x: 500, y: 500}
   isFilled: 1
-  numOfSides: 10
+  numOfSides: 4
   r: 255
   g: 0
   b: 0
@@ -28,24 +27,18 @@ PolygonRenderer:
 gameObject:
   myID: 1
   Transform: {ID: 4}
-  myVel: {x: 0.1f, y: 0.0f}
+  myVel: {x: 0.0f, y: 0.0f}
   components: {}
   renderComponents: {ID: 5}
 
 --- &4
 Transform:
-  parent: {ID: 3}
-  position: {x: 50.0f, y: 300.0f}
+  parent: {ID: 4}
+  position: {x: 400.0f, y: 300.0f}
   scale: {x: 1.0f, y: 1.0f}
-  rotation: 0.0  
+  rotation: 0.0f
 
 --- &5
-PolygonRenderer:
-  parent: {ID: 3}
-  Transform: {ID: 4}
-  dimensions: {x: 20, y: 20}
-  isFilled: 1
-  numOfSides: 4
-  r: 0
-  g: 0
-  b: 0
+spriteRenderer:
+  dimensions: {x: 498.0f, y: 498.0f}
+  path: penta.png

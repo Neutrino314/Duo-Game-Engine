@@ -55,7 +55,7 @@ namespace DUO
         DUO::vector2 getVector2(std::string tag, std::size_t objID);
 
         template <typename T>
-        T getVal(std::string tag, std::size_t objID)
+        T getVal(std::string tag, std::size_t objID, T defaultVal)
         {
 
             for (auto line : objectDict[objID])
@@ -75,15 +75,13 @@ namespace DUO
                 if (keyVal.size() == 2 && keyVal[0] == tag)
                 {
 
-                    return DUO::fromString<T>(keyVal[1]);
+                    return DUO::fromString<T>(keyVal[1], defaultVal);
 
                 }
 
             }
 
-            T retEmpty;
-
-            return retEmpty;
+            return defaultVal;
 
         }
 

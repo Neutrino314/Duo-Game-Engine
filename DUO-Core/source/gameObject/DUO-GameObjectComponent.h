@@ -74,6 +74,8 @@ namespace DUO
 
         virtual ~renderComponent() {delete myType; myType = nullptr;};
 
+        virtual void setup(SDL_Renderer* renderer) {};
+
         virtual void update(DUO::vector2 displayPos, SDL_Renderer* renderer) {}; //overloaded update method taking the position of the object as a parameter
 
         void setTransform(DUO::transformComponent* transform);
@@ -96,6 +98,33 @@ namespace DUO
         polygonRenderer(int newID, std::size_t sidesAmount, bool filled,DUO::transformComponent* newTransform = NULL, float width = 1.0, float height = 1.0, short r = 0, short g = 0, short b = 0); //constructor taking in dimensions
 
         virtual ~polygonRenderer() {delete myType; myType = nullptr;} //deletes the type of the object
+
+        virtual void setup(SDL_Renderer* renderer) {};
+
+        virtual void update(DUO::vector2 displayPos, SDL_Renderer* renderer) override;
+
+    };
+
+    class spriteRenderer : public renderComponent
+    {
+
+    private:
+
+        SDL_Texture* myTexture = NULL;
+
+    public:
+
+        std::string myPath = "";
+
+        DUO::vector2 nativeDimensions{0.0, 0.0};
+
+        spriteRenderer(int newID);
+
+        spriteRenderer(int newID, std::string newPath, float width = 0.0f, float height = 0.0f, DUO::transformComponent* newTransform = NULL);
+
+        ~spriteRenderer() {delete myType; myType = nullptr;}
+
+        virtual void setup(SDL_Renderer* renderer) override;
 
         virtual void update(DUO::vector2 displayPos, SDL_Renderer* renderer) override;
 

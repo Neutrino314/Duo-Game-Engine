@@ -15,7 +15,7 @@ DUO::gameObject::gameObject(int newID) : myID(newID)
 
 }
 
-void DUO::gameObject::setup() 
+void DUO::gameObject::setup(SDL_Renderer* renderer) 
 {
 
     for (const auto& comp : componentVect)
@@ -24,6 +24,18 @@ void DUO::gameObject::setup()
         if (comp != nullptr)
         {
             comp->setup();
+        }
+
+    }
+
+    for (const auto& comp : renderCompVect)
+    {
+
+        if (comp != nullptr)
+        {
+
+            comp->setup(renderer);
+
         }
 
     }

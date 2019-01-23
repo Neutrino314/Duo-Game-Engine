@@ -83,3 +83,46 @@ void DUO::polygonRenderer::update(DUO::vector2 displayPos, SDL_Renderer* rendere
         DUO::drawPolygon(numOfSides, dimensions.x, displayPos.x, displayPos.y, std::get<0>(colour), std::get<1>(colour), std::get<2>(colour), renderer, myTransform->rotation);
 
 }
+
+DUO::spriteRenderer::spriteRenderer(int newID) : renderComponent(newID)
+{
+
+    myBroadType = DUO::RENDERER;
+    myType = typeid(this).name();
+
+}
+
+DUO::spriteRenderer::spriteRenderer(int newID, std::string newPath, float width, float height, DUO::transformComponent* newTransform) : renderComponent(newID, width, height, newTransform)
+{
+
+    myBroadType = DUO::RENDERER;
+    myType = typeid(this).name();
+
+}
+
+void DUO::spriteRenderer::setup(SDL_Renderer* renderer)
+{
+
+    myTexture = DUO::loadImage(myPath, renderer);
+
+    int x, y;
+
+    SDL_QueryTexture(myTexture, NULL, NULL, &x, &y);
+
+    nativeDimensions.setVector(x, y);
+
+}
+
+void DUO::spriteRenderer::update(DUO::vector2 displayPos, SDL_Renderer* renderer)
+{
+
+    int x = static_cast<int>(displayPos.x -  (dimensions.x / 2));
+    int y = static_cast<int>(displayPos.y - (dimensions.y / 2));
+
+    SDL_Rect tempRect {x, y, static_cast<int>(dimensions.getXComponent()), static_cast<int>(dimensions.getYComponent())};
+
+    SDL_Point centre{x, y};
+
+    SDL_RenderCopyEx(renderer, myTexture, NULL, &tempRect, myTransform->rotation, NULL, SDL_FLIP_NONE);
+
+}

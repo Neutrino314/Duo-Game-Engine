@@ -41,7 +41,7 @@ public:
 
     static void loadScene(std::size_t ID); //loads a scene with the given ID
 
-    static void loadScene(std::string name); //loads a scene with the given name
+    static void loadScene(std::string name, SDL_Renderer* renderer); //loads a scene with the given name
 
 };
 

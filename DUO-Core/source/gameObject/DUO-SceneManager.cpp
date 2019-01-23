@@ -99,7 +99,7 @@ void DUO::sceneManager::addScene(DUO::application &app, std::string path)
 
 }
 
-void DUO::sceneManager::loadScene(std::string path)
+void DUO::sceneManager::loadScene(std::string path, SDL_Renderer* renderer)
 {
 
     DUO::sceneParser scnLoader(path);
@@ -137,26 +137,41 @@ void DUO::sceneManager::loadScene(std::string path)
 
             curScene->objectVect[curObject]->myTransform->pos = scnLoader.getVector2("position", i);
             curScene->objectVect[curObject]->myTransform->scale = scnLoader.getVector2("scale", i);
-            curScene->objectVect[curObject]->myTransform->rotation = scnLoader.getVal<float>("rotation", i);
+            curScene->objectVect[curObject]->myTransform->rotation = scnLoader.getVal<float>("rotation", i, 0.0f);
 
         }
-        else if (type == "PolygonRenderer")
+        else if (type == "polygonRenderer")
         {
             
             DUO::objectManager::addComponent<DUO::polygonRenderer>(curScene->objectVect[curObject].get(), DUO::RENDERER);
             DUO::polygonRenderer* tempRenderer = DUO::objectManager::getComponent<DUO::polygonRenderer>(curScene->objectVect[curObject].get());
 
             tempRenderer->dimensions = scnLoader.getVector2("dimensions", i);
-            tempRenderer->isFilled = scnLoader.getVal<bool>("isFilled", i);
-            tempRenderer->numOfSides = scnLoader.getVal<std::size_t>("numOfSides", i);
+            tempRenderer->isFilled = scnLoader.getVal<bool>("isFilled", i, true);
+            tempRenderer->numOfSides = scnLoader.getVal<std::size_t>("numOfSides", i, 0);
             tempRenderer->setTransform(curScene->objectVect[curObject]->myTransform.get());
 
-            std::get<0>(tempRenderer->colour) = scnLoader.getVal<short>("r", i);
-            std::get<1>(tempRenderer->colour) = scnLoader.getVal<short>("g", i);
-            std::get<2>(tempRenderer->colour) = scnLoader.getVal<short>("b", i);
+            std::get<0>(tempRenderer->colour) = scnLoader.getVal<short>("r", i, 0);
+            std::get<1>(tempRenderer->colour) = scnLoader.getVal<short>("g", i, 0);
+            std::get<2>(tempRenderer->colour) = scnLoader.getVal<short>("b", i, 0);
             
+        }
+        else if (type == "spriteRenderer")
+        {
+
+            DUO::objectManager::addComponent<DUO::spriteRenderer>(curScene->objectVect[curObject].get(), DUO::RENDERER);
+            DUO::spriteRenderer* tempRenderer = DUO::objectManager::getComponent<DUO::spriteRenderer>(curScene->objectVect[curObject].get());
+
+            tempRenderer->dimensions = scnLoader.getVector2("dimensions", i);
+            tempRenderer->setTransform(curScene->objectVect[curObject]->myTransform.get());
+            tempRenderer->myPath = scnLoader.getVal<std::string>("path", i, "");
+
+            std::cout << tempRenderer->myPath << std::endl;
+
         }
 
     }
+
+    curScene->setup(renderer);
 
 }

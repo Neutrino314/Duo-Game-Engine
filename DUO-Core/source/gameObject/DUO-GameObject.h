@@ -44,7 +44,7 @@ namespace DUO
 
         };
 
-        void setup(); //this is called by the scene setup method
+        void setup(SDL_Renderer* renderer); //this is called by the scene setup method
         void update(); //this is called by the scene supdate method
         void draw(float interpolation, SDL_Renderer* renderer); //this is called by the scene draw method
 

@@ -26,7 +26,7 @@ namespace DUO
 
         scene(int newID); //constructor for the scene object taking a new ID and a pointer to a Renderer object
 
-        void setup(); //a method that is when the scene is loaded
+        void setup(SDL_Renderer* renderer); //a method that is when the scene is loaded
 
         void update(); //this is called by the application::update() method and updates each object in the object vector
         

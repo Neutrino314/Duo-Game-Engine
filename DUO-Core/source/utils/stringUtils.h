@@ -25,7 +25,7 @@ namespace DUO
     void removePattern(std::string& targetStr, std::string pattern);
 
     template <typename T>
-    T fromString(std::string targetStr)
+    T fromString(std::string targetStr, T defaultReturn)
     {
 
         std::istringstream iss(targetStr);
@@ -34,7 +34,7 @@ namespace DUO
         {
 
             T ret;
-            return ret;
+            return defaultReturn;
 
         }
 

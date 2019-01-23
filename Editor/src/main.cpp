@@ -23,9 +23,11 @@ int main() {
 
     play program("DUO Editor", 800, 600);
 
-    DUO::sceneManager::loadScene("test.yaml");
+    DUO::sceneManager::loadScene("test.yaml", program.mainRenderer);
 
     program.start();
+	
+	std::cout << "Well this worked\n";
 
     return 0;
 
