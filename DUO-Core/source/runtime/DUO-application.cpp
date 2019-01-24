@@ -132,6 +132,16 @@ int DUO::application::setupSDL() {
 
     }
 
+    imgFlags = IMG_INIT_JPG;
+
+    if ( !( IMG_Init(imgFlags) & imgFlags))
+    {
+
+        std::cout << "SDL_Init error: " << IMG_GetError << std::endl;
+        return 3;
+
+    }
+
     return 0;
 
 };

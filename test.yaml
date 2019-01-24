@@ -19,9 +19,9 @@ polygonRenderer:
   dimensions: {x: 500, y: 500}
   isFilled: 1
   numOfSides: 4
-  r: 255
-  g: 0
-  b: 0
+  r: 200
+  g: 200
+  b: 255
 
 --- &3
 gameObject:
@@ -34,11 +34,16 @@ gameObject:
 --- &4
 Transform:
   parent: {ID: 4}
-  position: {x: 400.0f, y: 300.0f}
+  position: {x: 400.0f, y: 315.0f}
   scale: {x: 1.0f, y: 1.0f}
   rotation: 0.0f
 
 --- &5
-spriteRenderer:
-  dimensions: {x: 498.0f, y: 498.0f}
-  path: penta.png
+polygonRenderer:
+  parent: {ID: 3}
+  dimensions: {x: 25.0f, y: 0.0f}
+  isFilled: 1
+  numOfSides: 6
+  r: 50
+  g: 255
+  b: 50

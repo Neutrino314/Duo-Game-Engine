@@ -61,3 +61,5 @@ void DUO::vector2::setVector(float xInc, float yInc) {
     y = yInc;
 
 }
+
+DUO::vector2 DUO::vector2::normal() {return DUO::vector2(y, -x);}

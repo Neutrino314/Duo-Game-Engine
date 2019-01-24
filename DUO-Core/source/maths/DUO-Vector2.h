@@ -38,6 +38,8 @@ namespace DUO {
 
         float dot(vector2& vect); //function that performs the dot product on two vectors
 
+        vector2 normal(); //method that returns a normal vector
+
     };
 
     vector2 addVector(vector2 v1, vector2 v2); // adds two vectors and returns a new vector2 as the product

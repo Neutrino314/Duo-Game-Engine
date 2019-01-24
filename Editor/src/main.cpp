@@ -26,8 +26,6 @@ int main() {
     DUO::sceneManager::loadScene("test.yaml", program.mainRenderer);
 
     program.start();
-	
-	std::cout << "Well this worked\n";
 
     return 0;
 

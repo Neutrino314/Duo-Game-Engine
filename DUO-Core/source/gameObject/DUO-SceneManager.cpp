@@ -166,8 +166,6 @@ void DUO::sceneManager::loadScene(std::string path, SDL_Renderer* renderer)
             tempRenderer->setTransform(curScene->objectVect[curObject]->myTransform.get());
             tempRenderer->myPath = scnLoader.getVal<std::string>("path", i, "");
 
-            std::cout << tempRenderer->myPath << std::endl;
-
         }
 
     }
