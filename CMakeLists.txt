@@ -3,7 +3,7 @@ project(Editor-Engine)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpthread -lSDL2 -lSDL2_image -I${PROJECT_SOURCE_DIR}/DUO-Core/source/ -I${PROJECT_SOURCE_DIR}/ -W")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpthread -lSDL2 -lSDL2_image -I${PROJECT_SOURCE_DIR}/DUO-Core/source/ -I${PROJECT_SOURCE_DIR}/Editor/src/ -W")
 
 set(engine_source_dir "${PROJECT_SOURCE_DIR}/DUO-Core/source/")
 
@@ -41,9 +41,15 @@ target_link_libraries(engine_lib ${Boost_LIBRARIES})
 
 set(editor_source_dir "${PROJECT_SOURCE_DIR}/Editor/src/")
 
-file(GLOB editor_CLI_files "${editor_source_dir}CLI/*.cpp")
+file(GLOB editor_CLI_files "${editor_source_dir}cli/*.cpp")
 
-add_executable(output "${editor_CLI_files};${editor_source_dir}main.cpp;")
+file(GLOB editor_scripting_files "${editor_source_dir}scripting/*.cpp")
+
+file(GLOB editor_assetManager_files "${editor_source_dir}assetManager/*.cpp")
+
+file(GLOB editor_project_files "${editor_source_dir}project/*.cpp")
+
+add_executable(output "${editor_CLI_files};${editor_source_dir}main.cpp;${editor_assetManager_files};${editor_project_files};${editor_scripting_files};")
 
 target_link_libraries(output ${SDL})
 

@@ -14,7 +14,7 @@ namespace DUO { //All functions and classes from the engine fall under the names
 
     private:
 
-        SDL_Window* mainWindow = SDL_CreateWindow("None", 0, 0, 0, 0, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE); //the main window of the application that is resized in the constructor
+        SDL_Window* mainWindow = SDL_CreateWindow("None", 0, 0, 0, 0, SDL_WINDOW_SHOWN); //the main window of the application that is resized in the constructor
         bool isRunning{true}; //the boolean that signifies whether the gameloop is running or not
         const int TICKS_PER_SECOND{30};
         const int SKIP_TICKS{1000 / TICKS_PER_SECOND};

@@ -1,1 +1,3 @@
-#include <CLI/CLI.h>
+#pragma once
+
+#include "project/project.h"

@@ -17,6 +17,8 @@ namespace DUO
 
         static std::string getExtent(std::string file);
 
+        static std::vector<std::string> getFiles(std::string path, std::string extent);
+
     };
 
 } 

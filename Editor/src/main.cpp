@@ -1,9 +1,10 @@
-#include <DUO-Core/source/DUO-Engine.h>
-#include "CLI/CLI.h"
+#include <DUO-Engine.h>
 
 #include <vector>
 #include <string>
 #include <iostream>
+
+#include "Editor.h"
 
 class play : public DUO::application {
 
@@ -21,9 +22,7 @@ int main() {
 
     }
 
-    play program("DUO Editor", 800, 600);
-
-    DUO::sceneManager::loadScene("test.yaml", program.mainRenderer);
+    play program("DUO Editor", 1200, 800);
 
     program.start();
 

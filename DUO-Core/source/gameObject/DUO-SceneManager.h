@@ -39,6 +39,8 @@ public:
 
     static void saveScene(DUO::scene* scn); //serializes a scene to a text file
 
+    static void loadTypes(std::string compPath, std::string compLibPath); //loads user defined scripts and components
+
     static void loadScene(std::size_t ID); //loads a scene with the given ID
 
     static void loadScene(std::string name, SDL_Renderer* renderer); //loads a scene with the given name

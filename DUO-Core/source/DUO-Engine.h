@@ -12,13 +12,14 @@
 #include <gameObject/DUO-GameObjectComponent.h>
 #include <gameObject/DUO-ObjectManager.h>
 #include <gameObject/DUO-SceneManager.h>
+#include <gameObject/DUO-Command.h>
 
 #include <utils/stringUtils.h>
 #include <utils/fileUtils.h>
 #include <utils/tupleUtils.h>
 
 #include <yaml/parser.h>
-#include <yaml/writer.cpp>
+#include <yaml/writer.h>
 
 #ifndef DUO_ENGINE
 #define DUO_ENGINE
