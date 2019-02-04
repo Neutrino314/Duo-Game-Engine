@@ -29,11 +29,15 @@ find_library(SDL_image "SDL2_image")
 
 find_library(PTHREAD "pthread")
 
+find_library(DLFCN "dlfcn")
+
 add_library(engine_lib SHARED "${gameObject_files};${graphics_files};${maths_files};${runtime_files};${util_files};${yaml_files};")
 
 target_link_libraries(engine_lib ${SDL})
 
 target_link_libraries(engine_lib ${SDL_image})
+
+target_link_libraries(engine_lib ${PTHREAD})
 
 target_link_libraries(engine_lib ${PTHREAD})
 

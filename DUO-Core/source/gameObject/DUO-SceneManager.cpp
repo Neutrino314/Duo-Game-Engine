@@ -11,6 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <dlfcn.h>
 
 DUO::scene* DUO::sceneManager::curScene = new DUO::scene(0);
 

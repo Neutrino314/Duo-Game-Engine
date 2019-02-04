@@ -13,6 +13,7 @@
 #include <gameObject/DUO-ObjectManager.h>
 #include <gameObject/DUO-SceneManager.h>
 #include <gameObject/DUO-Command.h>
+#include <gameObject/userDefinedComponent.h>
 
 #include <utils/stringUtils.h>
 #include <utils/fileUtils.h>
