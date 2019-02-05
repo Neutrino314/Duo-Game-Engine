@@ -181,6 +181,35 @@ std::string DUO::removeWhiteSpace(std::string targetStr)
 
 }
 
+void DUO::removeFirstChar(std::string& targetStr, const char delimiter)
+{
+
+    std::string tempStr = "";
+    bool isFound{false};
+
+    for (const auto token : targetStr)
+    {
+
+        if (token == delimiter && !isFound)
+        {
+
+            isFound = true;
+            continue;
+
+        }
+        else
+        {
+            
+            tempStr += token;
+
+        }
+    
+    }
+
+    targetStr = tempStr;
+
+}
+
 std::vector<std::string> DUO::removeEmpty(std::vector<std::string> strVect)
 {
 

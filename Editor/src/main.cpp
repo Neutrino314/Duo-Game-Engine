@@ -22,7 +22,11 @@ int main() {
 
     }
 
-    play program("DUO Editor", 1200, 800);
+    DUO::sceneManager::loadTypes("compTest/components.yml", "./compTest/compLib.so");
+
+    play program("DUO Editor", 800, 600);
+
+    DUO::sceneManager::loadScene("compTest/scn1.yml", program.mainRenderer);
 
     program.start();
 

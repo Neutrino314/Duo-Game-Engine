@@ -10,7 +10,7 @@
 #include <typeinfo>
 #include <iostream>
 
-namespace DUO {class objectManager;}
+namespace DUO {class objectManager;class sceneManager;}
 
 namespace DUO 
 {
@@ -52,5 +52,6 @@ namespace DUO
         int getID();
 
         friend class DUO::objectManager;
+        friend class DUO::sceneManager;
     };
 }

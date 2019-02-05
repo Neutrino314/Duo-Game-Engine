@@ -2,6 +2,7 @@
 #include "DUO-GameObject.h"
 #include "DUO-SceneManager.h"
 #include "DUO-ObjectManager.h"
+#include "userDefinedComponent.h"
 
 #include <runtime/DUO-application.h>
 #include <utils/stringUtils.h>
@@ -14,6 +15,10 @@
 #include <dlfcn.h>
 
 DUO::scene* DUO::sceneManager::curScene = new DUO::scene(0);
+
+std::map<std::string, DUO::createComp_t*> DUO::sceneManager::compFactoryMap;
+
+void* DUO::sceneManager::compLib = NULL;
 
 std::string DUO::sceneManager::curScenePath = "NULL";
 
@@ -124,6 +129,8 @@ void DUO::sceneManager::loadScene(std::string path, SDL_Renderer* renderer)
     for (std::size_t i = 0; i < scnLoader.getObjectAmount(); i++)
     {
 
+        std::cout << scnLoader.getObjectType(i) << std::endl;
+
         std::string type = scnLoader.getObjectType(i);
         if (type == "gameObject")
         {
@@ -168,9 +175,84 @@ void DUO::sceneManager::loadScene(std::string path, SDL_Renderer* renderer)
             tempRenderer->myPath = scnLoader.getVal<std::string>("path", i, "");
 
         }
+        else
+        {
+            
+            for (const auto importedType : compFactoryMap)
+            {
+
+                if (type == importedType.first)
+                {
+
+                    DUO::userComponent* tempComp = (*importedType.second)();
+
+                    tempComp->load(curScene->objectVect[curObject].get(), curScene->objectVect[curObject].get()->nextCompID);
+                    curScene->objectVect[curObject]->nextCompID++;
+
+                    curScene->objectVect[curObject]->componentVect.emplace_back(std::unique_ptr<DUO::userComponent>(tempComp));
+
+                    break;
+
+                }
+
+            }
+
+        }
+        
+    }
+
+
+    curScene->setup(renderer);
+
+}
+
+void DUO::sceneManager::loadTypes(std::string compPath, std::string libPath)
+{
+
+    DUO::sceneParser parser(compPath);
+
+    parser.parse();
+
+    compLib = dlopen(libPath.c_str(), RTLD_LAZY);
+    if (!compLib)
+    {
+
+        std::cerr << "Error opening component library: " << dlerror() << "\n";
+        exit(1);
 
     }
 
-    curScene->setup(renderer);
+    dlerror();
+
+    std::string createName = "";
+
+    std::string compTypename = "";
+    
+    for (std::size_t i = 0; i < parser.getObjectAmount(); i++)
+    {
+
+        createName = parser.getVal("factoryName", i);
+        compTypename = parser.getVal("Name", i);
+
+        compFactoryMap[compTypename] = (DUO::createComp_t*) dlsym(compLib, createName.c_str());
+
+        const char* dlsym_error = dlerror();
+
+        if (dlsym_error) {
+            
+            std::cerr << "Cannot load symbol create: " << dlsym_error << '\n';
+            
+            std::exit(1);
+        
+        }
+
+    }
+
+}
+
+void DUO::sceneManager::unloadTypes()
+{
+
+    dlclose(compLib);
 
 }

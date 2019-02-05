@@ -34,7 +34,7 @@ namespace DUO
 
         std::size_t curID{0};
 
-        void updateObject(std::string& line);
+        void updateObject(std::string line);
 
     public:
 

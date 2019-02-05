@@ -62,7 +62,7 @@ void DUO::gameObject::update()
 void DUO::gameObject::draw(float interpolation, SDL_Renderer* renderer)
 {
 
-    DUO::vector2 displayPos{myVel * static_cast<float>(interpolation)};
+    DUO::vector2 displayPos{myVel * interpolation};
     DUO::vector2 oldPos{myTransform->pos};
 
     displayPos = oldPos + displayPos;
@@ -72,7 +72,7 @@ void DUO::gameObject::draw(float interpolation, SDL_Renderer* renderer)
 
         if (comp != nullptr)
         {
-        comp->update(displayPos, renderer);
+        comp->update(myTransform->pos, renderer);
         }
         
     }

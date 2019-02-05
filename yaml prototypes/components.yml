@@ -1,0 +1,9 @@
+--- &0
+userComponent:
+  Name: movement
+  factoryName: create_movement
+
+--- &1
+userComponent:
+  Name: pointTracker
+  factoryName: create_pointTracker

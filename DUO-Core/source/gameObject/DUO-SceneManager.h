@@ -2,6 +2,7 @@
 
 #include "DUO-Scene.h"
 #include "DUO-GameObject.h"
+#include "userDefinedComponent.h"
 #include <runtime/DUO-application.h>
 #include <vector>
 #include <map>
@@ -18,6 +19,10 @@ private:
     static std::string curScenePath; //the path to where the current scene is being stored
 
     static std::vector<std::pair<std::size_t, std::string>> sceneIDNameVect; //a vector of std::pairs where the ID of a scene is linked to it's path
+
+    static std::map<std::string, DUO::createComp_t*> compFactoryMap;
+
+    static void* compLib;
 
 public:
 
@@ -40,6 +45,8 @@ public:
     static void saveScene(DUO::scene* scn); //serializes a scene to a text file
 
     static void loadTypes(std::string compPath, std::string compLibPath); //loads user defined scripts and components
+
+    static void unloadTypes();
 
     static void loadScene(std::size_t ID); //loads a scene with the given ID
 

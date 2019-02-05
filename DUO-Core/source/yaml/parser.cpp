@@ -37,7 +37,7 @@ void DUO::sceneParser::printLines()
 
 }
 
-void DUO::sceneParser::updateObject(std::string& line)
+void DUO::sceneParser::updateObject(std::string line)
 {
 
     if (DUO::stringContainsString(line, "--- &"))
@@ -114,6 +114,8 @@ std::string DUO::sceneParser::getVal(std::string tag, std::size_t objID)
         if (keyVal.size() == 2 && keyVal[0] == tag)
         {
 
+            DUO::removeFirstChar(keyVal[1], ' ');
+
             return keyVal[1];
 
         }
@@ -180,7 +182,15 @@ std::string DUO::sceneParser::getObjectType(std::size_t objID)
 
     }
 
+    if (objectDict[objID].size() < 1)
+    {
+
+        return "None";
+
+    }
+
     std::string objectType = objectDict[objID][1];
+
     objectType = DUO::removeChar(objectType, ':');
     objectType = DUO::removeWhiteSpace(objectType);
 

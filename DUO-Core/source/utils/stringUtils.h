@@ -24,6 +24,8 @@ namespace DUO
 
     void removePattern(std::string& targetStr, std::string pattern);
 
+    void removeFirstChar(std::string& targetStr, const char delimiter);
+
     template <typename T>
     T fromString(std::string targetStr, T defaultReturn)
     {

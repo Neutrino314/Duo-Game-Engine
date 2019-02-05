@@ -26,7 +26,7 @@ DUO::application::application(std::string title, short w, short h) { //construct
 void DUO::application::update() {
 
     DUO::sceneManager::curScene->update(); //calls the current scene's update method
-    
+
     if (curFrame == TICKS_PER_SECOND) {
 
         curFrame = 1; 
@@ -36,6 +36,8 @@ void DUO::application::update() {
         curFrame ++;
 
     }
+
+
 
 }
 
@@ -73,7 +75,9 @@ void DUO::application::gameThread() {
 
         }
 
-        interpolation = static_cast<float>((SDL_GetTicks() + SKIP_TICKS) - (nextGameTick / SKIP_TICKS));
+        interpolation = ((SDL_GetTicks() + SKIP_TICKS) - (nextGameTick / SKIP_TICKS));
+
+        std::cout << SDL_GetTicks() << ", " << nextGameTick << std::endl;
 
         SDL_SetRenderDrawColor(mainRenderer, 255, 255, 255, 0); //sets the renderer's drawing colour to black
 
