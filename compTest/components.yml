@@ -1,4 +1,0 @@
---- &0
-userComponent:
-  Name: movement
-  factoryName: create_movement

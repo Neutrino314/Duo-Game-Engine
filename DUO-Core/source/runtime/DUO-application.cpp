@@ -75,9 +75,7 @@ void DUO::application::gameThread() {
 
         }
 
-        interpolation = ((SDL_GetTicks() + SKIP_TICKS) - (nextGameTick / SKIP_TICKS));
-
-        std::cout << SDL_GetTicks() << ", " << nextGameTick << std::endl;
+        interpolation = ((SDL_GetTicks() + SKIP_TICKS)  - nextGameTick) / SKIP_TICKS;
 
         SDL_SetRenderDrawColor(mainRenderer, 255, 255, 255, 0); //sets the renderer's drawing colour to black
 

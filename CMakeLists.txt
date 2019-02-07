@@ -45,8 +45,6 @@ target_link_libraries(engine_lib ${Boost_LIBRARIES})
 
 set(editor_source_dir "${PROJECT_SOURCE_DIR}/Editor/src/")
 
-file(GLOB editor_CLI_files "${editor_source_dir}cli/*.cpp")
-
 file(GLOB editor_scripting_files "${editor_source_dir}scripting/*.cpp")
 
 file(GLOB editor_assetManager_files "${editor_source_dir}assetManager/*.cpp")
