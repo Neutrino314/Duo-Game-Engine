@@ -7,6 +7,7 @@
 #include <runtime/DUO-application.h>
 #include <utils/stringUtils.h>
 #include <yaml/parser.h>
+#include <graphics/camera.h>
 
 #include <vector>
 #include <iostream>
@@ -111,6 +112,8 @@ void DUO::sceneManager::loadScene(std::string path, SDL_Renderer* renderer)
     DUO::sceneParser scnLoader(path);
     scnLoader.parse();
 
+    std::map<int, int> goMap;
+
     signed long curObject(-1);
 
     if (DUO::sceneManager::curScene->objectVect.empty())
@@ -132,11 +135,20 @@ void DUO::sceneManager::loadScene(std::string path, SDL_Renderer* renderer)
         std::cout << scnLoader.getObjectType(i) << std::endl;
 
         std::string type = scnLoader.getObjectType(i);
-        if (type == "gameObject")
+        if (type == "camera")
+        {
+
+            curScene->sceneCam = new DUO::camera(scnLoader.getVal<bool>("hasTarget", i, false));
+            curScene->sceneCam->setTargetID(scnLoader.getVal<int>("targetID", i, 0));
+            curScene->sceneCam->setOrigin(scnLoader.getVector2("origin", i));
+
+        }
+        else if (type == "gameObject")
         {
 
             addObject(curScene);
             curObject++;
+            goMap[i] = curObject;
             curScene->objectVect[curObject]->myVel = scnLoader.getVector2("myVel", i);
 
         }
@@ -201,8 +213,11 @@ void DUO::sceneManager::loadScene(std::string path, SDL_Renderer* renderer)
         
     }
 
-
     curScene->setup(renderer);
+
+    curScene->sceneCam->loadTarget(curScene->objectVect[goMap[curScene->sceneCam->getTargetID()]].get());\
+
+    curScene->sceneCam->setup();
 
 }
 

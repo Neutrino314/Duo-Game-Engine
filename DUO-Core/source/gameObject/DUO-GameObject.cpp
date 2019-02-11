@@ -59,20 +59,20 @@ void DUO::gameObject::update()
 
 }
 
-void DUO::gameObject::draw(float interpolation, SDL_Renderer* renderer)
+void DUO::gameObject::draw(float interpolation, SDL_Renderer* renderer, DUO::vector2 offset)
 {
 
     DUO::vector2 displayPos{myVel * interpolation};
     DUO::vector2 oldPos{myTransform->pos};
 
-    displayPos = oldPos + displayPos;
+    displayPos = (oldPos + displayPos + offset);
 
     for (const auto& comp : renderCompVect)
     {
 
         if (comp != nullptr)
         {
-        comp->update(myTransform->pos, renderer);
+        comp->update(displayPos, renderer);
         }
         
     }

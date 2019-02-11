@@ -46,10 +46,13 @@ namespace DUO
 
         void setup(SDL_Renderer* renderer); //this is called by the scene setup method
         void update(); //this is called by the scene supdate method
-        void draw(float interpolation, SDL_Renderer* renderer); //this is called by the scene draw method
+        void draw(float interpolation, SDL_Renderer* renderer, DUO::vector2 offset); //this is called by the scene draw method
 
         void setID(int newID); //changes the object's ID
         int getID();
+
+        DUO::vector2 getPos() {return myTransform->pos;}
+        DUO::vector2 getVel() {return myVel;}
 
         friend class DUO::objectManager;
         friend class DUO::sceneManager;

@@ -24,6 +24,8 @@ int main() {
 
     play program("DUO Editor", 800, 600);
 
+    DUO::sceneManager::loadScene("main.yaml", program.mainRenderer);
+
     program.start();
 
     return 0;

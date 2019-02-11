@@ -6,7 +6,7 @@
 #include "DUO-Utils.h"
 #include "DUO-Scene.h"
 
-namespace DUO {class gameObject; class gameObjectComponent; class sceneManager;}
+namespace DUO {class gameObject; class gameObjectComponent; class sceneManager; class camera;}
 
 namespace DUO 
 {
@@ -22,9 +22,13 @@ namespace DUO
 
         std::vector<std::unique_ptr<DUO::gameObject>> objectVect; //a std::vector of unique pointers to game objects
 
+        DUO::camera* sceneCam = NULL;
+
     public:
 
         scene(int newID); //constructor for the scene object taking a new ID and a pointer to a Renderer object
+
+        ~scene();
 
         void setup(SDL_Renderer* renderer); //a method that is when the scene is loaded
 
