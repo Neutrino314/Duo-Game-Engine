@@ -6,3 +6,7 @@ Editor_exec
 CMakeCache.txt
 cmake_install.cmake
 DUO-Core/lib/libengine_lib.so
+
+*.so
+
+output

@@ -20,6 +20,8 @@ namespace DUO
 
     private:
 
+        std::vector<std::size_t> Layers;
+
         int myID; //the object's ID
         int nextCompID = 0; //the next id to be assigned to a component
         int nextRenderCompID = 0; //the next ID to be assigned to a render component

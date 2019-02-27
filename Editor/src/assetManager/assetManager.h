@@ -6,6 +6,15 @@
 namespace DUO
 {
 
+    enum class assetTypes { 
+
+        COMPONENT,
+        COMMAND,
+        IMAGE,
+        SCENE
+
+    };
+
     class assetManager
     {
 
@@ -17,7 +26,7 @@ namespace DUO
 
         assetManager(std::string assetPath);
 
-        void addAsset(std::string path, std::string type, std::string name);
+        void addAsset(std::string path, assetTypes assetType, std::string name);
 
         void removeAsset(std::string name, std::string id);
 

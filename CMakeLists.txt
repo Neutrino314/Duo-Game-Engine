@@ -21,21 +21,27 @@ file(GLOB util_files "${engine_source_dir}utils/*.cpp")
 
 file(GLOB yaml_files "${engine_source_dir}yaml/*.cpp")
 
+file(GLOB layer_files "${engine_source_dir}layers/*.cpp")
+
 set(LIBRARY_OUTPUT_PATH  "${CMAKE_BINARY_DIR}/DUO-Core/lib/")
 
 find_library(SDL "SDL2")
 
 find_library(SDL_image "SDL2_image")
 
+find_library(SDL_TTF "SDL2_ttf")
+
 find_library(PTHREAD "pthread")
 
 find_library(DLFCN "dlfcn")
 
-add_library(engine_lib SHARED "${gameObject_files};${graphics_files};${maths_files};${runtime_files};${util_files};${yaml_files};")
+add_library(engine_lib SHARED "${gameObject_files};${graphics_files};${maths_files};${runtime_files};${util_files};${yaml_files};${layer_files};")
 
 target_link_libraries(engine_lib ${SDL})
 
 target_link_libraries(engine_lib ${SDL_image})
+
+target_link_libraries(engine_lib ${SDL_TTF})
 
 target_link_libraries(engine_lib ${PTHREAD})
 
@@ -45,13 +51,15 @@ target_link_libraries(engine_lib ${Boost_LIBRARIES})
 
 set(editor_source_dir "${PROJECT_SOURCE_DIR}/Editor/src/")
 
-file(GLOB editor_scripting_files "${editor_source_dir}scripting/*.cpp")
+file(GLOB editor_scripting_files "${editor_source_dir}scripting/component/*.cpp")
+
+file(GLOB UI_files "${editor_source_dir}UI/*.cpp")
 
 file(GLOB editor_assetManager_files "${editor_source_dir}assetManager/*.cpp")
 
 file(GLOB editor_project_files "${editor_source_dir}project/*.cpp")
 
-add_executable(output "${editor_CLI_files};${editor_source_dir}main.cpp;${editor_assetManager_files};${editor_project_files};${editor_scripting_files};")
+add_executable(output "${editor_CLI_files};${editor_source_dir}main.cpp;${editor_assetManager_files};${editor_project_files};${editor_scripting_files};${UI_files};")
 
 target_link_libraries(output ${SDL})
 

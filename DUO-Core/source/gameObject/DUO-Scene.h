@@ -22,7 +22,7 @@ namespace DUO
 
         std::vector<std::unique_ptr<DUO::gameObject>> objectVect; //a std::vector of unique pointers to game objects
 
-        DUO::camera* sceneCam = NULL;
+        DUO::camera* sceneCam;
 
     public:
 
@@ -34,7 +34,7 @@ namespace DUO
 
         void update(); //this is called by the application::update() method and updates each object in the object vector
         
-        void draw(float interpolation, SDL_Renderer* renderer); //renders the objects in the object vector and supplies interpolation to the objects
+        void draw(float interpolation); //renders the objects in the object vector and supplies interpolation to the objects
 
         int getID(); //gets the ID of the scene
 

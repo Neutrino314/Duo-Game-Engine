@@ -35,17 +35,21 @@ void DUO::camera::setTargetID(int ID)
 void DUO::camera::loadTarget(DUO::gameObject* go)
 {
 
-    if (!hasTarget)
+    if (!hasTarget) {
         return;
-    else
+    }
+    else if (go != NULL) {
         myObj = go;
+    }    
+    else
+        hasTarget = false;
 
 }
 
 void DUO::camera::setup()
 {
 
-    if (!hasTarget)
+    if (!hasTarget || myObj == NULL)
         return;
 
     origin = myObj->getPos();
@@ -66,6 +70,12 @@ void DUO::camera::update()
 
 void DUO::camera::calculateOffset(float interpolation)
 {
+
+    if (!hasTarget) {
+        
+        return;
+    }
+    
 
     DUO::vector2 tempVel = myObj->myVel;
 

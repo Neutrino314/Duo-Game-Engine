@@ -1,8 +1,11 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <iostream>
 #include "DUO-application.h"
+#include "defaultLayer.h"
+#include <layers/Layerstack.h>
 #include "DUO-Keyboard.h"
 #include <graphics/DUO-Graphics.h>
 #include <gameObject/DUO-Scene.h>
@@ -15,17 +18,28 @@
 int DUO::application::curScene = 0;
 SDL_Event* DUO::application::event = new SDL_Event;
 std::vector<DUO::scene*> DUO::application::sceneVect;
+SDL_Window* DUO::application::mainWindow = SDL_CreateWindow("None", 0, 0, 0, 0, SDL_WINDOW_SHOWN);
+SDL_Renderer* DUO::application::mainRenderer = SDL_CreateRenderer(DUO::application::getWin(), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
 DUO::application::application(std::string title, short w, short h) { //constructor taking a title, width and height as parameters
 
-    SDL_SetWindowSize(mainWindow, w, h); //resizing the window using SDL_SetWindowSize
-    SDL_SetWindowTitle(mainWindow, title.c_str()); //re-titling the window using the SDL_SetWindowTitle function
+    DUO::application::mainWindow = SDL_CreateWindow("None", 0, 0, 0, 0, SDL_WINDOW_SHOWN);
+    DUO::application::mainRenderer = SDL_CreateRenderer(DUO::application::getWin(), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    SDL_SetWindowSize(application::mainWindow, w, h); //resizing the window using SDL_SetWindowSize
+    SDL_SetWindowTitle(application::mainWindow, title.c_str()); //re-titling the window using the SDL_SetWindowTitle function
+
+    layers.pushLayer(new defaultLayer());
 
 };
 
 void DUO::application::update() {
 
-    DUO::sceneManager::curScene->update(); //calls the current scene's update method
+    for (Layer* layer : layers)
+    {
+
+        layer->update();
+
+    } //calls the current scene's update method
 
     if (curFrame == TICKS_PER_SECOND) {
 
@@ -37,14 +51,17 @@ void DUO::application::update() {
 
     }
 
-
-
 }
 
 void DUO::application::draw(float newInterpolation) {
 
-    DUO::sceneManager::curScene->draw(interpolation, mainRenderer); //calls the current scene's draw method
-    
+    for (Layer* layer : layers)
+    {
+
+        if (layer->isVisible())
+            layer->render(newInterpolation);
+
+    }
 
 }
 
@@ -113,6 +130,12 @@ void DUO::application::start() {
     SDL_DestroyRenderer(mainRenderer); //destroys the renderer and sets the pointer's address to nullptr
     mainRenderer = nullptr;
 
+    SDL_Quit();
+
+    IMG_Quit();
+
+    TTF_Quit();
+
 };
 
 int DUO::application::setupSDL() {
@@ -143,6 +166,15 @@ int DUO::application::setupSDL() {
         return 3;
 
     }
+
+    if (TTF_Init() != 0)
+    {
+
+        std::cout << "SDL_TTF error: " << TTF_GetError() << '\n';
+        return 4;
+
+    }
+
 
     return 0;
 

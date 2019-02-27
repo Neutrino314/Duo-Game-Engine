@@ -36,7 +36,7 @@ public:
 
     static void removeObject(DUO::scene* scn, std::size_t objID); //removes an object from a scene
 
-    static void addScene(DUO::application &app, std::string path); //creates a new empty scene and serializes it to a file with the specified path
+    static void addScene(std::string path); //creates a new empty scene and serializes it to a file with the specified path
 
     static void removeScene(std::size_t ID); //deletes the scene with the appropriate ID
 
@@ -50,7 +50,7 @@ public:
 
     static void loadScene(std::size_t ID); //loads a scene with the given ID
 
-    static void loadScene(std::string name, SDL_Renderer* renderer); //loads a scene with the given name
+    static void loadScene(std::string name); //loads a scene with the given name
 
 };
 

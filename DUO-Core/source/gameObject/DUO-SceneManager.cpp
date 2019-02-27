@@ -99,14 +99,14 @@ DUO::gameObject* DUO::sceneManager::getObject(std::size_t ID)
 
 }
 
-void DUO::sceneManager::addScene(DUO::application &app, std::string path)
+void DUO::sceneManager::addScene(std::string path)
 {
 
     
 
 }
 
-void DUO::sceneManager::loadScene(std::string path, SDL_Renderer* renderer)
+void DUO::sceneManager::loadScene(std::string path)
 {
 
     DUO::sceneParser scnLoader(path);
@@ -213,7 +213,7 @@ void DUO::sceneManager::loadScene(std::string path, SDL_Renderer* renderer)
         
     }
 
-    curScene->setup(renderer);
+    curScene->setup(DUO::application::mainRenderer);
 
     curScene->sceneCam->loadTarget(curScene->objectVect[goMap[curScene->sceneCam->getTargetID()]].get());\
 
