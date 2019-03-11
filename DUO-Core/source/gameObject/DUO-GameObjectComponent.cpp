@@ -66,9 +66,7 @@ DUO::polygonRenderer::polygonRenderer(int newID, std::size_t sidesAmount, bool f
     myBroadType = DUO::RENDERER; //changes the broad type to that of a RENDERER
     myType = typeid(this).name(); //sets the type of the component via the typeid() operator
 
-    std::get<0>(colour) = r;
-    std::get<1>(colour) = g;
-    std::get<2>(colour) = b;
+    m_colour = {r, g, b, 255};
 
     isFilled = filled;
 
@@ -78,9 +76,9 @@ void DUO::polygonRenderer::update(DUO::vector2 displayPos, SDL_Renderer* rendere
 {
 
     if (isFilled)
-        DUO::fillPolygon(numOfSides, dimensions.x, displayPos.x, displayPos.y, std::get<0>(colour), std::get<1>(colour), std::get<2>(colour), renderer, myTransform->rotation);
+        DUO::fillPolygon(numOfSides, dimensions.x, displayPos.x, displayPos.y, m_colour, renderer, myTransform->rotation);
     else
-        DUO::drawPolygon(numOfSides, dimensions.x, displayPos.x, displayPos.y, std::get<0>(colour), std::get<1>(colour), std::get<2>(colour), renderer, myTransform->rotation);
+        DUO::drawPolygon(numOfSides, dimensions.x, displayPos.x, displayPos.y, m_colour, renderer, myTransform->rotation);
 
 }
 

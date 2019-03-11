@@ -171,9 +171,9 @@ void DUO::sceneManager::loadScene(std::string path)
             tempRenderer->numOfSides = scnLoader.getVal<std::size_t>("numOfSides", i, 0);
             tempRenderer->setTransform(curScene->objectVect[curObject]->myTransform.get());
 
-            std::get<0>(tempRenderer->colour) = scnLoader.getVal<short>("r", i, 0);
-            std::get<1>(tempRenderer->colour) = scnLoader.getVal<short>("g", i, 0);
-            std::get<2>(tempRenderer->colour) = scnLoader.getVal<short>("b", i, 0);
+            tempRenderer->m_colour.r = scnLoader.getVal<short>("r", i, 0);
+            tempRenderer->m_colour.g = scnLoader.getVal<short>("g", i, 0);
+            tempRenderer->m_colour.b = scnLoader.getVal<short>("b", i, 0);
             
         }
         else if (type == "spriteRenderer")

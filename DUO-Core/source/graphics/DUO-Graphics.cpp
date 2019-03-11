@@ -7,9 +7,9 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-void DUO::floodScreen(SDL_Renderer* renderer, short r, short g, short b, short a) {
+void DUO::floodScreen(SDL_Renderer* renderer, SDL_Color& color) {
 
-    SDL_SetRenderDrawColor(renderer, r, g, b, a); // sets the renderer's draw colour to the specified rgba values
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a); // sets the renderer's draw colour to the specified rgba values
     SDL_RenderClear(renderer); //clears the window and set's to the aforementioned colour
 
 };
@@ -22,19 +22,19 @@ void DUO::drawVector(SDL_Renderer* renderer, DUO::vector2* vect) {
 
 };
 
-void DUO::drawTriangle(short x1, short y1, short x2, short y2, short x3, short y3, short r, short g, short b, SDL_Renderer* renderer) {
+void DUO::drawTriangle(short x1, short y1, short x2, short y2, short x3, short y3, SDL_Color& color, SDL_Renderer* renderer) {
 
     SDL_Point pointArray[4]  = {{x1, y1}, {x2, y2}, {x3, y3}, {x1, y1}}; //creates a point array going clockwise
 
-    SDL_SetRenderDrawColor(renderer, r, g, b, 255); //set's the renderers drawing colour
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a); //set's the renderers drawing colour
 
     SDL_RenderDrawLines(renderer,pointArray, 4); //draws the points previously specified in the array
 
 };
 
-void DUO::fillTopTriangle(float x1, float y1, float x2, float y2, float x3, float y3, short r, short g, short b, SDL_Renderer* renderer) {
+void DUO::fillTopTriangle(float x1, float y1, float x2, float y2, float x3, float y3, SDL_Color& color, SDL_Renderer* renderer) {
 
-    SDL_SetRenderDrawColor(renderer, r, g, b, 255); //sets the renderer's drawing colour
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a); //sets the renderer's drawing colour
 
     /* This fill algorithm works by stepping through the triangle's height by 1 and then drawing a line in between the two sides of said triangle, 
        the x values of the points at which the line intersects both sides are calculated by the formula (dx / dy)
@@ -66,9 +66,9 @@ void DUO::fillTopTriangle(float x1, float y1, float x2, float y2, float x3, floa
 
 };
 
-void DUO::fillBottomTriangle(float x1, float y1, float x2, float y2, float x3, float y3, short r, short g, short b, SDL_Renderer* renderer) {
+void DUO::fillBottomTriangle(float x1, float y1, float x2, float y2, float x3, float y3, SDL_Color& color, SDL_Renderer* renderer) {
 
-    SDL_SetRenderDrawColor(renderer, r, g, b, 255); //sets the renderer's drawing colour
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a); //sets the renderer's drawing colour
 
     /* This fill algorithm works by stepping through the triangle's height by 1 and then drawing a line in between the two sides of said triangle, 
        the x values of the points at which the line intersects both sides are calculated by the formula (dx / dy)
@@ -100,17 +100,17 @@ void DUO::fillBottomTriangle(float x1, float y1, float x2, float y2, float x3, f
 
 };
 
-void DUO::fillTriangle(float x1, float y1, float x2, float y2, float x3, float y3, short r, short g, short b, SDL_Renderer* renderer) {
+void DUO::fillTriangle(float x1, float y1, float x2, float y2, float x3, float y3, SDL_Color& color, SDL_Renderer* renderer) {
 
     //check out http://www.sunshine2k.de/coding/java/TriangleRasterization/TriangleRasterization.html#algo2 for the algorithm explained
 
     if (y1 == y3 && y2 > y1) { //if the base's y value is lesser than the other point then the fillTopTriangle function is called
 
-        DUO::fillTopTriangle(x1, y1, x2, y2, x3, y3, r, g, b, renderer);
+        DUO::fillTopTriangle(x1, y1, x2, y2, x3, y3, color, renderer);
 
     } else if (y1 == y3 && y2 < y1) { //if the base's y value is greater than the other point then the fillBottomTriangle function is called
 
-        DUO::fillBottomTriangle(x1, y1, x2, y2, x3, y3, r, g, b, renderer);
+        DUO::fillBottomTriangle(x1, y1, x2, y2, x3, y3, color, renderer);
 
     } else {
 
@@ -153,14 +153,14 @@ void DUO::fillTriangle(float x1, float y1, float x2, float y2, float x3, float y
         float y4 = pointVectors[1].y;
 
         //fills the two newly created triangles
-        DUO::fillTopTriangle(pointVectors[1].x, pointVectors[1].y, pointVectors[2].x, pointVectors[2].y, x4, y4, r, g, b, renderer);
-        DUO::fillBottomTriangle(x4, y4, pointVectors[0].x, pointVectors[0].y, pointVectors[1].x, pointVectors[1].y, r, g, b, renderer);
+        DUO::fillTopTriangle(pointVectors[1].x, pointVectors[1].y, pointVectors[2].x, pointVectors[2].y, x4, y4, color, renderer);
+        DUO::fillBottomTriangle(x4, y4, pointVectors[0].x, pointVectors[0].y, pointVectors[1].x, pointVectors[1].y, color, renderer);
 
     }
 
 };
 
-void DUO::drawRect(short x, short y, float rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height) {
+void DUO::drawRect(short x, short y, float rotation, SDL_Color& color, SDL_Renderer* renderer, short width, short height) {
 
     DUO::vector2 vectorArray[] = {DUO::vector2(-(width / 2), -(height / 2)), //creates an array of vectors for each point of the rectangle starting in the top left going clockwise
                                  DUO::vector2(width / 2, -(height / 2)),
@@ -180,13 +180,13 @@ void DUO::drawRect(short x, short y, float rotation, short r, short g, short b, 
 
     pointArray[4] = pointArray[0]; //set's the last element of the point array equal to the first
 
-    SDL_SetRenderDrawColor(renderer, r, g, b, 255); //sets the renderer's drawing colour
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a); //sets the renderer's drawing colour
 
     SDL_RenderDrawLines(renderer, pointArray, 5); //draws the rectangle
 
 };
 
-void DUO::fillRect(short x, short y, float rotation, short r, short g, short b, SDL_Renderer* renderer, short width, short height) {
+void DUO::fillRect(short x, short y, float rotation, SDL_Color& color, SDL_Renderer* renderer, short width, short height) {
 
     DUO::vector2 vectorArray[] = {DUO::vector2(-(width / 2), -(height / 2)), //creates an array of vectors for each point of the rectangle starting in the top left going clockwise
                                  DUO::vector2(width / 2, -(height / 2)),
@@ -201,15 +201,15 @@ void DUO::fillRect(short x, short y, float rotation, short r, short g, short b, 
     }
 
     //separates the rectangle into two triangles and then fills them
-    DUO::fillTriangle(vectorArray[0].x, vectorArray[0].y, vectorArray[1].x, vectorArray[1].y, vectorArray[2].x, vectorArray[2].y,  r, g, b, renderer);
-    DUO::fillTriangle(vectorArray[0].x, vectorArray[0].y, vectorArray[3].x, vectorArray[3].y, vectorArray[2].x, vectorArray[2].y, r, g, b, renderer);
+    DUO::fillTriangle(vectorArray[0].x, vectorArray[0].y, vectorArray[1].x, vectorArray[1].y, vectorArray[2].x, vectorArray[2].y,  color, renderer);
+    DUO::fillTriangle(vectorArray[0].x, vectorArray[0].y, vectorArray[3].x, vectorArray[3].y, vectorArray[2].x, vectorArray[2].y, color, renderer);
 
 };
 
 
-void DUO::drawCircle(short x, short y, short radius, short r, short g, short b, SDL_Renderer* renderer) {
+void DUO::drawCircle(short x, short y, short radius, SDL_Color& color, SDL_Renderer* renderer) {
 
-    SDL_SetRenderDrawColor(renderer, r, g, b, 255);
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
     int x0 = 0;
     int y0 = static_cast<int>(radius);
@@ -234,9 +234,9 @@ void DUO::drawCircle(short x, short y, short radius, short r, short g, short b, 
 
 };
 
-void DUO::fillCircle(short x, short y, short radius, short r, short g, short b, SDL_Renderer* renderer) {
+void DUO::fillCircle(short x, short y, short radius, SDL_Color& color, SDL_Renderer* renderer) {
 
-    SDL_SetRenderDrawColor(renderer, r, g, b, 255);
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
     int x0 = 0;
     int y0 = static_cast<int>(radius);
@@ -257,7 +257,7 @@ void DUO::fillCircle(short x, short y, short radius, short r, short g, short b, 
 
 }
 
-void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, float rotation) {
+void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, SDL_Color& color, SDL_Renderer* renderer, float rotation) {
      
     DUO::vector2 vectorArray[numberOfSides];
 
@@ -290,15 +290,15 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
      }
      
      pointArray[numberOfSides] = pointArray[0];
-     SDL_SetRenderDrawColor(renderer, r, g, b, 255);
+     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
      SDL_RenderDrawLines(renderer, pointArray, numberOfSides + 1);
-     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
      SDL_RenderDrawPoint(renderer, x, y);
  
 };
 
  
- void DUO::fillPolygon(short numberOfSides, short sideLength, short x, short y, short r, short g, short b, SDL_Renderer* renderer, float rotation) {
+ void DUO::fillPolygon(short numberOfSides, short sideLength, short x, short y, SDL_Color& color, SDL_Renderer* renderer, float rotation) {
      
      DUO::vector2 vectorArray[numberOfSides];
      
@@ -325,11 +325,11 @@ void DUO::drawPolygon(short numberOfSides, short sideLength, short x, short y, s
      
      }
      
-     DUO::fillTriangle(x, y, std::round(vectorArray[0].x), std::round(vectorArray[0].y), std::round(vectorArray[numberOfSides - 1].x), std::round(vectorArray[numberOfSides - 1].y), r, g, b, renderer);
+     DUO::fillTriangle(x, y, std::round(vectorArray[0].x), std::round(vectorArray[0].y), std::round(vectorArray[numberOfSides - 1].x), std::round(vectorArray[numberOfSides - 1].y), color, renderer);
      
      for (int i = 1; i < numberOfSides; i++) {
      
-         DUO::fillTriangle(x, y, std::round(vectorArray[i].x), std::round(vectorArray[i].y), std::round(vectorArray[i - 1].x), std::round(vectorArray[i - 1].y), r, g, b, renderer);
+         DUO::fillTriangle(x, y, std::round(vectorArray[i].x), std::round(vectorArray[i].y), std::round(vectorArray[i - 1].x), std::round(vectorArray[i - 1].y), color, renderer);
      
      }
  ;}

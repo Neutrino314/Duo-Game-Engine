@@ -89,7 +89,7 @@ namespace DUO
 
         std::size_t numOfSides{0}; //std::size_t holding the amount of sides that the polygon has
 
-        std::tuple<short, short, short> colour {0, 0, 0};
+        SDL_Color m_colour;
 
         bool isFilled{true};
 

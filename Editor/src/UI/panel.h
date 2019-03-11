@@ -11,28 +11,37 @@ namespace Editor
     enum class PANEL_FLAGS
     {
 
-        VISIBLE
+        VISIBLE,
+        ACTIVE
 
      };
 
-    class panel : DUO::gameObject
+    class panel
     {
 
     public:
 
-        panel();
+        panel() {};
 
-        ~panel() {};
+        virtual ~panel() {};
 
         virtual void update();
 
-    private:
+        void setColor(short r, short g, short b) {m_panelColour = {r, g, b, 255};}
 
-        std::vector<std::unique_ptr<DUO::UIObject>> objectVect;
+        void resize(float x, float y) {m_dimensions.setVector(x, y);}
 
-        DUO::vector2 dimensions{1.0f, 1.0f};
+    protected:
 
-        DUO::vector2 position{0.0f, 0.0f};
+        std::vector<std::unique_ptr<DUO::UIObject>> m_objectVect;
+
+        std::bitset<2> m_panelMask;
+
+        DUO::vector2 m_dimensions{1.0f, 1.0f};
+
+        DUO::vector2 m_position{0.0f, 0.0f};
+
+        SDL_Color m_panelColour {0, 0, 0, 255};
 
     };
 
