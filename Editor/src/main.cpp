@@ -21,7 +21,7 @@ public:
 
         DUO::textProps props {};
 
-        props.fontSize = 72;
+        props.fontSize = 80;
         props.colour = {255, 255, 255, 255};
 
         textTexture = DUO::fontHandler::renderWrappedText("/usr/share/fonts/gnu-free/FreeSans.ttf", 72, renderRect, newText, props);

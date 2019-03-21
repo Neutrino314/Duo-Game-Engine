@@ -1,5 +1,6 @@
 #include "text.h"
 #include <runtime/DUO-application.h>
+#include <utils/stringUtils.h>
 
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL.h>
@@ -74,9 +75,34 @@ SDL_Texture* DUO::fontHandler::renderWrappedText(std::string fontName, std::size
 
     }
 
-    SDL_Texture* retTexture = SDL_CreateTextureFromSurface(application::mainRenderer, textSurface);
+    std::vector<std::string> wordVect{DUO::split(text, ' ')};
 
-    SDL_QueryTexture(retTexture, NULL, NULL, &renderRect.w, &renderRect.h);
+    DUO::removeWhitespace(wordVect);
+
+    std::vector<std::string> wrappedVect {""};
+
+    SDL_Point wordSize{0, 0};
+
+    SDL_Point textSize{0, 0}; //used to determine the final size of the resulting text block
+
+    for (const auto word : wordVect) {
+
+        TTF_SizeText(tempFont, (wrappedVect.back() + " " + word).c_str(), &wordSize.x, &wordSize.y);
+        //check width of word in pixels, height doesn't matter
+
+        if (wordSize.x > lineLength) {
+        //if the length of the current line + the new word exceeds the line length then a new line is started
+            wrappedVect.emplace_back(word);
+
+        }
+        else
+        {
+
+            wrappedVect.back() += word;
+
+        }
+
+    }
 
     TTF_CloseFont(tempFont);
     tempFont = nullptr;
@@ -84,6 +110,6 @@ SDL_Texture* DUO::fontHandler::renderWrappedText(std::string fontName, std::size
     SDL_FreeSurface(textSurface);
     textSurface = nullptr;
 
-    return retTexture;
+    return renderText(fontName, renderRect, props, text);
 
 }
