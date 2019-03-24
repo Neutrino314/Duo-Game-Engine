@@ -63,17 +63,9 @@ SDL_Texture* DUO::fontHandler::renderWrappedText(std::string fontName, std::size
 
     TTF_Font* tempFont = TTF_OpenFont(fontName.c_str(), props.fontSize);
 
+    SDL_Surface* lineSurface;
+
     checkFont(tempFont);
-
-    SDL_Surface* textSurface;
-
-    if (! (textSurface = TTF_RenderText_Blended_Wrapped(tempFont, text.c_str(), props.colour, lineLength)))
-    {
-
-        std::cout << "TTF surface error: " << TTF_GetError() << '\n';
-        std::exit(2);
-
-    }
 
     std::vector<std::string> wordVect{DUO::split(text, ' ')};
 
@@ -84,6 +76,8 @@ SDL_Texture* DUO::fontHandler::renderWrappedText(std::string fontName, std::size
     SDL_Point wordSize{0, 0};
 
     SDL_Point textSize{0, 0}; //used to determine the final size of the resulting text block
+
+    int maxLine = 0;
 
     for (const auto word : wordVect) {
 
@@ -98,7 +92,44 @@ SDL_Texture* DUO::fontHandler::renderWrappedText(std::string fontName, std::size
         else
         {
 
-            wrappedVect.back() += word;
+            wrappedVect.back() += word + " ";
+
+        }
+
+    }
+
+    for (auto line : wrappedVect) {
+
+        TTF_SizeText(tempFont, line.c_str(), &maxLine, NULL);
+
+            if (maxLine > textSize.x)
+                textSize.x = maxLine;
+
+    }
+
+    textSize.y = wordSize.y * wrappedVect.size();
+
+    SDL_Surface* textSurface = SDL_CreateRGBSurface(SDL_SWSURFACE, textSize.x, textSize.y, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000);
+
+    for(size_t i = 0; i < wrappedVect.size(); i++)
+    {
+
+        SDL_Rect tempRect {0, i * wordSize.y, 0, 0};
+
+        if (! (lineSurface = TTF_RenderText_Blended(tempFont, wrappedVect[i].c_str(), props.colour)))
+        {
+
+        std::cout << "TTF surface error: " << TTF_GetError() << '\n';
+        std::exit(2);
+
+        }
+
+        std::cout << wrappedVect[i] << std::endl;
+
+        if (SDL_BlitSurface(lineSurface, NULL, textSurface, &tempRect) != 0) {
+
+            std::cerr << SDL_GetError() << std::endl;
+            std::exit(2);
 
         }
 
@@ -107,9 +138,16 @@ SDL_Texture* DUO::fontHandler::renderWrappedText(std::string fontName, std::size
     TTF_CloseFont(tempFont);
     tempFont = nullptr;
 
+    SDL_FreeSurface(lineSurface);
+    lineSurface = nullptr;
+
+    SDL_Texture* retTexture = SDL_CreateTextureFromSurface(DUO::application::mainRenderer, textSurface);
+
     SDL_FreeSurface(textSurface);
     textSurface = nullptr;
 
-    return renderText(fontName, renderRect, props, text);
+    SDL_QueryTexture(retTexture, NULL, NULL, &renderRect.w, &renderRect.h);
+
+    return retTexture;
 
 }
