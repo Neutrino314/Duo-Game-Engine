@@ -1,3 +1,2 @@
 #! /usr/bin/bash
-make -j
-./output
+gnome-terminal --window-with-profile=Bash -e 'bash -c "make -j; ./output; read;"'

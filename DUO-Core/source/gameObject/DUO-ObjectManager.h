@@ -23,7 +23,7 @@ namespace DUO
         static std::vector<T*> getComponents(DUO::gameObject* obj);//returns a std::vector of pointers to game object components of type T in an object
 
         template <typename T>
-        static void addComponent(DUO::gameObject* obj, DUO::broadType broadCompType);//adds a component of type T with defaultt values to an object
+        static void addComponent(DUO::gameObject* obj, DUO::broadType broadCompType);//adds a component of type T with default values to an object
 
     };
 

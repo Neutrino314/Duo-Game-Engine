@@ -85,6 +85,8 @@ namespace DUO
 
         }
 
+        std::map<std::size_t, std::vector<std::string>>& getObjectDict() {return objectDict;}
+
     };
 
 }

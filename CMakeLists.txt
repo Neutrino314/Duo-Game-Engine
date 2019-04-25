@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(Editor-Engine)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpthread -lSDL2 -lSDL2_image -I${PROJECT_SOURCE_DIR}/DUO-Core/source/ -I${PROJECT_SOURCE_DIR}/Editor/src/ -W")
 

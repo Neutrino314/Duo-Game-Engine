@@ -13,7 +13,7 @@
 DUO::sceneParser::sceneParser(std::string filePath)
 {
 
-    if (DUO::fileHandler::getExtent(filePath) != ".yaml" && DUO::fileHandler::getExtent(filePath) != ".yml")
+    if (DUO::fileHandler::getExtent(filePath) != ".dscn" && DUO::fileHandler::getExtent(filePath) != ".yml" && DUO::fileHandler::getExtent(filePath) != ".yaml")
     {
 
         std::cout << "failed\n";
@@ -37,7 +37,7 @@ void DUO::sceneParser::printLines()
 
 }
 
-void DUO::sceneParser::updateObject(std::string line)
+void DUO::sceneParser::updateObject(std::string line) //increments the object member if a new yaml object is encountered
 {
 
     if (DUO::stringContainsString(line, "--- &"))

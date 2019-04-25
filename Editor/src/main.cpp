@@ -19,10 +19,6 @@ int main() {
 
     SDL_SetRenderDrawBlendMode(DUO::application::mainRenderer, SDL_BLENDMODE_BLEND);
 
-    play program("DUO Editor", 800, 600);
-
-    program.start();
-
     return 0;
 
 }

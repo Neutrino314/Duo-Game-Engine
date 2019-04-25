@@ -26,6 +26,7 @@
 #include <utils/stringUtils.h>
 #include <utils/fileUtils.h>
 #include <utils/tupleUtils.h>
+#include <utils/dataStructures.hpp>
 
 #include <yaml/parser.h>
 #include <yaml/writer.h>
