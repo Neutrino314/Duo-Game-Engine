@@ -104,6 +104,8 @@ public:
 
     bool hasParent() const {return m_hasParent;};
 
+    int getChildAmount() const {return children.size();}
+
     T& getData() {return data;}
 
 };
